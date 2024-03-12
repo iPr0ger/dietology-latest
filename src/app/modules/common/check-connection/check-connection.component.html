@@ -1,0 +1,69 @@
+<main class="main">
+  <div class="container px-0 d-flex flex-lg-row flex-column gap-3 mt-4">
+    <div class="container-inner w-100 ">
+      <h2 class="title c-green mb-4">Звук</h2>
+      <div class="d-flex align-items-md-center align-items-start flex-md-row flex-column gap-md-4 gap-3">
+        <div [ngClass]="{'primary-select label-space': true, 'active': isMicrophoneMenuOpened}">
+          <p class="primary-select-label">Микрофон</p>
+          <div class="primary-select-head" (click)="isMicrophoneMenuOpened = !isMicrophoneMenuOpened">
+            <p class="primary-select-head__value">Internal Microphione</p>
+          </div>
+          <ul class="primary-select-dropdown">
+            <li class="primary-select-dropdown__item">Internal Microphione</li>
+          </ul>
+        </div>
+        <div class="d-flex align-items-end">
+          <div [ngClass]="{'primary-select label-space': true, 'active': isOutputMenuOpened}" >
+            <p class="primary-select-label">Вывод звука</p>
+            <div class="primary-select-head" (click)="isOutputMenuOpened = !isOutputMenuOpened">
+              <p class="primary-select-head__value">Internal Microphione</p>
+            </div>
+            <ul class="primary-select-dropdown">
+              <li class="primary-select-dropdown__item">Internal Microphione</li>
+            </ul>
+          </div>
+          <button class="primary-button fill volume" (click)="switchMicrophone()"
+            [ngStyle]="{'background-color': !isMicrophoneEnabled ? '#D32828': '#27AE60'}"
+          >
+            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.5 7.16666V9.83333C2.5 10.2 2.8 10.5 3.16667 10.5H5.16667L7.36 12.6933C7.78 13.1133 8.5 12.8133 8.5 12.22V4.77333C8.5 4.18 7.78 3.88 7.36 4.3L5.16667 6.5H3.16667C2.8 6.5 2.5 6.8 2.5 7.16666ZM11.5 8.5C11.5 7.32 10.82 6.30666 9.83333 5.81333V11.18C10.82 10.6933 11.5 9.68 11.5 8.5ZM9.83333 3.46666V3.6C9.83333 3.85333 10 4.07333 10.2333 4.16666C11.9533 4.85333 13.1667 6.54 13.1667 8.5C13.1667 10.46 11.9533 12.1467 10.2333 12.8333C9.99333 12.9267 9.83333 13.1467 9.83333 13.4V13.5333C9.83333 13.9533 10.2533 14.2467 10.64 14.1C12.9 13.24 14.5 11.06 14.5 8.5C14.5 5.94 12.9 3.76 10.64 2.9C10.2533 2.74666 9.83333 3.04666 9.83333 3.46666V3.46666Z"
+                    fill="white"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <p class="text-desc mt-4 mb-3">Проверка звука</p>
+      <div class="volume-test d-flex w-100 justify-content-between gap-3" #volume_test>
+        <div class="volume-test__item"></div>
+        <div class="volume-test__item"></div>
+        <div class="volume-test__item"></div>
+        <div class="volume-test__item"></div>
+        <div class="volume-test__item"></div>
+        <div class="volume-test__item"></div>
+        <div class="volume-test__item"></div>
+        <div class="volume-test__item"></div>
+        <div class="volume-test__item"></div>
+      </div>
+    </div>
+    <div class="container-inner w-100">
+      <h2 class="title c-green mb-4">Камера</h2>
+      <div [ngClass]="{'primary-select label-space': true, 'active': isCameraMenuOpened}">
+        <p class="primary-select-label">Выбрать камеру</p>
+        <div class="primary-select-head" (click)="isCameraMenuOpened = !isCameraMenuOpened">
+          <p class="primary-select-head__value">FaceTime HD Camera</p>
+        </div>
+        <ul class="primary-select-dropdown">
+          <li class="primary-select-dropdown__item">FaceTime HD Camera</li>
+          <li class="primary-select-dropdown__item">FaceTime HM Camera</li>
+          <li class="primary-select-dropdown__item">FaceTime HS Camera</li>
+        </ul>
+      </div>
+      <input type="checkbox" name="video-show" id="video-show-self" >
+      <label for="video-show-self" class="dot-checkbox mt-3 d-flex align-items-center" (click)="switchCamera()"><span class="checkmark"></span>Показывать для меня моё видео на встрече</label>
+      <video class="video-container mt-3" id="video-test" [autoplay]="true"
+             style="max-width: 306px !important; max-height: 105px !important;"
+             [muted]="!isMicrophoneEnabled" #local_video></video>
+    </div>
+  </div>
+</main>
+<br />

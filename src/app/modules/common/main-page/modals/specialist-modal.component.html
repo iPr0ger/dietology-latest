@@ -1,0 +1,105 @@
+<!-- MODAL OF THE SPECIALIST -->
+<div [ngClass]="{'modal-wrapper': true, 'active' : isModalOpen}" id="specialist-modal-{{specialist?.id}}">
+  <div class="modal-block specialist">
+    <button class="modal-close js-close-modal" (click)="closeModal()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.2 3.80665C11.94 3.54665 11.52 3.54665 11.26 3.80665L7.99998 7.05998L4.73998 3.79998C4.47998 3.53998 4.05998 3.53998 3.79998 3.79998C3.53998 4.05998 3.53998 4.47998 3.79998 4.73998L7.05998 7.99998L3.79998 11.26C3.53998 11.52 3.53998 11.94 3.79998 12.2C4.05998 12.46 4.47998 12.46 4.73998 12.2L7.99998 8.93998L11.26 12.2C11.52 12.46 11.94 12.46 12.2 12.2C12.46 11.94 12.46 11.52 12.2 11.26L8.93998 7.99998L12.2 4.73998C12.4533 4.48665 12.4533 4.05998 12.2 3.80665V3.80665Z" fill="#27AE60"/>
+      </svg>
+    </button>
+    <div class="d-flex gap-3 mb-2">
+      <div class="specialist-photo">
+        <img src="{{specialist?.photo}}" alt="">
+      </div>
+      <div class="specialist-info d-flex flex-column">
+        <div class="d-flex align-items-center gap-3">
+          <h2 class="modal-title">{{specialist?.doctor?.first_name}} {{specialist?.doctor?.last_name}}</h2>
+        </div>
+        <p class="person text-desc c-gray mb-2 mt-2">
+          Врач-эксперт
+        </p>
+        <p class="experience text-desc c-gray mb-2">
+          Стаж 10 лет
+        </p>
+        <p class="mail text-desc c-gray mb-2">
+          Портал диетологии
+        </p>
+      </div>
+    </div>
+    <h2 class="title c-green mb-2">Образование</h2>
+    <p class="text-s c-gray mb-4">Образование</p>
+    <h2 class="title c-green mb-2">О работе</h2>
+    <p class="text-s c-gray mb-4">Описание работы</p>
+    <h2 class="title c-green mb-2">Документы</h2>
+    <div class="d-flex flex-wrap gap-3 mt-3">
+      <div class="doc-item d-flex align-items-center gap-2">
+        <img src="./assets/img/icons/document-icon.svg" alt="">
+        <span class="name">Диплом_1</span>
+        <span class="size">(2.5 МБ)</span>
+      </div>
+      <div class="doc-item d-flex align-items-center gap-2">
+        <img src="./assets/img/icons/document-icon.svg" alt="">
+        <span class="name">Сертификат</span>
+        <span class="size">(2.5 МБ)</span>
+      </div>
+    </div>
+    <div class="d-flex align-items-center gap-md-5 gap-3 mt-4">
+      <h2 class="title c-green">Отзывы</h2>
+      <div class="rating-block d-flex align-items-center gap-2">
+        <p class="text-desc">10 отзывов</p>
+        <img src="./assets/img/icons/rating-icon.svg" alt="">
+        <span>9 из 10</span>
+      </div>
+    </div>
+    <div class="review-scroll hide-scroll mt-3">
+      <div class="review-item">
+        <div class="review-photo">
+          <img src="./assets/img/review.jpg" alt="">
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="text-desc m-0">Елена Петрова</p>
+          <div class="review-stars">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+          </div>
+        </div>
+        <p class="text-s  m-0">Очень советую Сергея! Помог мне с проблемой лишнего веса, за 3 месяца минус 10 кг!</p>
+      </div>
+      <div class="review-item">
+        <div class="review-photo">
+          <img src="./assets/img/review.jpg" alt="">
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="text-desc m-0">Елена Петрова</p>
+          <div class="review-stars">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+          </div>
+        </div>
+        <p class="text-s  m-0">Очень советую Сергея! Помог мне с проблемой лишнего веса, за 3 месяца минус 10 кг!</p>
+      </div>
+      <div class="review-item">
+        <div class="review-photo">
+          <img src="./assets/img/review.jpg" alt="">
+        </div>
+        <div class="d-flex justify-content-between">
+          <p class="text-desc m-0">Елена Петрова</p>
+          <div class="review-stars">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+            <img src="./assets/img/icons/rating-icon.svg" alt="">
+          </div>
+        </div>
+        <p class="text-s  m-0">Очень советую Сергея! Помог мне с проблемой лишнего веса, за 3 месяца минус 10 кг!</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END MODAL OF THE SPECIALIST -->
