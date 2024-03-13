@@ -26,5 +26,5 @@ export class WebRtcConfig {
       }
     ],
   }
-  static wsEndpoint = 'ws://localhost:8881/';
+  static wsEndpoint = 'ws://89.111.152.59:8882/';
 }
