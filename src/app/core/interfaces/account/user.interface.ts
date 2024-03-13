@@ -39,4 +39,5 @@ export interface MinimalUserResponseInterface {
   last_name: string | null;
   phone: string | null;
   username: string | null;
+  id: string;
 }

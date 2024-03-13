@@ -1,11 +1,16 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {SpecialistProfileResponseInterface} from "../../../../core/interfaces/account/specialist-profile.interface";
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'specialist-modal',
   templateUrl: './specialist-modal.component.html',
+  imports: [
+    NgClass
+  ],
+  standalone: true
 })
-export class SpecialistModalComponent implements AfterViewInit{
+export class SpecialistModalComponent {
   @Input() specialist: SpecialistProfileResponseInterface | null = null;
 
   constructor() {
@@ -19,13 +24,5 @@ export class SpecialistModalComponent implements AfterViewInit{
 
   closeModal(){
     this.isModalOpen = false;
-  }
-
-  ngAfterViewInit() {
-    let node = document.createElement('script');
-    node.src = "./assets/js/review-scroll.js";//Change to your js file
-    node.type = 'text/javascript';
-    node.async = true;
-    document.getElementsByTagName('body')[0].appendChild(node);
   }
 }

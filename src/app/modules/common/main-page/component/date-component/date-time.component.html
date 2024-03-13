@@ -1,0 +1,12 @@
+<div class="swap-select js-swap-active d-flex gap-1">
+  @for (time of times; track time; let isFirst = $first; let idx = $index) {
+    @if (idx <= 2) {
+      <span
+        [ngClass]="{'swap-select__item': true, 'active': time.isSelected}"
+        (click)="selectTime(time)"
+      >
+            {{time.value}}
+          </span>
+    }
+  }
+</div>

@@ -1,0 +1,82 @@
+<div class="specialist-card d-flex gap-3 flex-lg-nowrap flex-wrap">
+  <div class="d-flex gap-3 w-100">
+    <div class="specialist-photo">
+      <img src="{{specialist.specialistProfile.photo}}" alt="">
+    </div>
+    <div class="specialist-info w-100 d-flex flex-column">
+      <div class="d-flex align-items-center gap-3 mb-2">
+        <h2 class="title">{{ specialist.specialistProfile.doctor?.first_name }}  {{specialist.specialistProfile.doctor?.last_name}}</h2>
+        <span class="status active">Онлайн</span>
+        <button class="favorite-button d-md-block d-none">
+          <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.9792 4.15624C18.2292 2.28124 14.8333 3.15624 13 5.30208C11.1667 3.15624 7.77083 2.27083 5.02083 4.15624C3.5625 5.15624 2.64583 6.84375 2.58333 8.625C2.4375 12.6667 6.02083 15.9062 11.4896 20.875L11.5937 20.9687C12.3854 21.6875 13.6042 21.6875 14.3958 20.9583L14.5104 20.8542C19.9792 15.8958 23.5521 12.6562 23.4167 8.61458C23.3542 6.84375 22.4375 5.15624 20.9792 4.15624Z" fill="#EB5757"/>
+          </svg>
+        </button>
+      </div>
+      <p class="person text-desc c-gray mb-2">
+        Врач-эксперт
+      </p>
+      <p class="experience text-desc c-gray mb-2">
+        Стаж 10 лет
+      </p>
+      <p class="mail text-desc c-gray mb-2">
+        Портал диетологии
+      </p>
+      <div class="d-flex flex-grow-1"></div>
+      <div class="rating-block d-md-flex d-none align-items-center gap-2  js-open-modal"
+           data-modal="specialist-modal" (click)="specialistModalComponent.openModal()">
+        <p class="text-desc">10 отзывов</p>
+        <img src="./assets/img/icons/rating-icon.svg" alt="">
+        <span>8 из 10</span>
+        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.69305 10.5867L9.27971 7.99999L6.69305 5.41332C6.43305 5.15332 6.43305 4.73332 6.69305 4.47332C6.95305 4.21332 7.37305 4.21332 7.63305 4.47332L10.693 7.53332C10.953 7.79332 10.953 8.21332 10.693 8.47332L7.63305 11.5333C7.37305 11.7933 6.95305 11.7933 6.69305 11.5333C6.43971 11.2733 6.43305 10.8467 6.69305 10.5867Z" fill="#333333"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="specialist-actions">
+    <div class="specialist-actions-inner d-flex gap-2 mb-4">
+      <div class="d-flex flex-column">
+        <h2 class="title">Онлайн-консультация</h2>
+        <p class="price text-l">1500 руб.</p>
+      </div>
+      <div class="d-flex flex-grow-1"></div>
+      <button class="primary-button bordered d-lg-block d-none">Все даты</button>
+      <button class="primary-button fill d-lg-block d-none">Выбрать</button>
+    </div>
+    <div class="swap-select js-swap-active d-flex gap-1 mb-2">
+      @for (appointmentValue of specialist.appointment; track appointmentValue; let isFirst = $first; let idx = $index) {
+        @if (idx <= 2) {
+          <span
+            [ngClass]="{'swap-select__item': true, 'active': appointmentValue.isSelected}"
+            (click)="selectDate(appointmentValue)"
+          >
+            {{appointmentValue.value}}
+          </span>
+        }
+      }
+    </div>
+    <date-time-component [appointmentValues]="times"></date-time-component>
+
+    <button class="primary-button fill d-lg-none d-block w-100 mt-3">Выбрать</button>
+    <button class="primary-button bordered d-lg-none d-block w-100 mt-2">Все даты</button>
+    <button class="primary-button favorite-button d-lg-none d-flex align-items-center gap-2 mx-auto mt-2">
+      Добавить в избранное
+      <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.89998 13.7668C8.39331 14.2268 7.61331 14.2268 7.10665 13.7601L7.03331 13.6935C3.53331 10.5268 1.24665 8.45348 1.33331 5.86681C1.37331 4.73348 1.95331 3.64681 2.89331 3.00681C4.65331 1.80681 6.82665 2.36681 7.99998 3.74014C9.17331 2.36681 11.3466 1.80014 13.1066 3.00681C14.0466 3.64681 14.6266 4.73348 14.6666 5.86681C14.76 8.45348 12.4666 10.5268 8.96665 13.7068L8.89998 13.7668Z" fill="#27AE60"/>
+      </svg>
+    </button>
+  </div>
+  <div class="rating-block d-md-none d-flex align-items-center justify-content-center gap-2 w-100 js-open-modal"
+       data-modal="specialist-modal" (click)="specialistModalComponent.openModal()">
+    <p class="text-desc">10 отзывов</p>
+    <img src="./assets/img/icons/rating-icon.svg" alt="">
+    <span>8 из 10</span>
+    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.69305 10.5867L9.27971 7.99999L6.69305 5.41332C6.43305 5.15332 6.43305 4.73332 6.69305 4.47332C6.95305 4.21332 7.37305 4.21332 7.63305 4.47332L10.693 7.53332C10.953 7.79332 10.953 8.21332 10.693 8.47332L7.63305 11.5333C7.37305 11.7933 6.95305 11.7933 6.69305 11.5333C6.43971 11.2733 6.43305 10.8467 6.69305 10.5867Z" fill="#333333"/>
+    </svg>
+  </div>
+
+  <specialist-modal #specialistModalComponent [specialist]="specialist.specialistProfile"></specialist-modal>
+
+</div>

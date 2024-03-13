@@ -8,9 +8,11 @@ import {CallSettingsModalComponent} from "./online-meeting/modals/call-settings.
 import {OnlineMeetingComponent} from "./online-meeting/online-meeting.component";
 import {LayoutModule} from "../../pages/layout.module";
 import {CommonRoutingModule} from "./common-routing.module";
-import {AsyncPipe, NgClass, NgIf, NgStyle} from "@angular/common";
+import {AsyncPipe, KeyValuePipe, NgClass, NgIf, NgStyle} from "@angular/common";
 import {MatIcon} from "@angular/material/icon";
 import {MatGridList, MatGridTile} from "@angular/material/grid-list";
+import {DateTimeComponent} from "./main-page/component/date-component/date-time.component";
+import {SpecialistCardComponent} from "./main-page/component/specialist-card/specialist-card.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +20,6 @@ import {MatGridList, MatGridTile} from "@angular/material/grid-list";
     ChatComponent,
     CheckConnectionComponent,
     MainPageComponent,
-    SpecialistModalComponent,
     CallSettingsModalComponent,
     OnlineMeetingComponent,
   ],
@@ -31,8 +32,13 @@ import {MatGridList, MatGridTile} from "@angular/material/grid-list";
     NgStyle,
     AsyncPipe,
     MatGridList,
-    MatGridTile
+    MatGridTile,
+    KeyValuePipe,
+    DateTimeComponent,
+    SpecialistModalComponent,
+    SpecialistCardComponent
   ],
-  exports: []
+  exports: [
+  ]
 })
 export class CommonModule {}
