@@ -458,7 +458,7 @@ footer a.phone {
     min-width: 41%;
 }
 .specialist-actions .price {
-    color: var(--color-gray3);
+    color: var(--color-gray1);
 }
 .specialist-actions-inner {
     border-bottom: 1px solid var(--color-gray3);
