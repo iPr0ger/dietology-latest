@@ -3,8 +3,8 @@ import {JsonHelperService} from "../../helpers/json-helper.service";
 import {UserResponseInterface} from "../../interfaces/account/user.interface";
 import {SessionStorageService} from "./session-storage.service";
 import {StorageKeysConfig} from "../../configs/storage-keys.config";
-import {UserProfileResponseInterface} from "../../interfaces/account/user-profile.interface";
-import {SpecialistProfileResponseInterface} from "../../interfaces/account/specialist-profile.interface";
+import {PatientUserProfileResponseInterface} from "../../interfaces/patient/patient.interface";
+import {SpecialistProfileResponseInterface} from "../../interfaces/specialist/specialist.interface";
 
 @Injectable({providedIn: 'root'})
 export class UserStorageService extends SessionStorageService {
@@ -50,12 +50,12 @@ export class UserStorageService extends SessionStorageService {
     window.sessionStorage.removeItem(StorageKeysConfig.storageIsClientKeyName);
   }
 
-  saveClientDetails(clientDetails: UserProfileResponseInterface): void {
+  saveClientDetails(clientDetails: PatientUserProfileResponseInterface): void {
     window.sessionStorage.setItem(StorageKeysConfig.storageClientDetailsKeyName, JSON.stringify(clientDetails));
   }
 
-  getClientDetails(): UserProfileResponseInterface {
-    return this.jsonHelper.parseJson<UserProfileResponseInterface>(window.sessionStorage.getItem(StorageKeysConfig.storageClientDetailsKeyName));
+  getClientDetails(): PatientUserProfileResponseInterface {
+    return this.jsonHelper.parseJson<PatientUserProfileResponseInterface>(window.sessionStorage.getItem(StorageKeysConfig.storageClientDetailsKeyName));
   }
 
   removeClientDetails(): void {

@@ -8,10 +8,10 @@ import {
   HttpRequest
 } from "@angular/common/http";
 import {catchError, Observable, switchMap, throwError} from "rxjs";
-import {AuthService} from "../services/auth.service";
 import {TokenStorageService} from "../services/storage/token-storage.service";
 import {Router} from "@angular/router";
 import {JwtHelperService} from "@auth0/angular-jwt";
+import {AuthService} from "../services/api/auth.service";
 
 @Injectable({providedIn: 'root'})
 export class HttpRequestInterceptor implements HttpInterceptor {
@@ -53,13 +53,15 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     if (!this.isRefreshing) {
       this.isRefreshing = true;
 
-      if (this.tokenStorageService.getToken()) {
+      const token = this.tokenStorageService.getToken();
+
+      if (token) {
         if (!this.jwtHelperService.isTokenExpired()){
           return next.handle(request);
         }
         else
         {
-          this.authService.refreshToken().subscribe(token => {
+          this.authService.refreshToken(token).subscribe(token => {
               this.tokenStorageService.removeToken();
               this.tokenStorageService.saveToken(token);
               this.isRefreshing = false;

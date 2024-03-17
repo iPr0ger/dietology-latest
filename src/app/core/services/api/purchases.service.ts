@@ -1,6 +1,11 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {BaseAppConfig} from "../../configs/base-app.config";
+import {
+  PurchaseDetailsRequestInterface,
+  PurchaseDetailsResponseInterface
+} from "../../interfaces/purchases/purchase.interface";
 
 @Injectable({providedIn: 'root'})
 export class PurchasesService{

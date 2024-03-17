@@ -1,12 +1,13 @@
 import {
   Component, OnInit
 } from "@angular/core";
-import {AuthService} from "../../../core/services/auth.service";
 import {UserResponseInterface} from "../../../core/interfaces/account/user.interface";
 import {UserStorageService} from "../../../core/services/storage/user-storage.service";
 import {BaseAppConfig} from "../../../core/configs/base-app.config";
-import {SignInRequestInterface, TokenResponseInterface} from "../../../core/interfaces/auth/sign-in.interface";
 import {TokenStorageService} from "../../../core/services/storage/token-storage.service";
+import {AuthService} from "../../../core/services/api/auth.service";
+import {TokenResponseInterface} from "../../../core/interfaces/token/token.interface";
+import {SignInRequestInterface} from "../../../core/interfaces/auth/auth.interface";
 
 @Component({
   selector: 'header-component',
@@ -39,26 +40,18 @@ export class HeaderComponent implements OnInit {
     this.reloadCurrentPage();
   }
 
-  setUserAuthorized(token: TokenResponseInterface) {
-    let user = {
-      id: '121212',
-      password: '<PASSWORD>',
-      last_login: 'yesterday',
-      is_superuser: true,
-      username: 'user',
-      is_email_verified: true,
-      is_specialist: false,
-      is_patient: true,
-      is_hr: false,
+  setUserAuthorized() {
+    const user: UserResponseInterface = {
+      id: '12121212121',
+      password: 'pswd',
+      username: 'username',
       first_name: 'Сергей',
       last_name: 'Горянин',
-      email: 'admin@mail.ru',
-      phone: '+7999999999',
-      is_staff: false,
-      is_active: true,
-    };
+      email: 'admin@localhost',
+      phone: '7912'
+    }
     this.userStorageService.saveUser(user);
-    this.tokenStorageService.saveToken(token);
+    // this.tokenStorageService.saveToken();
     this.reloadCurrentPage();
   }
 
@@ -67,8 +60,8 @@ export class HeaderComponent implements OnInit {
       username: BaseAppConfig.systemUserName,
       password: BaseAppConfig.systemUserPassword
     }
-    this.authService.login(signInReq).subscribe(data => {
-      this.setUserAuthorized(data);
+    this.authService.signIn(signInReq).subscribe(data => {
+      this.setUserAuthorized();
       console.log(data);
     }, error => {
       console.log(error);

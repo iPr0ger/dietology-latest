@@ -1,6 +1,14 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {BaseAppConfig} from "../../configs/base-app.config";
+import {DatasetResponseInterface} from "../../interfaces/dataset/dataset-response.interface";
+import {ChairResponseInterface} from "../../interfaces/dataset/chair.interface";
+import {HospitalResponseInterface} from "../../interfaces/dataset/hospital.interface";
+import {LocationResponseInterface} from "../../interfaces/dataset/location.interface";
+import {PositionResponseInterface} from "../../interfaces/dataset/position.interface";
+import {SpecializationResponseInterface} from "../../interfaces/dataset/specialization.interface";
+import {UniversityResponseInterface} from "../../interfaces/dataset/university.interface";
 
 @Injectable({providedIn: 'root'})
 export class DatasetsService {

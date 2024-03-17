@@ -8,8 +8,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {CookieService} from "ngx-cookie-service";
 import {httpInterceptorProviders} from "./core/interceptors/auth.interceptor";
 import {JwtModule} from "@auth0/angular-jwt";
-import {TokenResponseInterface} from "./core/interfaces/auth/sign-in.interface";
 import {StorageKeysConfig} from "./core/configs/storage-keys.config";
+import {TokenResponseInterface} from "./core/interfaces/token/token.interface";
 
 
 @NgModule({

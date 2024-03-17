@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, ElementRef, TemplateRef} from "@angular/core";
-import {DatasetsService} from "../../../core/services/datasets.service";
-import {AccountService} from "../../../core/services/account.service";
-import {SpecialistProfileResponseInterface} from "../../../core/interfaces/account/specialist-profile.interface";
-import {ScheduleService} from "../../../core/services/schedule.service";
+import { Component } from "@angular/core";
+import {SpecialistProfileResponseInterface} from "../../../core/interfaces/specialist/specialist.interface";
+import {AccountService} from "../../../core/services/api/account.service";
+import {ScheduleService} from "../../../core/services/api/schedule.service";
+
 
 export enum DateTimeType {
   DATE = "date",

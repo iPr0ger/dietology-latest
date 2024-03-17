@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
-import {SpecialistProfileResponseInterface} from "../../../../core/interfaces/account/specialist-profile.interface";
 import {NgClass} from "@angular/common";
+import {SpecialistProfileResponseInterface} from "../../../../core/interfaces/specialist/specialist.interface";
 
 @Component({
   selector: 'specialist-modal',
