@@ -4,4 +4,5 @@ export interface FlashCallRequestInterface {
 
 export interface FlashCallResponseInterface {
   phone: string;
+  code: string;
 }

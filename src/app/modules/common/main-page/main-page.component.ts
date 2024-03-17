@@ -39,7 +39,11 @@ export class MainPageComponent {
     this.specialists = [];
     this.specialistService.getSpecialistProfiles().subscribe(data => {
       data.forEach(specialist => {
-          this.scheduleService.getDoctorRecentDates(specialist.doctor?.id!).subscribe(data => {
+        if (!specialist.photo.includes('nutrusha.live')) {
+          const mediaUrl = specialist.photo;
+          specialist.photo = 'https://api.nutrisha.live' + mediaUrl;
+        }
+        this.scheduleService.getDoctorRecentDates(specialist.doctor?.id!).subscribe(data => {
           let appointments: AppointmentValue[] = [];
           for (const [key, value] of Object.entries(data)) {
             appointments.push({

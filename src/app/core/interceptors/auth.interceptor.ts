@@ -12,6 +12,7 @@ import {TokenStorageService} from "../services/storage/token-storage.service";
 import {Router} from "@angular/router";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {AuthService} from "../services/api/auth.service";
+import {BaseAppConfig} from "../configs/base-app.config";
 
 @Injectable({providedIn: 'root'})
 export class HttpRequestInterceptor implements HttpInterceptor {
@@ -32,7 +33,9 @@ export class HttpRequestInterceptor implements HttpInterceptor {
       });
     }
     else {
-      req = req.clone({});
+      req = req.clone({
+        setHeaders: { Authorization: 'Basic ' + btoa(BaseAppConfig.systemUserName + ':' + BaseAppConfig.systemUserPassword) }
+      });
     }
 
     return next.handle(req).pipe(
@@ -77,6 +80,12 @@ export class HttpRequestInterceptor implements HttpInterceptor {
               return throwError(() => error);
             });
         }
+      }
+      else{
+        let reqClone = request.clone({
+          setHeaders: { Authorization: 'Basic ' + btoa(BaseAppConfig.systemUserName + ':' + BaseAppConfig.systemUserPassword) }
+        });
+        return next.handle(reqClone);
       }
     }
 

@@ -4,18 +4,22 @@ import {UserStorageService} from "../../../../core/services/storage/user-storage
 import {TokenStorageService} from "../../../../core/services/storage/token-storage.service";
 import {AuthService} from "../../../../core/services/api/auth.service";
 import {SignInRequestInterface} from "../../../../core/interfaces/auth/auth.interface";
+import {nextMonthDisabled} from "@ng-bootstrap/ng-bootstrap/datepicker/datepicker-tools";
+import {FlashCallResponseInterface} from "../../../../core/interfaces/flashcall/flashcall.interface";
 
 @Component({
   selector: 'auth-modal-component',
   templateUrl: './auth.modal.component.html',
 })
 export class AuthModalComponent {
+  flashCallResponse: FlashCallResponseInterface | undefined = undefined;
+  currentStep: number = 1;
+
   constructor(
     private userStorageService: UserStorageService,
     private tokenStorageService: TokenStorageService,
     private authService: AuthService
-  ) {
-  }
+  ) {}
 
   isModalOpen: boolean = false;
 
@@ -58,13 +62,24 @@ export class AuthModalComponent {
       username: BaseAppConfig.systemUserName,
       password: BaseAppConfig.systemUserPassword
     }
-    this.authService.signIn(signInReq).subscribe(data => {
-      this.setUserAuthorized();
-      console.log(data);
-    }, error => {
-      console.log(error);
-    });
+    this.authService.flashCall({phone: '79000000001'}).subscribe(data => {
+        this.flashCallResponse = data;
+        this.flashCallResponse.phone = '79000000001';
+        this.currentStep = 2;
+        console.log(this.currentStep);
+      }
+    );
     // this.reloadCurrentPage();
+  }
+
+  authorizeUser() {
+    this.authService.signInWithPhoneAndConde(this.flashCallResponse!.phone, this.flashCallResponse!.code).subscribe(data => {
+      console.log(data);
+    })
+  }
+
+  goPreviousStep() {
+    this.currentStep = 1;
   }
 
   reloadCurrentPage() {

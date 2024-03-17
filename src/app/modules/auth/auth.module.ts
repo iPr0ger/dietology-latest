@@ -7,7 +7,7 @@ import {RegistrationModalComponent} from "./registration/modals/registration.mod
 import {RegistrationComponent} from "./registration/registration.component";
 import {AuthMainComponent} from "./auth-main.component";
 import {AuthRoutingModule} from "./auth-routing.module";
-import {NgClass} from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import {NgClass} from "@angular/common";
   ],
     imports: [
         AuthRoutingModule,
-        NgClass
+        NgClass,
+        NgIf
     ],
   exports: [
     AuthModalComponent

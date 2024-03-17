@@ -8,4 +8,8 @@ export class BaseAppConfig {
 
   static systemUserName: string = 'front';
   static systemUserPassword: string = 'dietportal';
+
+  static testClientUsername: string = 'user121@example.com';
+  static testClientEmail: string = 'user121@example.com';
+  static testClientPassword: string = '12345';
 }
