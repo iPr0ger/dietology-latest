@@ -7,7 +7,9 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {HttpClientModule} from "@angular/common/http";
 import {CookieService} from "ngx-cookie-service";
 import {httpInterceptorProviders} from "./core/interceptors/auth.interceptor";
-
+import {JwtModule} from "@auth0/angular-jwt";
+import {TokenResponseInterface} from "./core/interfaces/auth/sign-in.interface";
+import {StorageKeysConfig} from "./core/configs/storage-keys.config";
 
 
 @NgModule({
@@ -20,13 +22,25 @@ import {httpInterceptorProviders} from "./core/interceptors/auth.interceptor";
     RouterOutlet,
     HttpClientModule,
     NgbModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          const token: TokenResponseInterface = JSON.parse(window.sessionStorage.getItem(StorageKeysConfig.storageTokenKeyName)!);
+          return token.access;
+        },
+        allowedDomains: ['nutrisha.live'],
+        throwNoTokenError: true,
+        skipWhenExpired: true
+      }
+    })
   ],
   providers: [
     CookieService,
     httpInterceptorProviders,
+
   ],
   bootstrap: [
     AppComponent
   ]
 })
-export class AppModule { }
+export class AppModule {}

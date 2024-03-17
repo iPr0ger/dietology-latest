@@ -1,13 +1,11 @@
 import {Injectable} from "@angular/core";
-import {BaseAppConfig} from "../configs/base-app.config";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {BaseAppConfig} from "../../configs/base-app.config";
 import {
   CreatePaymentRequestInterface,
-  CreatePaymentResponseInterface,
-  PayoutRequestInterface, RefundRequestInterface
-} from "../interfaces/yookassa/payment.interface";
-import {Observable} from "rxjs";
-import {HeadersHelperService} from "../helpers/headers-helper.service";
+  CreatePaymentResponseInterface, PayoutRequestInterface, RefundRequestInterface
+} from "../../interfaces/yookassa/payment.interface";
 
 @Injectable({providedIn: 'root'})
 export class YookassaService {
@@ -15,7 +13,6 @@ export class YookassaService {
 
   constructor(
     private http: HttpClient,
-    private headersHelper: HeadersHelperService
   ) {}
 
   createPayment(payment: CreatePaymentRequestInterface) : Observable<CreatePaymentResponseInterface> {

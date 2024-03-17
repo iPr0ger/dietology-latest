@@ -26,5 +26,4 @@ export class WebRtcConfig {
       }
     ],
   }
-  static wsEndpoint = 'ws://api-ws.nutrisha.live/';
 }

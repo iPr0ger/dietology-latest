@@ -8,22 +8,19 @@ import {
   HttpRequest
 } from "@angular/common/http";
 import {catchError, Observable, switchMap, throwError} from "rxjs";
-import {EventBusService} from "../event-bus/event-bus.service";
 import {AuthService} from "../services/auth.service";
-import {UserStorageService} from "../services/storage/user-storage.service";
-import {EventData} from "../event-bus/event.class";
 import {TokenStorageService} from "../services/storage/token-storage.service";
 import {Router} from "@angular/router";
+import {JwtHelperService} from "@auth0/angular-jwt";
 
 @Injectable({providedIn: 'root'})
 export class HttpRequestInterceptor implements HttpInterceptor {
   private isRefreshing: boolean = false;
 
   constructor(
-    private userStorageService: UserStorageService,
+    private jwtHelperService: JwtHelperService,
     private tokenStorageService: TokenStorageService,
     private authService: AuthService,
-    private eventBusService: EventBusService,
     private router: Router,
   ) {
   }
@@ -57,39 +54,27 @@ export class HttpRequestInterceptor implements HttpInterceptor {
       this.isRefreshing = true;
 
       if (this.tokenStorageService.getToken()) {
-        this.authService.refreshToken().subscribe(token => {
-          this.tokenStorageService.removeToken();
-          this.tokenStorageService.saveToken(token);
-          this.isRefreshing = false;
-          request = request.clone({
-            setHeaders: { Authorization: 'Bearer '+ token.access }
-          })
+        if (!this.jwtHelperService.isTokenExpired()){
           return next.handle(request);
-        },
-        error => {
-          this.isRefreshing = false;
-          this.tokenStorageService.removeToken();
-          this.router.navigate(['/auth/login']);
-          return throwError(() => error);
-        });
-
-
-        // return this.authService.refreshToken().pipe(
-        //   switchMap(() => {
-        //     this.isRefreshing = false;
-        //
-        //     return next.handle(request);
-        //   }),
-        //   catchError((error) => {
-        //     this.isRefreshing = false;
-        //
-        //     if (error.status == '403') {
-        //       this.eventBusService.emit(new EventData('logout', null));
-        //     }
-        //
-        //     return throwError(() => error);
-        //   })
-        // );
+        }
+        else
+        {
+          this.authService.refreshToken().subscribe(token => {
+              this.tokenStorageService.removeToken();
+              this.tokenStorageService.saveToken(token);
+              this.isRefreshing = false;
+              request = request.clone({
+                setHeaders: { Authorization: 'Bearer '+ token.access }
+              })
+              return next.handle(request);
+            },
+            error => {
+              this.isRefreshing = false;
+              this.tokenStorageService.removeToken();
+              this.router.navigate(['/auth/login']);
+              return throwError(() => error);
+            });
+        }
       }
     }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {AppointmentValue} from "../../modules/common/main-page/main-page.component";
 
 @Injectable({providedIn: 'root'})

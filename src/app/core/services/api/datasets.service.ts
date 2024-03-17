@@ -1,15 +1,6 @@
 import {Injectable} from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {BaseAppConfig} from "../configs/base-app.config";
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {ChairResponseInterface} from "../interfaces/dataset/chair.interface";
-import {DatasetResponseInterface} from "../interfaces/dataset/dataset-response.interface";
-import {HospitalResponseInterface} from "../interfaces/dataset/hospital.interface";
-import {LocationResponseInterface} from "../interfaces/dataset/location.interface";
-import {PositionResponseInterface} from "../interfaces/dataset/position.interface";
-import {SpecializationResponseInterface} from "../interfaces/dataset/specialization.interface";
-import {UniversityResponseInterface} from "../interfaces/dataset/university.interface";
-import {HeadersHelperService} from "../helpers/headers-helper.service";
 
 @Injectable({providedIn: 'root'})
 export class DatasetsService {
@@ -17,7 +8,6 @@ export class DatasetsService {
 
   constructor(
     private http: HttpClient,
-    private headersHelper: HeadersHelperService
   ) {}
 
   getChairs() : Observable<DatasetResponseInterface<ChairResponseInterface>> {

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Subject} from 'rxjs';
 import {webSocket, WebSocketSubject} from 'rxjs/webSocket';
 import {WebRtcConfig} from "../../configs/web-rtc.config";
+import {BaseAppConfig} from "../../configs/base-app.config";
 
 export interface Message {
   type: string;
@@ -47,7 +48,7 @@ export class VideoWebsocketService {
    */
   private getNewWebSocket(): WebSocketSubject<any> {
     return webSocket({
-      url: WebRtcConfig.wsEndpoint,
+      url: BaseAppConfig.wsEndpoint,
       openObserver: {
         next: () => {
           console.log('[DataService]: connection ok');

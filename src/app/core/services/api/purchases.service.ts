@@ -1,20 +1,13 @@
 import {Injectable} from "@angular/core";
-import {BaseAppConfig} from "../configs/base-app.config";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {
-  PurchaseDetailsRequestInterface,
-  PurchaseDetailsResponseInterface
-} from "../interfaces/purchases/purchase-details.interface";
-import {HeadersHelperService} from "../helpers/headers-helper.service";
 
 @Injectable({providedIn: 'root'})
 export class PurchasesService{
   purchasesApiUrl: string = BaseAppConfig.apiUrl + 'purchaces/';
 
   constructor(
-    private http: HttpClient,
-    private headersHelper: HeadersHelperService
+    private http: HttpClient
   ) {}
 
   getPurchaseById(purchaseId: string) : Observable<PurchaseDetailsResponseInterface> {
