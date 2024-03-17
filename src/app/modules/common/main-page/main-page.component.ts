@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import {SpecialistProfileResponseInterface} from "../../../core/interfaces/specialist/specialist.interface";
 import {AccountService} from "../../../core/services/api/account.service";
 import {ScheduleService} from "../../../core/services/api/schedule.service";
+import {SpecialistService} from "../../../core/services/api/specialist.service";
 
 
 export enum DateTimeType {
@@ -33,9 +34,10 @@ export class MainPageComponent {
   constructor(
     private accountService: AccountService,
     private scheduleService: ScheduleService,
+    private specialistService: SpecialistService
   ) {
     this.specialists = [];
-    this.accountService.getSpecialistProfiles().subscribe(data => {
+    this.specialistService.getSpecialistProfiles().subscribe(data => {
       data.forEach(specialist => {
           this.scheduleService.getDoctorRecentDates(specialist.doctor?.id!).subscribe(data => {
           let appointments: AppointmentValue[] = [];

@@ -61,4 +61,8 @@ export class ScheduleService {
   getDoctorFreeTimeSlots(doctor: string, date: string) : Observable<DoctorWorkingHoursResponseInterface[]> {
     return this.http.get<DoctorWorkingHoursResponseInterface[]>(this.scheduleApiUrl +'doctor/' + doctor + '/date/' + date + '/free-time/');
   }
+
+  getDoctorRecentDates(doctor: string) : Observable<Record<string, string[]>> {
+    return this.http.get<Record<string, string[]>>(this.scheduleApiUrl +'doctors/' + doctor + '/recent-dates-and-times/');
+  }
 }

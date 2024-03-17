@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import {JsonHelperService} from "../../helpers/json-helper.service";
-import {TokenResponseInterface} from "../../interfaces/auth/sign-in.interface";
 import {StorageKeysConfig} from "../../configs/storage-keys.config";
 import {SessionStorageService} from "./session-storage.service";
+import {TokenResponseInterface} from "../../interfaces/token/token.interface";
 
 @Injectable({providedIn: 'root'})
 export class TokenStorageService extends SessionStorageService {

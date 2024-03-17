@@ -1,9 +1,9 @@
 import {Component} from "@angular/core";
-import {SignInRequestInterface, TokenResponseInterface} from "../../../../core/interfaces/auth/sign-in.interface";
 import {BaseAppConfig} from "../../../../core/configs/base-app.config";
 import {UserStorageService} from "../../../../core/services/storage/user-storage.service";
 import {TokenStorageService} from "../../../../core/services/storage/token-storage.service";
-import {AuthService} from "../../../../core/services/auth.service";
+import {AuthService} from "../../../../core/services/api/auth.service";
+import {SignInRequestInterface} from "../../../../core/interfaces/auth/auth.interface";
 
 @Component({
   selector: 'auth-modal-component',
@@ -27,7 +27,7 @@ export class AuthModalComponent {
     this.isModalOpen = false;
   }
 
-  setUserAuthorized(token: TokenResponseInterface) {
+  setUserAuthorized() {
     let user = {
       id: '121212',
       password: '<PASSWORD>',
@@ -46,7 +46,10 @@ export class AuthModalComponent {
       is_active: true,
     };
     this.userStorageService.saveUser(user);
-    this.tokenStorageService.saveToken(token);
+    this.tokenStorageService.saveToken({
+      access: '121212',
+      refresh: '121212',
+    });
     this.reloadCurrentPage();
   }
 
@@ -55,8 +58,8 @@ export class AuthModalComponent {
       username: BaseAppConfig.systemUserName,
       password: BaseAppConfig.systemUserPassword
     }
-    this.authService.login(signInReq).subscribe(data => {
-      this.setUserAuthorized(data);
+    this.authService.signIn(signInReq).subscribe(data => {
+      this.setUserAuthorized();
       console.log(data);
     }, error => {
       console.log(error);
