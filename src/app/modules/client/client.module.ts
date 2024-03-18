@@ -7,6 +7,7 @@ import {MedcardComponent} from "./medcard/medcard.component";
 import {ClientMainComponent} from "./client-main.component";
 import {ClientRoutingModule} from "./client-routing.module";
 import {LayoutModule} from "../../pages/layout.module";
+import {NgIf} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -17,10 +18,11 @@ import {LayoutModule} from "../../pages/layout.module";
     UserMainPageComponent,
     MedcardComponent
   ],
-  imports: [
-    ClientRoutingModule,
-    LayoutModule
-  ],
+    imports: [
+        ClientRoutingModule,
+        LayoutModule,
+        NgIf
+    ],
   exports: []
 })
 export class ClientModule {}

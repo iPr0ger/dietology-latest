@@ -6,4 +6,11 @@ import {Component} from "@angular/core";
 })
 export class RegistrationComponent {
   title = 'dietology';
+
+  currentStep: number = 1;
+
+  goToStep(step: number): number {
+    this.currentStep = step;
+    return this.currentStep;
+  }
 }

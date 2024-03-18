@@ -18,6 +18,14 @@ export class HeaderComponent implements OnInit {
   isAuthorized: boolean = false;
   userState: UserResponseInterface | null = null;
 
+  locations: string[] = [
+    'Москва',
+    'Санкт-Петербург',
+    'Екатеринбург'
+  ]
+
+  currentLocation: string = this.locations[0];
+
   constructor(
     private authService: AuthService,
     private userStorageService: UserStorageService,
@@ -42,5 +50,10 @@ export class HeaderComponent implements OnInit {
 
   reloadCurrentPage() {
     window.location.reload();
+  }
+
+  changeLocation(location: string) {
+    this.currentLocation = location;
+    this.isLocationOpened = false;
   }
 }

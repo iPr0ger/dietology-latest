@@ -6,6 +6,8 @@ import {EmptyUserLkComponent} from "./lk/empty/empty-user-lk.component";
 import {CompletedUserLkComponent} from "./lk/completed/completed-user-lk.component";
 import {UserMainPageComponent} from "./main/user-main-page.component";
 import {MedcardComponent} from "./medcard/medcard.component";
+import {authGuard} from "../../core/guards/auth.guard";
+import {patientGuard} from "../../core/guards/patient.guard";
 
 const routes: Routes = [
   {
@@ -14,23 +16,28 @@ const routes: Routes = [
     children: [
       {
         path: 'favourites',
-        component: FavouriteSpecComponent
+        component: FavouriteSpecComponent,
+        canActivate: [authGuard, patientGuard]
       },
       {
         path:'profile/empty',
-        component: EmptyUserLkComponent
+        component: EmptyUserLkComponent,
+        canActivate: [authGuard, patientGuard]
       },
       {
         path: 'profile/completed',
-        component: CompletedUserLkComponent
+        component: CompletedUserLkComponent,
+        canActivate: [authGuard, patientGuard]
       },
       {
         path: 'main',
-        component: UserMainPageComponent
+        component: UserMainPageComponent,
+        canActivate: [authGuard, patientGuard]
       },
       {
         path: 'medcard',
-        component: MedcardComponent
+        component: MedcardComponent,
+        canActivate: [authGuard, patientGuard]
       }
     ]
   }

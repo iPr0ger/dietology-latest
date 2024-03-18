@@ -60,6 +60,9 @@ export class HttpRequestInterceptor implements HttpInterceptor {
 
       if (token) {
         if (!this.jwtHelperService.isTokenExpired()){
+          request = request.clone({
+            setHeaders: { Authorization: 'Bearer '+ token.access }
+          })
           return next.handle(request);
         }
         else
@@ -76,7 +79,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
             error => {
               this.isRefreshing = false;
               this.tokenStorageService.removeToken();
-              this.router.navigate(['/auth/login']);
+              this.router.navigate(['/common/main']);
               return throwError(() => error);
             });
         }

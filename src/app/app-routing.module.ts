@@ -3,6 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/common/main',
+    pathMatch: 'full',
+  },
+  {
     path: 'auth',
     loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
@@ -17,11 +22,6 @@ const routes: Routes = [
   {
     path: 'specialist',
     loadChildren: () => import('./modules/specialist/specialist.module').then((m) => m.SpecialistModule),
-  },
-  {
-    path: '',
-    redirectTo: '/common/main',
-    pathMatch: 'full',
   }
 ]
 

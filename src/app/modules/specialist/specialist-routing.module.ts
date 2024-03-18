@@ -4,6 +4,8 @@ import {SpecialistMainComponent} from "./specialist-main.component";
 import {EmptyDoctorLkComponent} from "./lk/empty/empty-doctor-lk.component";
 import {CompletedDoctorLkComponent} from "./lk/completed/completed-doctor-lk.component";
 import {DoctorMainPageComponent} from "./main/doctor-main-page.component";
+import {authGuard} from "../../core/guards/auth.guard";
+import {specialistGuard} from "../../core/guards/specialist.guard";
 
 const routes: Routes = [
   {
@@ -12,15 +14,18 @@ const routes: Routes = [
     children: [
       {
         path: 'profile/empty',
-        component: EmptyDoctorLkComponent
+        component: EmptyDoctorLkComponent,
+        canActivate: [authGuard, specialistGuard]
       },
       {
         path:'profile/completed',
-        component: CompletedDoctorLkComponent
+        component: CompletedDoctorLkComponent,
+        canActivate: [authGuard, specialistGuard]
       },
       {
         path: 'main',
-        component: DoctorMainPageComponent
+        component: DoctorMainPageComponent,
+        canActivate: [authGuard, specialistGuard]
       }
     ]
   }

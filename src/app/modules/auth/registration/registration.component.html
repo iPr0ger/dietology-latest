@@ -1,47 +1,65 @@
 <div class="wrapper">
   <main class="main d-flex align-items-center justify-content-center">
-    <div class="container round auth-block d-flex flex-column">
-      <h1 class="title c-green text-center mb-4">Регистрация</h1>
-      <p class="text-m">Придумайте логин и пароль</p>
-      <input type="text" class="primary-input mb-3" placeholder="Электронная почта">
-      <div class="password-input">
-        <input type="password" class="primary-input mb-3" placeholder="Пароль">
+    @if (currentStep === 1) {
+      <div [ngClass]="{
+        'container round auth-block flex-column' : true,
+        'd-flex': currentStep === 1,
+        'd-none': currentStep !== 1
+      }">
+        <h1 class="title c-green text-center mb-4">Регистрация</h1>
+        <p class="text-m">Придумайте логин и пароль</p>
+        <input type="text" class="primary-input mb-3" placeholder="Электронная почта">
+        <div class="password-input">
+          <input type="password" class="primary-input mb-3" placeholder="Пароль">
+        </div>
+        <div class="password-input">
+          <input type="password" class="primary-input mb-4" placeholder="Подтвердите пароль">
+        </div>
+        <div class="d-flex flex-md-row flex-column-reverse gap-3">
+          <button class="primary-button bordered back" (click)="goToStep(1)">Назад</button>
+          <button class="primary-button fill w-100" (click)="goToStep(2)" >Подтвердить почту</button>
+        </div>
       </div>
-      <div class="password-input">
-        <input type="password" class="primary-input mb-4" placeholder="Подтвердите пароль">
+    }
+    @if (currentStep === 2) {
+      <div [ngClass]="{
+        'container round auth-block flex-column' : true,
+        'd-flex': currentStep === 2,
+        'd-none': currentStep !== 2
+      }">
+        <h1 class="title c-green text-center mb-4">Регистрация</h1>
+        <p class="text-m">Придумайте логин и пароль</p>
+        <input type="text" class="primary-input mb-3" placeholder="Ваше ФИО">
+        <input type="text" class="primary-input mb-3" placeholder="Телефон">
+        <input type="text" class="primary-input mb-3" placeholder="Дата рождения">
+        <input type="text" class="primary-input mb-3" placeholder="СНИЛС">
+        <div class="d-flex gap-3">
+          <input type="radio" name="radio-gender" id="woman">
+          <label for="woman" class="primary-input-radio">Женщина</label>
+          <input type="radio" name="radio-gender" id="man">
+          <label for="man" class="primary-input-radio">Мужчина</label>
+        </div>
+        <div class="d-flex flex-md-row flex-column-reverse gap-3 my-4">
+          <button class="primary-button bordered back" (click)="goToStep(1)">Назад</button>
+          <button class="primary-button fill complete w-100" (click)="goToStep(3)">Завершить регистрацию</button>
+        </div>
+        <input type="checkbox" id="personal-data">
+        <label for="personal-data" class="primary-input-check c-green">Даю согласие на обработку персональных данных</label>
       </div>
-      <div class="d-flex flex-md-row flex-column-reverse gap-3">
-        <button class="primary-button bordered back">Назад</button>
-        <button class="primary-button fill w-100" onclick="nextStep(this)">Подтвердить почту</button>
+    }
+    @if (currentStep === 3) {
+      <div [ngClass]="{
+        'container round auth-block flex-column' : true,
+        'd-flex': currentStep === 3,
+        'd-none': currentStep !== 3
+      }">
+        <h1 class="title c-green text-center mb-4">Добро пожаловать в личный кабинет!</h1>
+        <p class="text-m">Для того, чтобы начать оказывать услуги, необходимо заполнить анкету.</p>
+        <div class="d-flex flex-md-row flex-column-reverse gap-3 my-4">
+          <button class="primary-button bordered w-100" (click)="goToStep(2)">Отмена</button>
+          <button class="primary-button fill w-100">Заполнить анкету</button>
+        </div>
       </div>
-    </div>
-    <div class="container round auth-block d-none flex-column">
-      <h1 class="title c-green text-center mb-4">Регистрация</h1>
-      <p class="text-m">Придумайте логин и пароль</p>
-      <input type="text" class="primary-input mb-3" placeholder="Ваше ФИО">
-      <input type="text" class="primary-input mb-3" placeholder="Телефон">
-      <input type="text" class="primary-input mb-3" placeholder="Дата рождения">
-      <input type="text" class="primary-input mb-3" placeholder="СНИЛС">
-      <div class="d-flex gap-3">
-        <input type="radio" name="radio-gender" id="woman">
-        <label for="woman" class="primary-input-radio">Женщина</label>
-        <input type="radio" name="radio-gender" id="man">
-        <label for="man" class="primary-input-radio">Мужчина</label>
-      </div>
-      <div class="d-flex flex-md-row flex-column-reverse gap-3 my-4">
-        <button class="primary-button bordered back" onclick="prevStep(this)">Назад</button>
-        <button class="primary-button fill complete w-100" onclick="nextStep(this)">Завершить регистрацию</button>
-      </div>
-      <input type="checkbox" id="personal-data">
-      <label for="personal-data" class="primary-input-check c-green">Даю согласие на обработку персональных данных</label>
-    </div>
-    <div class="container round auth-block d-none flex-column">
-      <h1 class="title c-green text-center mb-4">Добро пожаловать в личный кабинет!</h1>
-      <p class="text-m">Для того, чтобы начать оказывать услуги, необходимо заполнить анкету.</p>
-      <div class="d-flex flex-md-row flex-column-reverse gap-3 my-4">
-        <button class="primary-button bordered w-100" onclick="prevStep(this)">Отмена</button>
-        <button class="primary-button fill w-100">Заполнить анкету</button>
-      </div>
-    </div>
+    }
   </main>
 </div>
