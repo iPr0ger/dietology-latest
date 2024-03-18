@@ -12,7 +12,11 @@ import {
   SignInRequestInterface,
   SignInResponseInterface
 } from "../../interfaces/auth/auth.interface";
-import {FlashCallRequestInterface, FlashCallResponseInterface} from "../../interfaces/flashcall/flashcall.interface";
+import {
+  FlashCallRequestInterface,
+  FlashCallResponseInterface,
+  FlashCallTokenResponseInterface
+} from "../../interfaces/flashcall/flashcall.interface";
 import {
   SignUpByPhoneRequestInterface, SignUpByPhoneResponseInterface,
   SignUpRequestInterface,
@@ -50,8 +54,8 @@ export class AuthService {
     return this.http.post<SignInCodeResponseInterface>(this.authApiUrl +'signin/code', request);
   }
 
-  signInWithPhoneAndConde(phone: string, code: string): Observable<any> {
-    return this.http.get<any>(this.authApiUrl +'signin/' + phone + '/' + code + '/');
+  signInWithPhoneAndCode(phone: string, code: string): Observable<FlashCallTokenResponseInterface> {
+    return this.http.get<FlashCallTokenResponseInterface>(this.authApiUrl +'signin/' + phone + '/' + code + '/');
   }
 
   flashCall(phone: FlashCallRequestInterface): Observable<FlashCallResponseInterface> {

@@ -6,6 +6,8 @@ export interface UserResponseInterface {
   last_name: string | null;
   email: string | null;
   phone: string | null;
+  is_specialist: boolean | null;
+  is_patient: boolean | null;
 }
 
 export interface UserRequestInterface {

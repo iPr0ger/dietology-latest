@@ -40,35 +40,6 @@ export class HeaderComponent implements OnInit {
     this.reloadCurrentPage();
   }
 
-  setUserAuthorized() {
-    const user: UserResponseInterface = {
-      id: '12121212121',
-      password: 'pswd',
-      username: 'username',
-      first_name: 'Сергей',
-      last_name: 'Горянин',
-      email: 'admin@localhost',
-      phone: '7912'
-    }
-    this.userStorageService.saveUser(user);
-    // this.tokenStorageService.saveToken();
-    this.reloadCurrentPage();
-  }
-
-  login(){
-    const signInReq: SignInRequestInterface = {
-      username: BaseAppConfig.systemUserName,
-      password: BaseAppConfig.systemUserPassword
-    }
-    this.authService.signIn(signInReq).subscribe(data => {
-      this.setUserAuthorized();
-      console.log(data);
-    }, error => {
-      console.log(error);
-    });
-    // this.reloadCurrentPage();
-  }
-
   reloadCurrentPage() {
     window.location.reload();
   }

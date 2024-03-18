@@ -174,7 +174,7 @@
       @if (!isAuthorized) {
         <button class="header-action-profile d-md-none d-flex justify-content-center align-items-center gap-2 p-2 mt-4"
                 style="background-color: white !important; width: 100% !important;"
-                (click)="login()"
+                (click)="authModalComponent.openModal()"
         >
           <p class="text-desc c-green m-0">Войти</p>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
