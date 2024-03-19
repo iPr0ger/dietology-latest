@@ -30,6 +30,7 @@ export interface SpecialistMainPageDetailsInterface {
 })
 export class MainPageComponent {
   specialists: SpecialistMainPageDetailsInterface[] = [];
+  isLoading: boolean = true;
 
   constructor(
     private accountService: AccountService,
@@ -37,6 +38,7 @@ export class MainPageComponent {
     private specialistService: SpecialistService
   ) {
     this.specialists = [];
+    this.isLoading = true;
     this.specialistService.getSpecialistProfiles().subscribe(data => {
       data.forEach(specialist => {
         if (!specialist.photo.includes('nutrusha.live')) {
@@ -63,10 +65,9 @@ export class MainPageComponent {
             appointment: appointments,
             selectedAppointmentIndex: 0
           })
+          this.isLoading = false;
         })
       })
     });
   }
-
-
 }

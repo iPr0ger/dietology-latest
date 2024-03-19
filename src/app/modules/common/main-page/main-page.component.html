@@ -19,11 +19,14 @@
         </div>
       </div>
     </div>
-    <div class="d-flex flex-column gap-3">
+    <div class="d-flex flex-column gap-3" *ngIf="!isLoading">
       @for (specialist of specialists; track specialist; let last = $last){
         <specialist-card-component [specialist]="specialist"></specialist-card-component>
         <hr *ngIf="!last" style="color: var(--color-gray3)" class="mt-1 mb-2" />
       }
+    </div>
+    <div class="d-flex flex-column gap-3" *ngIf="isLoading">
+      <h3>Загрузка...</h3>
     </div>
   </div>
 </main>

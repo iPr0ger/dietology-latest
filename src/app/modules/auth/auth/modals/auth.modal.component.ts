@@ -83,10 +83,6 @@ export class AuthModalComponent {
   }
 
   login(){
-    const signInReq: SignInRequestInterface = {
-      username: BaseAppConfig.systemUserName,
-      password: BaseAppConfig.systemUserPassword
-    }
     let phone = null;
     if (this.phoneNumber) {
       phone = this.phoneNumber.nativeElement.value.replace('+7', '7');

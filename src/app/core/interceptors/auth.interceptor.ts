@@ -79,7 +79,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
             error => {
               this.isRefreshing = false;
               this.tokenStorageService.removeToken();
-              this.router.navigate(['/common/main']);
+              this.router.navigate(['']);
               return throwError(() => error);
             });
         }

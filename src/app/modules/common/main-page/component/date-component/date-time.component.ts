@@ -7,7 +7,7 @@ import {
   SimpleChanges
 } from "@angular/core";
 import {AppointmentValue, DateTimeType} from "../../main-page.component";
-import {NgClass} from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
 
 
 @Component({
@@ -16,7 +16,8 @@ import {NgClass} from "@angular/common";
   templateUrl: './date-time.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    NgClass
+    NgClass,
+    NgIf
   ]
 })
 export class DateTimeComponent implements OnInit, OnChanges {

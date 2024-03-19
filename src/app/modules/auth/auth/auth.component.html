@@ -1,25 +1,27 @@
 <div class="wrapper">
   <main class="main d-flex align-items-center justify-content-center">
-    <div class="container round auth-block d-flex flex-column">
-      <h1 class="title c-green text-center mb-4">Авторизация</h1>
-      <input type="text" class="primary-input mb-2" placeholder="Ваш номер телефона">
-      <button class="primary-button bordered arrow mb-2" onclick="nextStep(this)">Дальше</button>
-      <a href="registration.html" class="primary-link text-center mb-5">Войти через Логин и пароль</a>
+    <div class="container round auth-block d-flex flex-column" *ngIf="currentStep === 1">
+      <input type="text" #phoneNumber class="primary-input mb-2" placeholder="Ваш номер телефона">
+      <button class="primary-button bordered arrow mb-2" (click)="login()">Дальше</button>
+      <a href="" class="primary-link text-center mb-5">Войти через Логин и пароль</a>
       <p class="c-gray text-s my-2 ">Или войдите через Госуслуги</p>
       <button class="blue-button mb-2"><img src="./assets/img/gosuslugi.png" alt="">Войти через Госуслуги</button>
       <p class="c-gray text-desc mt-4">Забыли пароль?
-        <a href="forgot-pass.html" class="primary-link blue">Восстановить</a>
+        <a href="" class="primary-link blue">Восстановить</a>
       </p>
     </div>
-    <div class="container round auth-block d-none flex-column">
-      <h1 class="title c-green text-center mb-4">Авторизация</h1>
-      <input type="text" class="primary-input mb-3" placeholder="Электронная почта">
-      <div class="password-input">
-        <input type="password" class="primary-input mb-4" placeholder="Подтвердите пароль">
-      </div>
+    <div [ngClass]="{
+        'container round auth-block flex-column' : true,
+        'd-flex': currentStep === 2,
+        'd-none': currentStep !== 2
+      }">
+      <input type="text" class="primary-input mb-3"
+             [value]="flashCallResponse?.code"
+             disabled
+             placeholder="Введите код подтверждения" />
       <div class="d-flex flex-md-row flex-column-reverse gap-3">
-        <button class="primary-button bordered back" onclick="prevStep(this)">Назад</button>
-        <button class="primary-button fill w-100">Войти</button>
+        <button class="primary-button bordered back" (click)="goPreviousStep()">Назад</button>
+        <button class="primary-button fill w-100" (click)="authorizeUser()">Войти</button>
       </div>
     </div>
   </main>

@@ -6,7 +6,7 @@ export const specialistGuard: CanActivateFn = (route, state) => {
   const userStorageService = inject(UserStorageService);
   const router = inject(Router);
   if (!userStorageService.getIsSpecialist()){
-    router.navigate(['/common/main']);
+    router.navigate(['']);
     return false;
   }
   return true;

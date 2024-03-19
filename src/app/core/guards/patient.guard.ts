@@ -6,7 +6,7 @@ export const patientGuard: CanActivateFn = (route, state) => {
   const userStorageService = inject(UserStorageService);
   const router = inject(Router);
   if (!userStorageService.getIsClient()){
-    router.navigate(['/common/main']);
+    router.navigate(['']);
     return false;
   }
   return true;

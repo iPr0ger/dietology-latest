@@ -1,4 +1,4 @@
-<div class="swap-select js-swap-active d-flex gap-1">
+<div class="swap-select js-swap-active d-flex gap-1" *ngIf="times">
   @for (time of times; track time; let isFirst = $first; let idx = $index) {
     @if (idx <= 2) {
       <span
@@ -9,4 +9,7 @@
           </span>
     }
   }
+</div>
+<div *ngIf="times.length === 0">
+  <h3>Нет информации о ближайшем времени для записи</h3>
 </div>

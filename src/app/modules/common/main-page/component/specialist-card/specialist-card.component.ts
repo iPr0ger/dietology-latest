@@ -19,7 +19,7 @@ import {ComponentService} from "../../../../../core/services/component.service";
 export class SpecialistCardComponent implements OnInit, AfterViewInit {
 
   @Input() specialist!: SpecialistMainPageDetailsInterface;
-  times!: AppointmentValue[];
+  times: AppointmentValue[] = [];
 
   constructor(
     private componentService: ComponentService
@@ -27,7 +27,9 @@ export class SpecialistCardComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.times = this.specialist.appointment[0].times!;
+    if (this.specialist.appointment.length > 0 && this.specialist.appointment[0].times) {
+      this.times = this.specialist.appointment[0].times!;
+    }
   }
 
   selectDate(appointment: AppointmentValue) {
