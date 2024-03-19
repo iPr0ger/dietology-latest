@@ -49,7 +49,7 @@ export class AuthModalComponent {
         this.specialistService.getSpecialistProfileById(response.id).subscribe(response => {
           this.userStorageService.saveIsClient(false);
           this.userStorageService.saveIsSpecialist(true);
-          this.userStorageService.saveSpecialistDetails(response);
+          this.userStorageService.saveSpecialistDetails(response[0]);
 
           this.tokenStorageService.saveToken({access: data.access, refresh: data.refresh});
           this.reloadCurrentPage();

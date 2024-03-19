@@ -24,8 +24,8 @@ export class SpecialistService {
     return this.http.post<SpecialistProfileResponseInterface>(this.specialistApiUrl +'specialist-profile/', specialistProfileRequestInterface);
   }
 
-  getSpecialistProfileById(id: string) : Observable<SpecialistProfileResponseInterface> {
-    return this.http.get<SpecialistProfileResponseInterface>(this.specialistApiUrl +'specialist-profile/' + id);
+  getSpecialistProfileById(id: string) : Observable<SpecialistProfileResponseInterface[]> {
+    return this.http.get<SpecialistProfileResponseInterface[]>(this.specialistApiUrl +'specialist-profile/' + id);
   }
 
   updateSpecialistProfile(id: string, specialistProfileRequestInterface: SpecialistProfileRequestInterface) : Observable<SpecialistProfileResponseInterface> {
