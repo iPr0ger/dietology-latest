@@ -1,9 +1,9 @@
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {SpecialistMainComponent} from "./specialist-main.component";
-import {CompletedDoctorLkComponent} from "./lk/completed/completed-doctor-lk.component";
 import {authGuard} from "../../core/guards/auth.guard";
 import {specialistGuard} from "../../core/guards/specialist.guard";
+import {DoctorLkComponent} from "./lk/doctor-lk.component";
 
 const routes: Routes = [
   {
@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
       {
         path:'profile',
-        component: CompletedDoctorLkComponent,
+        component: DoctorLkComponent,
         canActivate: [authGuard, specialistGuard]
       }
     ]

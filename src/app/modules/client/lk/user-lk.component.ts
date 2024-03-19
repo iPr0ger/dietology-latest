@@ -1,15 +1,16 @@
-import {AfterViewInit, Component, OnInit} from "@angular/core";
-import {UserResponseInterface} from "../../../../core/interfaces/account/user.interface";
-import {PatientUserProfileResponseInterface} from "../../../../core/interfaces/patient/patient.interface";
-import {UserStorageService} from "../../../../core/services/storage/user-storage.service";
-import {PatientService} from "../../../../core/services/api/patient.service";
-import {AccountService} from "../../../../core/services/api/account.service";
+import {Component, OnInit} from "@angular/core";
+import {UserResponseInterface} from "../../../core/interfaces/account/user.interface";
+import {PatientUserProfileResponseInterface} from "../../../core/interfaces/patient/patient.interface";
+import {AccountService} from "../../../core/services/api/account.service";
+import {UserStorageService} from "../../../core/services/storage/user-storage.service";
+import {PatientService} from "../../../core/services/api/patient.service";
+
 
 @Component({
-  selector: 'completed-user-lk',
-  templateUrl: './completed-user-lk.component.html',
+  selector: 'user-lk',
+  templateUrl: './user-lk.component.html',
 })
-export class CompletedUserLkComponent implements OnInit {
+export class UserLkComponent implements OnInit {
   userProfile: UserResponseInterface | undefined = undefined;
   clientProfile: PatientUserProfileResponseInterface | undefined = undefined;
 

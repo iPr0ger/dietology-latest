@@ -70,15 +70,19 @@
 
       </div>
     </div>
-    <div class="profile-tabs w-100">
+    <div class="profile-tabs w-100" *ngIf="!isLoading">
       <div class="profile-container d-flex flex-column gap-3">
         <div class="profile-main d-flex gap-3">
           <div class="profile-photo">
-            <img src="./assets/img/photo-spec1.jpg" alt="">
+            @if (specialistProfile?.photo === null) {
+              <img src="./assets/img/photo-spec1.jpg" alt="">
+            } @else {
+              <img src="{{ specialistProfile?.photo }}" alt="">
+            }
           </div>
           <div class="d-flex flex-column w-100">
             <div class="d-flex flex-wrap flex-column flex-md-row justify-content-md-between">
-              <h1 class="title nospace">Сергей Горякин</h1>
+              <h1 class="title nospace">{{specialistProfile?.doctor?.first_name!}} {{specialistProfile?.doctor?.last_name!}}</h1>
               <div class="primary-select online-select">
                 <div class="primary-select-head">
                   <p class="primary-select-head__value">Онлайн</p>
@@ -106,7 +110,7 @@
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.6667 2.33334H2.33332C1.69166 2.33334 1.17249 2.85834 1.17249 3.5L1.16666 10.5C1.16666 11.1417 1.69166 11.6667 2.33332 11.6667H11.6667C12.3083 11.6667 12.8333 11.1417 12.8333 10.5V3.5C12.8333 2.85834 12.3083 2.33334 11.6667 2.33334ZM11.4333 4.8125L7.30916 7.39084C7.12249 7.5075 6.87749 7.5075 6.69082 7.39084L2.56666 4.8125C2.42082 4.71917 2.33332 4.56167 2.33332 4.3925C2.33332 4.00167 2.75916 3.76834 3.09166 3.9725L6.99999 6.41667L10.9083 3.9725C11.2408 3.76834 11.6667 4.00167 11.6667 4.3925C11.6667 4.56167 11.5792 4.71917 11.4333 4.8125Z" fill="#27AE60"/>
                 </svg>
-                <span>sergeymail.ru</span>
+                <span>{{specialistProfile?.doctor?.email!}}</span>
               </div>
             </div>
           </div>
@@ -116,33 +120,33 @@
           <div class="d-flex gap-3 flex-wrap align-items-end">
             <div class="d-flex flex-column gap-1">
               <p class="text primary-input-label m-0">Ваше ФИО</p>
-              <input type="text" class="primary-input" placeholder="Иванонв Иван Иванович">
+              <input type="text" class="primary-input" placeholder="Иванонв Иван Иванович" value="{{specialistProfile?.doctor?.first_name!}} {{specialistProfile?.doctor?.last_name!}}">
             </div>
             <div class="d-flex flex-column gap-1">
               <p class="text primary-input-label m-0">Телефон</p>
-              <input type="text" class="primary-input" placeholder="8 (800) 1110-22-22">
+              <input type="text" class="primary-input" placeholder="8 (800) 1110-22-22" value="{{specialistProfile?.doctor?.phone}}">
             </div>
             <div class="d-flex flex-column gap-1">
               <p class="text primary-input-label m-0">СНИЛС</p>
-              <input type="text" class="primary-input" placeholder="0000 10110101">
+              <input type="text" class="primary-input" placeholder="0000 10110101" value="{{specialistProfile?.snils}}">
             </div>
             <div class="d-flex flex-column gap-1">
               <p class="text primary-input-label m-0">Электронная почта</p>
-              <input type="email" class="primary-input" placeholder="ergey@mail.ru">
+              <input type="email" class="primary-input" placeholder="ergey@mail.ru" value="{{specialistProfile?.doctor?.email!}}">
             </div>
             <div class="d-flex flex-column gap-1">
               <p class="text primary-input-label m-0">Дата рождения</p>
-              <input type="text" class="primary-input" placeholder="10.10.1990">
+              <input type="text" class="primary-input" placeholder="10.10.1990" value="31.03.1992">
             </div>
             <div class="d-flex gap-3 mb-2">
-              <input type="radio" name="radio-gender" id="woman">
+              <input type="radio" name="radio-gender" id="woman" [checked]="specialistProfile?.gender !== 'male'">
               <label for="woman" class="primary-input-radio">Женщина</label>
-              <input type="radio" name="radio-gender" id="man">
+              <input type="radio" name="radio-gender" id="man" [checked]="specialistProfile?.gender === 'male'">
               <label for="man" class="primary-input-radio">Мужчина</label>
             </div>
           </div>
           <div class="photo-file-item d-flex gap-3 mt-3">
-            <img class="photo" src="./assets/img/photo-spec1.jpg" alt="">
+            <img class="photo" src="{{ specialistProfile?.photo }}" alt="">
             <span class="name">аватарка.png</span>
             <button class="remove">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -199,7 +203,7 @@
                 </div>
               </div>
               <button class="remove mt-3">
-                Удалить место работы
+                Удалить информацию об образовании
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V9C18 7.9 17.1 7 16 7H8C6.9 7 6 7.9 6 9V19ZM9 9H15C15.55 9 16 9.45 16 10V18C16 18.55 15.55 19 15 19H9C8.45 19 8 18.55 8 18V10C8 9.45 8.45 9 9 9ZM15.5 4L14.79 3.29C14.61 3.11 14.35 3 14.09 3H9.91C9.65 3 9.39 3.11 9.21 3.29L8.5 4H6C5.45 4 5 4.45 5 5C5 5.55 5.45 6 6 6H18C18.55 6 19 5.55 19 5C19 4.45 18.55 4 18 4H15.5Z" fill="#BDBDBD"/>
                 </svg>
@@ -251,7 +255,7 @@
                 </div>
               </div>
               <button class="remove mt-3">
-                Удалить место работы
+                Удалить информацию об образовании
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V9C18 7.9 17.1 7 16 7H8C6.9 7 6 7.9 6 9V19ZM9 9H15C15.55 9 16 9.45 16 10V18C16 18.55 15.55 19 15 19H9C8.45 19 8 18.55 8 18V10C8 9.45 8.45 9 9 9ZM15.5 4L14.79 3.29C14.61 3.11 14.35 3 14.09 3H9.91C9.65 3 9.39 3.11 9.21 3.29L8.5 4H6C5.45 4 5 4.45 5 5C5 5.55 5.45 6 6 6H18C18.55 6 19 5.55 19 5C19 4.45 18.55 4 18 4H15.5Z" fill="#BDBDBD"/>
                 </svg>
@@ -944,6 +948,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="profile-tabs w-100" *ngIf="isLoading">
+      <h3>Загрузка...</h3>
     </div>
     <div class="profile-calendar hide-scroll d-lg-none d-flex flex-column align-items-centerc w-100">
       <p class="date text-s">12 янв, вторник</p>

@@ -31,11 +31,11 @@ export class AccountService {
   }
 
   getUserDocuments(userId: string): Observable<DocumentResponseInterface[]> {
-    return this.http.get<DocumentResponseInterface[]>(this.accountApiUrl + '/documents/' + userId + '/');
+    return this.http.get<DocumentResponseInterface[]>(this.accountApiUrl + 'documents/' + userId + '/');
   }
 
   addUserDocument(userId: string, document: DocumentRequestInterface): Observable<DocumentResponseInterface> {
-    return this.http.post<DocumentResponseInterface>(this.accountApiUrl + '/documents/' + userId + '/', document);
+    return this.http.post<DocumentResponseInterface>(this.accountApiUrl + 'documents/' + userId + '/', document);
   }
 
   resetUserPassword(code: string, request: ResetPasswordRequestInterface): Observable<ResetPasswordResponseInterface> {

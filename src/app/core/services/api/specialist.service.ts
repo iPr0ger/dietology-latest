@@ -2,8 +2,9 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {BaseAppConfig} from "../../configs/base-app.config";
 import {
+  SpecialistEducationResponseInterface,
   SpecialistProfileRequestInterface,
-  SpecialistProfileResponseInterface
+  SpecialistProfileResponseInterface, SpecialistWorkingExperienceResponseInterface
 } from "../../interfaces/specialist/specialist.interface";
 import {Observable} from "rxjs";
 
@@ -36,4 +37,12 @@ export class SpecialistService {
     return this.http.delete(this.specialistApiUrl +'specialist-profile/' + id);
   }
 
+
+  getSpecialistWorkingExperience(doctorId: string) : Observable<SpecialistWorkingExperienceResponseInterface[]>{
+    return this.http.get<SpecialistWorkingExperienceResponseInterface[]>(this.specialistApiUrl +'work-experiamce/' + doctorId + '/');
+  }
+
+  getSpecialistEducations(doctorId: string) : Observable<SpecialistEducationResponseInterface[]>{
+    return this.http.get<SpecialistEducationResponseInterface[]>(this.specialistApiUrl +'educations/' + doctorId + '/');
+  }
 }

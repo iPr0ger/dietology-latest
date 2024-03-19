@@ -1,19 +1,19 @@
 import {NgModule} from "@angular/core";
-import {CompletedDoctorLkComponent} from "./lk/completed/completed-doctor-lk.component";
-import {EmptyDoctorLkComponent} from "./lk/empty/empty-doctor-lk.component";
 import {SpecialistMainComponent} from "./specialist-main.component";
 import {SpecialistRoutingModule} from "./specialist-routing.module";
 import {LayoutModule} from "../../pages/layout.module";
+import {DoctorLkComponent} from "./lk/doctor-lk.component";
+import {NgIf} from "@angular/common";
 
 @NgModule({
   declarations: [
-    CompletedDoctorLkComponent,
-    EmptyDoctorLkComponent,
+    DoctorLkComponent,
     SpecialistMainComponent
   ],
   imports: [
     SpecialistRoutingModule,
-    LayoutModule
+    LayoutModule,
+    NgIf
   ],
   exports: []
 })
