@@ -31,9 +31,7 @@ export class DoctorLkComponent implements OnInit {
     private accountService: AccountService,
     private userStorageService: UserStorageService,
     private specialistService: SpecialistService,
-  ) {
-
-  }
+  ) {}
 
   ngOnInit() {
     this.isLoading = true;

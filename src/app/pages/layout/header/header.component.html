@@ -166,7 +166,7 @@
         </div>
       }
 
-      <ul class="navigation w-100 d-flex flex-md-row flex-column mb-0 mt-md-4 mt-5 gap-3">
+      <ul class="navigation w-100 d-flex flex-md-row flex-column mb-0 mt-md-4 mt-5 gap-3" *ngIf="!userState?.is_specialist">
         <li class="navigation__item active">Выбор специалиста</li>
         <li class="navigation__item">Магазин</li>
         <li class="navigation__item">Другие услуги</li>
