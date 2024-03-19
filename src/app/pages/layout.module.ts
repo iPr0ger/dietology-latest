@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {HeaderComponent} from "./layout/header/header.component";
 import {FooterComponent} from "./layout/footer/footer.component";
-import {NgClass} from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
 import {AuthModule} from "../modules/auth/auth.module";
 import {RouterLink} from "@angular/router";
 
@@ -10,11 +10,12 @@ import {RouterLink} from "@angular/router";
     HeaderComponent,
     FooterComponent
   ],
-  imports: [
-    NgClass,
-    AuthModule,
-    RouterLink
-  ],
+    imports: [
+        NgClass,
+        AuthModule,
+        RouterLink,
+        NgIf
+    ],
   exports: [
     HeaderComponent,
     FooterComponent

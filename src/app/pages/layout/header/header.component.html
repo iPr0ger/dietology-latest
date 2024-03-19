@@ -44,7 +44,8 @@
           >
             <div class="primary-select-head js-return d-flex align-items-center gap-2">
               <div class="photo">
-                <img src="./assets/img/photo-spec1.jpg" alt="">
+                <img src="./assets/img/photo-spec1.jpg" alt="" *ngIf="!photoUrl">
+                <img src="{{photoUrl}}" alt="" *ngIf="photoUrl">
               </div>
               <p class="primary-select-head__value">{{userState?.first_name}} {{userState?.last_name}}</p>
             </div>

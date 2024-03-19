@@ -17,6 +17,7 @@ import {SignInRequestInterface} from "../../../core/interfaces/auth/auth.interfa
 export class HeaderComponent implements OnInit {
   isAuthorized: boolean = false;
   userState: UserResponseInterface | null = null;
+  photoUrl: string | null = null;
 
   locations: string[] = [
     'Москва',
@@ -40,6 +41,12 @@ export class HeaderComponent implements OnInit {
     this.isAuthorized = this.userStorageService.isLoggedIn();
     if (this.isAuthorized) {
       this.userState = this.userStorageService.getUser();
+      if (this.userState.is_patient) {
+        this.photoUrl = this.userStorageService.getClientDetails().photo;
+      }
+      else if (this.userState.is_specialist) {
+        this.photoUrl = this.userStorageService.getSpecialistDetails().photo;
+      }
     }
   }
 
