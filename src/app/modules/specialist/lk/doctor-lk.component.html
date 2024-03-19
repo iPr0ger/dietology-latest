@@ -157,112 +157,62 @@
           <hr>
           <h2 class="title c-green mb-3">Образование</h2>
           <div class="d-flex flex-column gap-3">
-            <div class="work-section">
-              <div class="d-flex gap-3 flex-md-row flex-column">
-                <div class="d-flex flex-column gap-3">
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Образование</p>
-                    <input type="text" class="primary-input" placeholder="Высшее">
+            @for (education of tempEducations; track education; let idx = $index){
+              <div class="work-section">
+                <div class="d-flex gap-3 flex-md-row flex-column">
+                  <div class="d-flex flex-column gap-3">
+                    <div class="d-flex flex-column gap-1">
+                      <p class="text primary-input-label m-0">Образование</p>
+                      <input type="text" class="primary-input" placeholder="Высшее">
+                    </div>
+                    <div class="d-flex flex-column gap-1">
+                      <p class="text primary-input-label m-0">Учебное заведение</p>
+                      <input type="text" class="primary-input" placeholder="МГУ">
+                    </div>
+                    <div class="d-flex flex-column gap-1">
+                      <p class="text primary-input-label m-0">Специальность</p>
+                      <input type="text" class="primary-input" placeholder="Название">
+                    </div>
                   </div>
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Учебное заведение</p>
-                    <input type="text" class="primary-input" placeholder="МГУ">
+                  <div class="d-flex flex-column gap-3">
+                    <div class="d-flex flex-column gap-1">
+                      <p class="text primary-input-label m-0">Год окончания</p>
+                      <input type="text" class="primary-input" placeholder="2010">
+                    </div>
+                    <div class="d-flex flex-column gap-1">
+                      <p class="text primary-input-label m-0">Данные об аккредитации</p>
+                      <input type="text" class="primary-input" placeholder="0000 10110101">
+                    </div>
+                    <div class="d-flex flex-column gap-1">
+                      <p class="text primary-input-label m-0">Данные по ординатуре</p>
+                      <input type="text" class="primary-input" placeholder="0000 10110101">
+                    </div>
                   </div>
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Специальность</p>
-                    <input type="text" class="primary-input" placeholder="Название">
+                  <div class="d-flex flex-column gap-3">
+                    <div class="d-flex flex-column gap-1">
+                      <p class="text primary-input-label m-0">Данные по интернатуре</p>
+                      <input type="text" class="primary-input" placeholder="0000 10110101">
+                    </div>
+                    <div class="d-flex flex-column gap-1">
+                      <p class="text primary-input-label m-0">Повышение квалификации</p>
+                      <input type="text" class="primary-input" placeholder="0000 10110101">
+                    </div>
+                    <div class="d-flex flex-column gap-1">
+                      <p class="text primary-input-label m-0">Специализация</p>
+                      <input type="text" class="primary-input" placeholder="0000 10110101">
+                    </div>
                   </div>
                 </div>
-                <div class="d-flex flex-column gap-3">
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Год окончания</p>
-                    <input type="text" class="primary-input" placeholder="2010">
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Данные об аккредитации</p>
-                    <input type="text" class="primary-input" placeholder="0000 10110101">
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Данные по ординатуре</p>
-                    <input type="text" class="primary-input" placeholder="0000 10110101">
-                  </div>
-                </div>
-                <div class="d-flex flex-column gap-3">
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Данные по интернатуре</p>
-                    <input type="text" class="primary-input" placeholder="0000 10110101">
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Повышение квалификации</p>
-                    <input type="text" class="primary-input" placeholder="0000 10110101">
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Специализация</p>
-                    <input type="text" class="primary-input" placeholder="0000 10110101">
-                  </div>
-                </div>
+                <button class="remove mt-3" (click)="removeEducation(idx)">
+                  Удалить информацию об образовании
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V9C18 7.9 17.1 7 16 7H8C6.9 7 6 7.9 6 9V19ZM9 9H15C15.55 9 16 9.45 16 10V18C16 18.55 15.55 19 15 19H9C8.45 19 8 18.55 8 18V10C8 9.45 8.45 9 9 9ZM15.5 4L14.79 3.29C14.61 3.11 14.35 3 14.09 3H9.91C9.65 3 9.39 3.11 9.21 3.29L8.5 4H6C5.45 4 5 4.45 5 5C5 5.55 5.45 6 6 6H18C18.55 6 19 5.55 19 5C19 4.45 18.55 4 18 4H15.5Z" fill="#BDBDBD"/>
+                  </svg>
+                </button>
               </div>
-              <button class="remove mt-3">
-                Удалить информацию об образовании
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V9C18 7.9 17.1 7 16 7H8C6.9 7 6 7.9 6 9V19ZM9 9H15C15.55 9 16 9.45 16 10V18C16 18.55 15.55 19 15 19H9C8.45 19 8 18.55 8 18V10C8 9.45 8.45 9 9 9ZM15.5 4L14.79 3.29C14.61 3.11 14.35 3 14.09 3H9.91C9.65 3 9.39 3.11 9.21 3.29L8.5 4H6C5.45 4 5 4.45 5 5C5 5.55 5.45 6 6 6H18C18.55 6 19 5.55 19 5C19 4.45 18.55 4 18 4H15.5Z" fill="#BDBDBD"/>
-                </svg>
-              </button>
-            </div>
-            <div class="work-section">
-              <div class="d-flex gap-3 flex-md-row flex-column">
-                <div class="d-flex flex-column gap-3">
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Образование</p>
-                    <input type="text" class="primary-input" placeholder="Высшее">
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Учебное заведение</p>
-                    <input type="text" class="primary-input" placeholder="МГУ">
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Специальность</p>
-                    <input type="text" class="primary-input" placeholder="Название">
-                  </div>
-                </div>
-                <div class="d-flex flex-column gap-3">
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Год окончания</p>
-                    <input type="text" class="primary-input" placeholder="2010">
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Данные об аккредитации</p>
-                    <input type="text" class="primary-input" placeholder="0000 10110101">
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Данные по ординатуре</p>
-                    <input type="text" class="primary-input" placeholder="0000 10110101">
-                  </div>
-                </div>
-                <div class="d-flex flex-column gap-3">
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Данные по интернатуре</p>
-                    <input type="text" class="primary-input" placeholder="0000 10110101">
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Повышение квалификации</p>
-                    <input type="text" class="primary-input" placeholder="0000 10110101">
-                  </div>
-                  <div class="d-flex flex-column gap-1">
-                    <p class="text primary-input-label m-0">Специализация</p>
-                    <input type="text" class="primary-input" placeholder="0000 10110101">
-                  </div>
-                </div>
-              </div>
-              <button class="remove mt-3">
-                Удалить информацию об образовании
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V9C18 7.9 17.1 7 16 7H8C6.9 7 6 7.9 6 9V19ZM9 9H15C15.55 9 16 9.45 16 10V18C16 18.55 15.55 19 15 19H9C8.45 19 8 18.55 8 18V10C8 9.45 8.45 9 9 9ZM15.5 4L14.79 3.29C14.61 3.11 14.35 3 14.09 3H9.91C9.65 3 9.39 3.11 9.21 3.29L8.5 4H6C5.45 4 5 4.45 5 5C5 5.55 5.45 6 6 6H18C18.55 6 19 5.55 19 5C19 4.45 18.55 4 18 4H15.5Z" fill="#BDBDBD"/>
-                </svg>
-              </button>
-            </div>
+            }
           </div>
-          <button class="primary-button empty mt-2">
+          <button class="primary-button empty mt-2" (click)="addEducation()">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M11.9999 8.66683H8.66659V12.0002C8.66659 12.3668 8.36659 12.6668 7.99992 12.6668C7.63325 12.6668 7.33325 12.3668 7.33325 12.0002V8.66683H3.99992C3.63325 8.66683 3.33325 8.36683 3.33325 8.00016C3.33325 7.6335 3.63325 7.3335 3.99992 7.3335H7.33325V4.00016C7.33325 3.6335 7.63325 3.3335 7.99992 3.3335C8.36659 3.3335 8.66659 3.6335 8.66659 4.00016V7.3335H11.9999C12.3666 7.3335 12.6666 7.6335 12.6666 8.00016C12.6666 8.36683 12.3666 8.66683 11.9999 8.66683Z" fill="#27AE60"/>
             </svg>

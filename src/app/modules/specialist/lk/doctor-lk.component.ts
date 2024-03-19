@@ -24,6 +24,9 @@ export class DoctorLkComponent implements OnInit {
 
   isLoading: boolean = false;
 
+  tempEducations: Array<string> = [];
+  tempWorkExperience: Array<string> = [];
+
   constructor(
     private accountService: AccountService,
     private userStorageService: UserStorageService,
@@ -47,6 +50,21 @@ export class DoctorLkComponent implements OnInit {
       this.specialistEducation = specialistEducation;
       this.specialistWorkExperience = specialistWorkExperience;
       this.specialistDocs = specialistDocs;
+
+      if (this.specialistEducation?.length > 0){
+        this.tempEducations = this.specialistEducation.map(education => education.id);
+      }
+      else{
+        this.tempEducations.push('1');
+      }
+
+      if (this.specialistWorkExperience?.length > 0){
+        this.tempWorkExperience = this.specialistWorkExperience.map(education => education.id);
+      }
+      else{
+        this.tempWorkExperience.push('1');
+      }
+
       this.isLoading = false;
 
       console.log(this.userProfile);
@@ -55,5 +73,21 @@ export class DoctorLkComponent implements OnInit {
       console.log(this.specialistWorkExperience);
       console.log(this.specialistDocs);
     })
+  }
+
+  addEducation(){
+    this.tempEducations.push('1');
+  }
+
+  removeEducation(index: number){
+    this.tempEducations.splice(index, 1);
+  }
+
+  addWorkExperience(){
+    this.tempWorkExperience.push('1');
+  }
+
+  removeWorkExperience(index: number){
+    this.tempWorkExperience.splice(index, 1);
   }
 }
