@@ -58,7 +58,7 @@ export class AuthComponent {
         this.patientService.getPatientProfile(response.id).subscribe(response => {
             this.userStorageService.saveIsClient(true);
             this.userStorageService.saveIsSpecialist(false);
-            this.userStorageService.saveClientDetails(response);
+            this.userStorageService.saveClientDetails(response[0]);
 
             this.tokenStorageService.saveToken({access: data.access, refresh: data.refresh});
             this.router.navigate(['/main']);

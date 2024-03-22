@@ -66,7 +66,7 @@ export class AuthModalComponent {
         this.patientService.getPatientProfile(response.id).subscribe(response => {
           this.userStorageService.saveIsClient(true);
           this.userStorageService.saveIsSpecialist(false);
-          this.userStorageService.saveClientDetails(response);
+          this.userStorageService.saveClientDetails(response[0]);
 
           this.tokenStorageService.saveToken({access: data.access, refresh: data.refresh});
           this.reloadCurrentPage();
@@ -83,7 +83,7 @@ export class AuthModalComponent {
   }
 
   login(){
-    let phone = null;
+    let phone: string;
     if (this.phoneNumber) {
       phone = this.phoneNumber.nativeElement.value.replace('+7', '7');
     }
@@ -92,8 +92,9 @@ export class AuthModalComponent {
     }
     this.authService.flashCall({phone: phone}).subscribe(data => {
         this.flashCallResponse = data;
-        this.flashCallResponse.phone = this.defaultPhoneNumber;
         this.currentStep = 2;
+        this.flashCallResponse.phone = phone;
+        console.log(this.flashCallResponse);
       }
     );
     // this.reloadCurrentPage();

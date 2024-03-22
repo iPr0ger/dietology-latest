@@ -157,21 +157,21 @@
           <hr>
           <h2 class="title c-green mb-3">Образование</h2>
           <div class="d-flex flex-column gap-3">
-            @for (education of tempEducations; track education; let idx = $index){
+            @for (education of specialistEducation; track education; let idx = $index){
               <div class="work-section">
                 <div class="d-flex gap-3 flex-md-row flex-column">
                   <div class="d-flex flex-column gap-3">
                     <div class="d-flex flex-column gap-1">
                       <p class="text primary-input-label m-0">Образование</p>
-                      <input type="text" class="primary-input" placeholder="Высшее">
+                      <input type="text" class="primary-input" placeholder="Высшее" value="{{education!.level_of_education}}">
                     </div>
                     <div class="d-flex flex-column gap-1">
                       <p class="text primary-input-label m-0">Учебное заведение</p>
-                      <input type="text" class="primary-input" placeholder="МГУ">
+                      <input type="text" class="primary-input" placeholder="МГУ" value="{{education!.univercity.title}}">
                     </div>
                     <div class="d-flex flex-column gap-1">
                       <p class="text primary-input-label m-0">Специальность</p>
-                      <input type="text" class="primary-input" placeholder="Название">
+                      <input type="text" class="primary-input" placeholder="Название" value="{{education!.speciality.title}}">
                     </div>
                   </div>
                   <div class="d-flex flex-column gap-3">
@@ -191,7 +191,7 @@
                   <div class="d-flex flex-column gap-3">
                     <div class="d-flex flex-column gap-1">
                       <p class="text primary-input-label m-0">Данные по интернатуре</p>
-                      <input type="text" class="primary-input" placeholder="0000 10110101">
+                      <input type="text" class="primary-input" placeholder="0000 10110101" value="{{education!.internship_details}}">
                     </div>
                     <div class="d-flex flex-column gap-1">
                       <p class="text primary-input-label m-0">Повышение квалификации</p>
@@ -199,7 +199,7 @@
                     </div>
                     <div class="d-flex flex-column gap-1">
                       <p class="text primary-input-label m-0">Специализация</p>
-                      <input type="text" class="primary-input" placeholder="0000 10110101">
+                      <input type="text" class="primary-input" placeholder="0000 10110101" value="{{education!.specialization.title}}">
                     </div>
                   </div>
                 </div>

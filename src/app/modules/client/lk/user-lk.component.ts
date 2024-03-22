@@ -29,14 +29,17 @@ export class UserLkComponent implements OnInit {
     this.accountService.getUserById(this.userStorageService.getUser().id).subscribe(response => {
       this.userProfile = response;
 
-      console.log(this.userProfile);
+
 
       this.patientService.getPatientProfile(this.userStorageService.getUser().id).subscribe(response => {
-        this.clientProfile = response;
-        if (!this.clientProfile.photo?.includes('nutrusha.live')) {
-          const mediaUrl = this.clientProfile.photo;
-          this.clientProfile.photo = 'https://api.nutrisha.live' + mediaUrl;
-        }
+        this.clientProfile = response[0];
+        // if (!this.clientProfile.photo?.includes('nutrusha.live')) {
+        //   const mediaUrl = this.clientProfile.photo;
+        //   this.clientProfile.photo = 'https://api.nutrisha.live' + mediaUrl;
+        // }
+
+        console.log(this.userProfile);
+        console.log(this.clientProfile);
 
         this.isLoading = false;
       });

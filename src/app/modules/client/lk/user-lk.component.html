@@ -92,7 +92,7 @@
       <div class="profile-main d-flex flex-xl-nowrap flex-wrap gap-3 align-items-start">
         <div class="d-flex gap-3">
           <div class="profile-photo">
-            <img src="./assets/img/profile-photo.jpg" alt="">
+            <img src="{{clientProfile!.photo}}" alt="">
           </div>
           <div class="d-flex flex-column">
             <h1 class="title">{{clientProfile!.patient.first_name}} {{clientProfile!.patient.last_name}}</h1>
@@ -138,22 +138,22 @@
             <input type="text" class="primary-input" placeholder="8 (800) 1110-22-22" value="{{clientProfile!.patient.phone}}">
           </div>
           <div class="d-flex gap-3 mb-2">
-            <input type="radio" name="radio-gender" id="woman">
+            <input type="radio" name="radio-gender" id="woman" [checked]="clientProfile.gender !== 'male'">
             <label for="woman" class="primary-input-radio">Женщина</label>
-            <input type="radio" name="radio-gender" id="man">
+            <input type="radio" name="radio-gender" id="man" [checked]="clientProfile.gender === 'male'">
             <label for="man" class="primary-input-radio">Мужчина</label>
           </div>
           <div class="d-flex flex-column gap-1">
             <p class="text primary-input-label m-0">Электронная почта</p>
-            <input type="email" class="primary-input" placeholder="ergey@mail.ru">
+            <input type="email" class="primary-input" placeholder="ergey@mail.ru" value="{{clientProfile.patient.email}}">
           </div>
           <div class="d-flex flex-column gap-1">
             <p class="text primary-input-label m-0">Дата рождения</p>
-            <input type="text" class="primary-input" placeholder="10.10.1990">
+            <input type="text" class="primary-input" placeholder="10.10.1990" value="{{clientProfile.date_of_birth}}">
           </div>
         </div>
         <div class="photo-file-item d-flex gap-3 mt-3">
-          <img class="photo" src="./assets/img/profile-photo.jpg" alt="">
+          <img class="photo" src="{{clientProfile.photo}}" alt="">
           <span class="name">аватарка.png</span>
           <button class="remove">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -24,7 +24,7 @@
       }">
         <input type="text" class="primary-input mb-3"
                [value]="flashCallResponse?.code"
-               disabled
+               [disabled]="flashCallResponse?.phone === '79000000001'"
                placeholder="Введите код подтверждения" />
         <div class="d-flex flex-md-row flex-column-reverse gap-3">
           <button class="primary-button bordered back" (click)="goPreviousStep()">Назад</button>

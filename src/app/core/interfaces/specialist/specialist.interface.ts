@@ -13,7 +13,7 @@ export interface FacultetResponseInterface {
 export interface SpecialistEducationResponseInterface {
   id: string;
   city: LocationResponseInterface,
-  university: UniversityResponseInterface,
+  univercity: UniversityResponseInterface,
   facultet: FacultetResponseInterface,
   chairs: ChairResponseInterface,
   specialization: FacultetResponseInterface,

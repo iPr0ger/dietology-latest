@@ -17,8 +17,8 @@ export class PatientService {
     private http: HttpClient
   ) {}
 
-  getPatientProfile(patientId: string) : Observable<PatientUserProfileResponseInterface> {
-    return this.http.get<PatientUserProfileResponseInterface>(this.patientUrl + 'user-profile/' + patientId + '/');
+  getPatientProfile(patientId: string) : Observable<PatientUserProfileResponseInterface[]> {
+    return this.http.get<PatientUserProfileResponseInterface[]>(this.patientUrl + 'user-profile/' + patientId + '/');
   }
 
   createPatientProfile(patient: PatientUserProfileRequestInterface) : Observable<PatientUserProfileResponseInterface> {

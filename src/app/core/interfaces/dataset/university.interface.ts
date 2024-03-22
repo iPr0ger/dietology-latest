@@ -7,6 +7,6 @@ export interface UniversityRequestInterface{
 export interface UniversityResponseInterface{
   id: string;
   title: string;
-  city_id: string;
-  vk_id: string;
+  city_id: number;
+  vk_id: number;
 }
