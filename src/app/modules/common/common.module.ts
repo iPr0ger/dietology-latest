@@ -13,6 +13,7 @@ import {MatIcon} from "@angular/material/icon";
 import {MatGridList, MatGridTile} from "@angular/material/grid-list";
 import {DateTimeComponent} from "./main-page/component/date-component/date-time.component";
 import {SpecialistCardComponent} from "./main-page/component/specialist-card/specialist-card.component";
+import {AllDatesComponent} from "./main-page/modals/all-dates/all-dates.component";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {SpecialistCardComponent} from "./main-page/component/specialist-card/spe
     KeyValuePipe,
     DateTimeComponent,
     SpecialistModalComponent,
-    SpecialistCardComponent
+    SpecialistCardComponent,
+    AllDatesComponent
   ],
   exports: [
   ]
