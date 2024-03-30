@@ -1,19 +1,36 @@
 <footer class="footer">
   <div class="container round">
-    <div class="d-flex justify-content-between align-items-start">
-      <ul class="navigation d-flex flex-column flex-md-row mb-0 gap-md-4 gap-0">
-        <li class="navigation__item">Выбор специалиста</li>
-        <li class="navigation__item">Магазин</li>
-        <li class="navigation__item">Другие услуги</li>
-        <li class="navigation__item">О сервисе</li>
-      </ul>
-      <div class="d-flex flex-column justify-content-center align-items-end">
-        <p class="text-desc c-gray m-0 text-end">Техническая поддержка</p>
-        <a class="phone text-l c-green" href="tel:+88001111111">8 800 111 11 11</a>
+    <div *ngIf="!isSpecialist">
+      <div class="d-flex justify-content-between align-items-start">
+        <ul class="navigation d-flex flex-column flex-md-row mb-0 gap-md-4 gap-0">
+          <li class="navigation__item">Выбор специалиста</li>
+          <li class="navigation__item">Магазин</li>
+          <li class="navigation__item">Другие услуги</li>
+          <li class="navigation__item">О сервисе</li>
+        </ul>
+        <div class="d-flex flex-column justify-content-center align-items-end">
+          <p class="text-desc c-gray m-0 text-end">Техническая поддержка</p>
+          <a class="phone text-l c-green" href="tel:+88001111111">8 800 111 11 11</a>
+        </div>
+      </div>
+      <div>
+        <p class="text-s m-0">© ООО «ПорталДиетология», г. Москва, ул. Ленина, д. 8.</p>
+        <p class="text-s m-0">Лицензия на медицинскую деятельность Л041-01137-77/00325371, 2015–2024</p>
+        <p class="text-s m-0">Все права защищены. Условия использования сервиса</p>
       </div>
     </div>
-    <p class="text-s m-0">© ООО «ПорталДиетология», г. Москва, ул. Ленина, д. 8.</p>
-    <p class="text-s m-0">Лицензия на медицинскую деятельность Л041-01137-77/00325371, 2015–2024</p>
-    <p class="text-s m-0">Все права защищены. Условия использования сервиса</p>
+    <div *ngIf="isSpecialist">
+      <div class="d-flex justify-content-between align-items-start">
+        <div>
+          <p class="text-s m-0">© ООО «ПорталДиетология», г. Москва, ул. Ленина, д. 8.</p>
+          <p class="text-s m-0">Лицензия на медицинскую деятельность Л041-01137-77/00325371, 2015–2024</p>
+          <p class="text-s m-0">Все права защищены. Условия использования сервиса</p>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-end">
+          <p class="text-desc c-gray m-0 text-end">Техническая поддержка</p>
+          <a class="phone text-l c-green" href="tel:+88001111111">8 800 111 11 11</a>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>

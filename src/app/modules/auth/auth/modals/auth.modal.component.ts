@@ -97,7 +97,6 @@ export class AuthModalComponent {
         console.log(this.flashCallResponse);
       }
     );
-    // this.reloadCurrentPage();
   }
 
   authorizeUser() {

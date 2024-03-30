@@ -172,6 +172,7 @@
         <li class="navigation__item">Другие услуги</li>
         <li class="navigation__item">О сервисе</li>
       </ul>
+      <div *ngIf="userState?.is_specialist" style="height: 15px"></div>
       @if (!isAuthorized) {
         <button class="header-action-profile d-md-none d-flex justify-content-center align-items-center gap-2 p-2 mt-4"
                 style="background-color: white !important; width: 100% !important;"

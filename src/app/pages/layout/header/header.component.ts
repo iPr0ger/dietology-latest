@@ -6,8 +6,7 @@ import {UserStorageService} from "../../../core/services/storage/user-storage.se
 import {BaseAppConfig} from "../../../core/configs/base-app.config";
 import {TokenStorageService} from "../../../core/services/storage/token-storage.service";
 import {AuthService} from "../../../core/services/api/auth.service";
-import {TokenResponseInterface} from "../../../core/interfaces/token/token.interface";
-import {SignInRequestInterface} from "../../../core/interfaces/auth/auth.interface";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'header-component',
@@ -30,7 +29,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private userStorageService: UserStorageService,
-    private tokenStorageService: TokenStorageService
+    private tokenStorageService: TokenStorageService,
+    private router: Router,
   ) {}
 
   isLocationOpened: boolean = false;
@@ -53,6 +53,7 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.userStorageService.logOut();
     this.reloadCurrentPage();
+    this.router.navigate(['']);
   }
 
   reloadCurrentPage() {

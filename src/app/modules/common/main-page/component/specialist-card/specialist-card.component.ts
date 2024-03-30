@@ -5,6 +5,7 @@ import {SpecialistModalComponent} from "../../modals/specialist-modal.component"
 import {NgClass} from "@angular/common";
 import {ComponentService} from "../../../../../core/services/component.service";
 import {AllDatesComponent} from "../../modals/all-dates/all-dates.component";
+import {LoadScriptHelperService} from "../../../../../core/helpers/load-script-helper.service";
 
 
 @Component({
@@ -24,7 +25,8 @@ export class SpecialistCardComponent implements OnInit, AfterViewInit {
   times: AppointmentValue[] = [];
 
   constructor(
-    private componentService: ComponentService
+    private componentService: ComponentService,
+    private loadScriptHelperService: LoadScriptHelperService
   ) {
   }
 
@@ -43,16 +45,6 @@ export class SpecialistCardComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    let node = document.createElement('script');
-    node.src = "./assets/js/review-scroll.js";//Change to your js file
-    node.type = 'text/javascript';
-    node.async = true;
-    document.getElementsByTagName('body')[0].appendChild(node);
-
-    let node1 = document.createElement('script');
-    node1.src = "./assets/js/js-swap.js";//Change to your js file
-    node1.type = 'text/javascript';
-    node1.async = false;
-    document.getElementsByTagName('body')[0].appendChild(node1);
+    // this.loadScriptHelperService.loadJsScript("assets/js/main-js.js");
   }
 }

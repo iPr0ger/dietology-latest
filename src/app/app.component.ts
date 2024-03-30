@@ -23,18 +23,12 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    // this.elementRef.nativeElement.appendChild(
-    //   this.propagateService.propagateJsScript("../assets/js/main.js")
-    // );
-    // this.elementRef.nativeElement.appendChild(
-    //   this.propagateService.propagateStyles("../assets/css/bootstrap.min.css")
-    // );
-    // this.elementRef.nativeElement.appendChild(
-    //   this.propagateService.propagateStyles("../assets/css/styles.css")
-    // );
+
   }
 
   logout(): void {
     this.userStorageService.logOut();
   }
+
+
 }

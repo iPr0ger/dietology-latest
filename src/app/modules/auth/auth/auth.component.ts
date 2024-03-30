@@ -44,14 +44,14 @@ export class AuthComponent {
             this.userStorageService.saveSpecialistDetails(response[0]);
 
             this.tokenStorageService.saveToken({access: data.access, refresh: data.refresh});
-            this.router.navigate(['/main']);
+            this.router.navigate(['']);
           },
           error => {
             this.userStorageService.saveIsClient(false);
             this.userStorageService.saveIsSpecialist(true);
 
             this.tokenStorageService.saveToken({access: data.access, refresh: data.refresh});
-            this.router.navigate(['/main']);
+            this.router.navigate(['']);
           });
       }
       else{
@@ -61,14 +61,14 @@ export class AuthComponent {
             this.userStorageService.saveClientDetails(response[0]);
 
             this.tokenStorageService.saveToken({access: data.access, refresh: data.refresh});
-            this.router.navigate(['/main']);
+            this.router.navigate(['']);
           },
           error => {
             this.userStorageService.saveIsClient(true);
             this.userStorageService.saveIsSpecialist(false);
 
             this.tokenStorageService.saveToken({access: data.access, refresh: data.refresh});
-            this.router.navigate(['/main']);
+            this.router.navigate(['']);
           });
       }
     })

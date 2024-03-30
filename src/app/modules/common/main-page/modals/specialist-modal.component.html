@@ -50,7 +50,12 @@
         <span>9 из 10</span>
       </div>
     </div>
-    <div class="review-scroll hide-scroll mt-3">
+    <div class="review-scroll hide-scroll mt-3" #slider
+      (mousedown)="handleMousedown($event)"
+      (mousemove)="handleMousemove($event)"
+      (mouseup)="handleMouseup($event)"
+      (mouseleave)="handleMouseLeave($event)"
+    >
       <div class="review-item">
         <div class="review-photo">
           <img src="./assets/img/review.jpg" alt="">
