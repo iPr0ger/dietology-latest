@@ -6,6 +6,7 @@ import {NgClass} from "@angular/common";
 import {ComponentService} from "../../../../../core/services/component.service";
 import {AllDatesComponent} from "../../modals/all-dates/all-dates.component";
 import {LoadScriptHelperService} from "../../../../../core/helpers/load-script-helper.service";
+import {ServiceModalComponent} from "../../modals/service/service-modal.component";
 
 
 @Component({
@@ -16,7 +17,8 @@ import {LoadScriptHelperService} from "../../../../../core/helpers/load-script-h
     DateTimeComponent,
     SpecialistModalComponent,
     NgClass,
-    AllDatesComponent
+    AllDatesComponent,
+    ServiceModalComponent
   ]
 })
 export class SpecialistCardComponent implements OnInit, AfterViewInit {

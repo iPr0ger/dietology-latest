@@ -14,6 +14,9 @@ import {MatGridList, MatGridTile} from "@angular/material/grid-list";
 import {DateTimeComponent} from "./main-page/component/date-component/date-time.component";
 import {SpecialistCardComponent} from "./main-page/component/specialist-card/specialist-card.component";
 import {AllDatesComponent} from "./main-page/modals/all-dates/all-dates.component";
+import {QuestionaireModalComponent} from "./main-page/modals/questionaire/questionaire-modal.component";
+import {ServiceModalComponent} from "./main-page/modals/service/service-modal.component";
+import {ChatModalComponent} from "./main-page/modals/chat/chat-modal.component";
 
 @NgModule({
   declarations: [
@@ -38,9 +41,13 @@ import {AllDatesComponent} from "./main-page/modals/all-dates/all-dates.componen
     DateTimeComponent,
     SpecialistModalComponent,
     SpecialistCardComponent,
-    AllDatesComponent
+    AllDatesComponent,
+    QuestionaireModalComponent,
+    ServiceModalComponent,
+    ChatModalComponent
   ],
   exports: [
+    CallSettingsModalComponent
   ]
 })
 export class CommonModule {}

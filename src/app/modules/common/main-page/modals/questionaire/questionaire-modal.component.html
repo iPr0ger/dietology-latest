@@ -1,0 +1,81 @@
+<!-- MODAL OF THE SPECIALIST -->
+<div [ngClass]="{'modal-wrapper': true, 'active' : isModalOpen}" id="quiz-modal">
+  <div class="modal-block quiz-modal">
+    <button class="modal-close js-close-modal" (click)="closeModal()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.2 3.80665C11.94 3.54665 11.52 3.54665 11.26 3.80665L7.99998 7.05998L4.73998 3.79998C4.47998 3.53998 4.05998 3.53998 3.79998 3.79998C3.53998 4.05998 3.53998 4.47998 3.79998 4.73998L7.05998 7.99998L3.79998 11.26C3.53998 11.52 3.53998 11.94 3.79998 12.2C4.05998 12.46 4.47998 12.46 4.73998 12.2L7.99998 8.93998L11.26 12.2C11.52 12.46 11.94 12.46 12.2 12.2C12.46 11.94 12.46 11.52 12.2 11.26L8.93998 7.99998L12.2 4.73998C12.4533 4.48665 12.4533 4.05998 12.2 3.80665V3.80665Z" fill="#27AE60"/>
+      </svg>
+    </button>
+    <div class="d-flex align-items-center justify-content-between">
+      <h2 class="title c-green">Заполните анкету для консультации</h2>
+      <p class="modal-title">
+        <span class="c-green active-step" id="quiz-step-iter">{{quizStep}}</span>
+        <span class="c-gray separate">/</span>
+        <span class="c-gray count-step">{{quizMaxStep}}</span>
+      </p>
+    </div>
+    <div [ngClass]="{
+      'quiz-step': true,
+      'hide': quizStep !== 1
+    }" data-step="1">
+      <p class="text-l c-green mt-3">Мои цели</p>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1 ">
+        <input type="checkbox" id="my-point1">
+        <label for="my-point1" class="primary-input-check c-green w-md-50 w-100">Поддерживать свое здоровье в оптимальном состоянии</label>
+        <input type="checkbox" id="my-point2">
+        <label for="my-point2" class="primary-input-check c-green w-md-50 w-100">Укрепить иммунитет</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point3" checked>
+        <label for="my-point3" class="primary-input-check c-green w-md-50 w-100">Улучшить состояние кожи волос и ногтей</label>
+        <input type="checkbox" id="my-point4">
+        <label for="my-point4" class="primary-input-check c-green w-md-50 w-100">Увеличить мышечную массу при занятиях спортом</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point5" checked>
+        <label for="my-point5" class="primary-input-check c-green w-md-50 w-100">Уменьшить влияние стресса</label>
+        <input type="checkbox" id="my-point6">
+        <label for="my-point6" class="primary-input-check c-green w-md-50 w-100">Увеличить массу тела</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point7">
+        <label for="my-point7" class="primary-input-check c-green w-md-50 w-100">Похудеть</label>
+      </div>
+      <div class="d-flex flex-column gap-1 mt-2">
+        <p class="text primary-input-label m-0">Другие цели</p>
+        <textarea class="primary-input w-100"></textarea>
+      </div>
+    </div>
+    <div [ngClass]="{
+      'quiz-step': true,
+      'hide': quizStep !== 2
+    }" data-step="2">
+      <p class="text-l c-green mt-3">Параметры</p>
+      <div class="d-flex flex-md-row flex-column gap-3 my-1">
+        <div class="d-flex flex-column gap-1 w-md-50 w-100">
+          <p class="text primary-input-label m-0">Ваш рост, см</p>
+          <input type="text" class="primary-input" value="156" placeholder="0">
+        </div>
+        <div class="d-flex flex-column gap-1 w-md-50 w-100">
+          <p class="text primary-input-label m-0">Объем талии, см</p>
+          <input type="text" class="primary-input" value="43" placeholder="0">
+        </div>
+      </div>
+      <div class="d-flex flex-md-row flex-column gap-3 my-1">
+        <div class="d-flex flex-column gap-1 w-md-50 w-100">
+          <p class="text primary-input-label m-0">Ваш вес, кг</p>
+          <input type="text" class="primary-input" value="56" placeholder="0">
+        </div>
+        <div class="d-flex flex-column gap-1 w-md-50 w-100">
+          <p class="text primary-input-label m-0">Объем бедра, см</p>
+          <input type="text" class="primary-input" value="43" placeholder="0">
+        </div>
+      </div>
+    </div>
+    <div class="d-flex gap-3 justify-content-end mt-3">
+      <button class="primary-button bordered back" (click)="goQuizPrevStep()" [disabled]="quizStep === 1">Назад</button>
+      <button class="primary-button fill arrow" (click)="goQuizNextStep()" [disabled]="quizStep === 10">Дальше</button>
+    </div>
+  </div>
+</div>
+<!-- END MODAL OF THE SPECIALIST -->

@@ -47,7 +47,7 @@
       </div>
       <div class="d-flex flex-grow-1"></div>
       <button class="primary-button bordered d-lg-block d-none" (click)="allDatesComponent.openModal()">Все даты</button>
-      <button class="primary-button fill d-lg-block d-none">Выбрать</button>
+      <button class="primary-button fill d-lg-block d-none" (click)="serviceModalComponent.openModal()">Выбрать</button>
     </div>
     <div class="swap-select js-swap-active d-flex gap-1 mb-2">
       @for (appointmentValue of specialist.appointment; track appointmentValue; let isFirst = $first; let idx = $index) {
@@ -84,4 +84,6 @@
 
   <specialist-modal #specialistModalComponent [specialist]="specialist.specialistProfile"></specialist-modal>
   <all-dates-modal #allDatesComponent [specialistId]="specialist.specialistProfile.id"></all-dates-modal>
+
+  <service-modal #serviceModalComponent></service-modal>
 </div>

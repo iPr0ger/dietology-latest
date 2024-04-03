@@ -1,0 +1,85 @@
+<!-- MODAL OF THE SPECIALIST -->
+<div [ngClass]="{'modal-wrapper': true, 'active' : isModalOpen}" id="service-modal">
+  <div class="modal-block specialist">
+    <button class="modal-close js-close-modal" (click)="closeModal()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.2 3.80665C11.94 3.54665 11.52 3.54665 11.26 3.80665L7.99998 7.05998L4.73998 3.79998C4.47998 3.53998 4.05998 3.53998 3.79998 3.79998C3.53998 4.05998 3.53998 4.47998 3.79998 4.73998L7.05998 7.99998L3.79998 11.26C3.53998 11.52 3.53998 11.94 3.79998 12.2C4.05998 12.46 4.47998 12.46 4.73998 12.2L7.99998 8.93998L11.26 12.2C11.52 12.46 11.94 12.46 12.2 12.2C12.46 11.94 12.46 11.52 12.2 11.26L8.93998 7.99998L12.2 4.73998C12.4533 4.48665 12.4533 4.05998 12.2 3.80665V3.80665Z" fill="#27AE60"/>
+      </svg>
+    </button>
+    <h2 class="title">Выбрать услугу</h2>
+    <div class="d-flex justify-content-between align-items-center my-4">
+      <div class="d-flex flex-column">
+        <p class="text-s pin bg-blue">1 раз</p>
+        <p class="text-l">Разовая онлайн-консультация врача</p>
+        <p class="text-l c-green">1500 руб.</p>
+      </div>
+      <button class="primary-button bordered arrow js-open-modal"
+              data-modal="quiz-modal"
+              (click)="openQuestionaireModal()"
+      >Выбрать</button>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="d-flex flex-column">
+        <p class="text-s pin bg-blue">на 10 дней с рецептами</p>
+        <p class="text-l">Разовая онлайн-консультация врача</p>
+        <p class="text-l c-green">1500 руб.</p>
+      </div>
+      <button class="primary-button bordered arrow js-open-modal"
+              data-modal="quiz-modal"
+              (click)="openQuestionaireModal()"
+      >Выбрать</button>
+    </div>
+    <hr>
+    <div class="d-flex flex-column">
+      <div class="d-flex justify-content-between">
+        <p class="text-l">Подписка (абонемент)</p>
+        <div class="swap-select js-swap-active d-flex gap-1 mb-2">
+          <span class="swap-select__item active">Индивидуально</span>
+          <span class="swap-select__item">На семью</span>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between mb-3 mt-2">
+        <div class="arrow-after d-flex flex-column position-relative">
+          <p class="text-s pin bg-blue">-3%</p>
+          <p class="text-m">1 мес.</p>
+        </div>
+        <div class="arrow-after d-flex flex-column position-relative">
+          <p class="text-s pin bg-blue">-5%</p>
+          <p class="text-m">3 мес.</p>
+        </div>
+        <div class="arrow-after d-flex flex-column position-relative">
+          <p class="text-s pin bg-blue">-7%</p>
+          <p class="text-m">6 мес.</p>
+        </div>
+        <div class="arrow-after d-flex flex-column position-relative">
+          <p class="text-s pin bg-blue">-10%</p>
+          <p class="text-m">12 мес.</p>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="d-flex flex-column">
+      <div class="d-flex justify-content-between">
+        <p class="text-l">Ведение пациента совместно с профессором</p>
+        <button class="primary-button empty text-l">Цена  по запросу</button>
+      </div>
+      <div class="d-flex justify-content-between mt-4">
+        <div class="arrow-after d-flex flex-column position-relative">
+          <p class="text-m">1 мес.</p>
+        </div>
+        <div class="arrow-after d-flex flex-column position-relative">
+          <p class="text-m">3 мес.</p>
+        </div>
+        <div class="arrow-after d-flex flex-column position-relative">
+          <p class="text-m">6 мес.</p>
+        </div>
+        <div class="arrow-after d-flex flex-column position-relative">
+          <p class="text-m">12 мес.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END MODAL OF THE SPECIALIST -->
+
+<questionaire-modal #questionaireModalComponent></questionaire-modal>

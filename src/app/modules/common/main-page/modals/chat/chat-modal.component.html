@@ -1,0 +1,62 @@
+<!-- MODAL OF THE SPECIALIST -->
+<div [ngClass]="{'modal-wrapper': true, 'bg-none' : true, 'active': isModalOpen}" id="chat-modal">
+  <div class="modal-block mt-0">
+    <div class="chat-header d-flex gap-2 align-items-center">
+      <div class="chat-photo">
+        <img src="./assets/img/photo-spec1.jpg" alt="">
+      </div>
+      <div class="d-flex flex-column justify-content-between">
+        <p class="name text-m">Сергей Горянин</p>
+        <p class="point text-desc c-gray">Диетолог</p>
+      </div>
+
+      <div class="modal-close js-close-modal" (click)="closeModal()">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.2 3.80665C11.94 3.54665 11.52 3.54665 11.26 3.80665L7.99998 7.05998L4.73998 3.79998C4.47998 3.53998 4.05998 3.53998 3.79998 3.79998C3.53998 4.05998 3.53998 4.47998 3.79998 4.73998L7.05998 7.99998L3.79998 11.26C3.53998 11.52 3.53998 11.94 3.79998 12.2C4.05998 12.46 4.47998 12.46 4.73998 12.2L7.99998 8.93998L11.26 12.2C11.52 12.46 11.94 12.46 12.2 12.2C12.46 11.94 12.46 11.52 12.2 11.26L8.93998 7.99998L12.2 4.73998C12.4533 4.48665 12.4533 4.05998 12.2 3.80665V3.80665Z" fill="#27AE60"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="chat-scroll hide-scroll my-3">
+      <div class="message opponent last-message mb-3">
+        <div class="photo"><img src="./assets/img/profile-photo.jpg" alt=""></div>
+        <p class="text-desc">На изображении паста с мясным соусом, скорее всего, что-то вроде болоньезе.e</p>
+      </div>
+      <div class="message own last-message mb-3">
+        <div class="photo"><img src="./assets/img/photo-spec1.jpg" alt=""></div>
+        <p class="text-desc">На изображении паста с мясным соусом, скорее всего, что-то вроде болоньезе. Делюсь классическим рецептом</p>
+      </div>
+      <p class="text-m c-gray text-center w-100 my-4">15 апреля</p>
+      <div class="message opponent last-message mb-3">
+        <div class="photo"><img src="./assets/img/profile-photo.jpg" alt=""></div>
+        <p class="text-desc">На изображении паста с мясным соусом, скорее всего, что-то вроде болоньезе. Делюсь классическим рецептом</p>
+      </div>
+      <div class="message own last-message mb-3">
+        <div class="photo"><img src="./assets/img/photo-spec1.jpg" alt=""></div>
+        <p class="text-desc">На изображении паста с мясным соусом, скорее всего, что-то вроде болоньезе. Делюсь классическим рецептом</p>
+      </div>
+      <p class="text-m c-gray text-center w-100 my-4">16 апреля</p>
+      <div class="message opponent last-message mb-3">
+        <div class="photo"><img src="./assets/img/profile-photo.jpg" alt=""></div>
+        <p class="text-desc">На изображении паста с мясным соусом, скорее всего, что-то вроде болоньезе. Делюсь классическим рецептом</p>
+      </div>
+      <div class="message own last-message mb-3">
+        <div class="photo"><img src="./assets/img/photo-spec1.jpg" alt=""></div>
+        <p class="text-desc">На изображении паста с мясным соусом, скорее всего, что-то вроде болоньезе. Делюсь классическим рецептом</p>
+      </div>
+    </div>
+    <div class="chat-send-block d-flex align-items-end gap-3">
+      <button class="primary-button empty">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.0001 4.49977V11.5531C11.0001 12.9464 9.98008 14.1864 8.59342 14.3198C7.00008 14.4731 5.66675 13.2264 5.66675 11.6664V3.42644C5.66675 2.55311 6.29341 1.75977 7.16008 1.67311C8.16008 1.57311 9.00008 2.35311 9.00008 3.33311V10.3331C9.00008 10.6998 8.70008 10.9998 8.33341 10.9998C7.96675 10.9998 7.66675 10.6998 7.66675 10.3331V4.49977C7.66675 4.22644 7.44008 3.99977 7.16675 3.99977C6.89341 3.99977 6.66675 4.22644 6.66675 4.49977V10.2398C6.66675 11.1131 7.29341 11.9064 8.16008 11.9931C9.16008 12.0931 10.0001 11.3131 10.0001 10.3331V3.44644C10.0001 2.05311 8.98008 0.813105 7.59342 0.679772C6.00675 0.526438 4.66675 1.77311 4.66675 3.33311V11.5131C4.66675 13.4264 6.06675 15.1398 7.97341 15.3198C10.1667 15.5198 12.0001 13.8131 12.0001 11.6664V4.49977C12.0001 4.22644 11.7734 3.99977 11.5001 3.99977C11.2267 3.99977 11.0001 4.22644 11.0001 4.49977Z" fill="#27AE60"></path>
+        </svg>
+      </button>
+      <textarea type="text" class="primary-input chat-text w-100" placeholder="Введите текст..."></textarea>
+      <button class="primary-button empty">
+        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.26665 14.1L13.9 9.11333C14.44 8.88 14.44 8.12 13.9 7.88667L2.26665 2.9C1.82665 2.70667 1.33998 3.03333 1.33998 3.50667L1.33331 6.58C1.33331 6.91333 1.57998 7.2 1.91331 7.24L11.3333 8.5L1.91331 9.75333C1.57998 9.8 1.33331 10.0867 1.33331 10.42L1.33998 13.4933C1.33998 13.9667 1.82665 14.2933 2.26665 14.1V14.1Z" fill="#27AE60"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+<!-- END MODAL OF THE SPECIALIST -->

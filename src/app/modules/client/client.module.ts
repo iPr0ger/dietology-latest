@@ -4,7 +4,7 @@ import {MedcardComponent} from "./medcard/medcard.component";
 import {ClientMainComponent} from "./client-main.component";
 import {ClientRoutingModule} from "./client-routing.module";
 import {LayoutModule} from "../../pages/layout.module";
-import {NgIf} from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
 import {UserLkComponent} from "./lk/user-lk.component";
 
 @NgModule({
@@ -14,11 +14,12 @@ import {UserLkComponent} from "./lk/user-lk.component";
     UserLkComponent,
     MedcardComponent
   ],
-  imports: [
-      ClientRoutingModule,
-      LayoutModule,
-      NgIf
-  ],
+    imports: [
+        ClientRoutingModule,
+        LayoutModule,
+        NgIf,
+        NgClass
+    ],
   exports: []
 })
 export class ClientModule {}

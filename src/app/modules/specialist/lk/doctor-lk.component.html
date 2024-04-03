@@ -2,26 +2,29 @@
   <div class="container d-flex flex-lg-row flex-column px-0 my-3 gap-3">
     <div class="profile-menu d-lg-block d-none">
       <ul class="profile-menu-list js-containers">
-        <li class="profile-menu-list__item d-flex align-items-center gap-2 active" data-container="0">
+        <li [ngClass]="{'profile-menu-list__item d-flex align-items-center gap-2': true, 'active': isPrivateDataVisible}"
+            data-container="0" (click)="showPrivateData()">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.99998 6.99998C8.28915 6.99998 9.33331 5.95581 9.33331 4.66665C9.33331 3.37748 8.28915 2.33331 6.99998 2.33331C5.71081 2.33331 4.66665 3.37748 4.66665 4.66665C4.66665 5.95581 5.71081 6.99998 6.99998 6.99998ZM6.99998 8.16665C5.44248 8.16665 2.33331 8.94831 2.33331 10.5V11.0833C2.33331 11.4041 2.59581 11.6666 2.91665 11.6666H11.0833C11.4041 11.6666 11.6666 11.4041 11.6666 11.0833V10.5C11.6666 8.94831 8.55748 8.16665 6.99998 8.16665Z" fill="#BDBDBD"/>
           </svg>
           Личные данные
         </li>
-        <li class="profile-menu-list__item d-flex align-items-center gap-2" data-container="1">
+        <li [ngClass]="{'profile-menu-list__item d-flex align-items-center gap-2': true, 'active': isConsultationVisible}"
+            data-container="1" (click)="showConsultation()">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.9999 1.66675H4.99992C4.08325 1.66675 3.33325 2.41675 3.33325 3.33341V16.6667C3.33325 17.5834 4.08325 18.3334 4.99992 18.3334H14.9999C15.9166 18.3334 16.6666 17.5834 16.6666 16.6667V3.33341C16.6666 2.41675 15.9166 1.66675 14.9999 1.66675ZM4.99992 3.33341H9.16659V10.0001L7.08325 8.75008L4.99992 10.0001V3.33341Z" fill="#BDBDBD"/>
           </svg>
           Мои консультации
         </li>
-        <li class="profile-menu-list__item d-flex align-items-center gap-2" data-container="2">
+        <li [ngClass]="{'profile-menu-list__item d-flex align-items-center gap-2': true, 'active': isPatientsVisible}"
+            data-container="2" (click)="showPatients()">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M13.7501 10.0001C14.9001 10.0001 15.8251 9.06675 15.8251 7.91675C15.8251 6.76675 14.9001 5.83341 13.7501 5.83341C12.6001 5.83341 11.6667 6.76675 11.6667 7.91675C11.6667 9.06675 12.6001 10.0001 13.7501 10.0001ZM7.50008 9.16675C8.88342 9.16675 9.99175 8.05008 9.99175 6.66675C9.99175 5.28341 8.88342 4.16675 7.50008 4.16675C6.11675 4.16675 5.00008 5.28341 5.00008 6.66675C5.00008 8.05008 6.11675 9.16675 7.50008 9.16675ZM13.7501 11.6667C12.2251 11.6667 9.16675 12.4334 9.16675 13.9584V15.0001C9.16675 15.4584 9.54175 15.8334 10.0001 15.8334H17.5001C17.9584 15.8334 18.3334 15.4584 18.3334 15.0001V13.9584C18.3334 12.4334 15.2751 11.6667 13.7501 11.6667ZM7.50008 10.8334C5.55841 10.8334 1.66675 11.8084 1.66675 13.7501V15.0001C1.66675 15.4584 2.04175 15.8334 2.50008 15.8334H7.50008V13.9584C7.50008 13.2501 7.77508 12.0084 9.47508 11.0667C8.75008 10.9167 8.05008 10.8334 7.50008 10.8334Z" fill="#BDBDBD"/>
           </svg>
           Мои пациенты
         </li>
       </ul>
-      <div class="profile-calendar hide-scroll d-flex flex-column align-items-centerc">
+      <div class="profile-calendar hide-scroll d-flex flex-column">
         <p class="date text-s">12 янв, вторник</p>
         <div class="calendar-item w-100 d-flex justify-content-between">
           <div class="d-flex flex-column justify-content-center">
@@ -70,8 +73,8 @@
 
       </div>
     </div>
-    <div class="profile-tabs w-100" *ngIf="!isLoading">
-      <div class="profile-container d-flex flex-column gap-3">
+    <div class="profile-tabs w-100">
+      <div [ngClass]="{'profile-container flex-column gap-3': true, 'd-flex': isPrivateDataVisible, 'd-none': !isPrivateDataVisible}">
         <div class="profile-main d-flex gap-3">
           <div class="profile-photo">
             @if (specialistProfile?.photo === null) {
@@ -274,7 +277,7 @@
           </button>
         </div>
       </div>
-      <div class="profile-container d-none">
+      <div [ngClass]="{'profile-container gap-2 align-items-start': true, 'd-none': !isConsultationVisible, 'd-flex': isConsultationVisible}">
         <div class="profile-info w-100">
           <div class="d-flex gap-3 flex-wrap flex-md-row flex-column justify-content-between align-items-md-center position-relative">
             <div class="primary-select mobile-border">
@@ -289,9 +292,12 @@
               </ul>
             </div>
             <div class="swap-select js-swap-table d-flex gap-1">
-              <span class="swap-select__item active" data-table="0">Месяц</span>
-              <span class="swap-select__item" data-table="1">Неделя</span>
-              <span class="swap-select__item" data-table="2">День</span>
+              <span [ngClass]="{'swap-select__item': true, 'active': isMonthTableVisible}"
+                    data-table="0" (click)="showMonthTable()">Месяц</span>
+              <span [ngClass]="{'swap-select__item': true, 'active': isWeekTableVisible}"
+                    data-table="1" (click)="showWeekTable()">Неделя</span>
+              <span [ngClass]="{'swap-select__item': true, 'active': isDayTableVisible}"
+                    data-table="2" (click)="showDayTable()">День</span>
             </div>
             <div class="flex-space"></div>
             <div class="nav-buttons d-flex gap-3">
@@ -308,7 +314,7 @@
             </div>
           </div>
           <div class="tables-tabs pt-lg-3 pt-2">
-            <div class="month-table-wrapper hide-scroll active-table">
+            <div [ngClass]="{'month-table-wrapper hide-scroll': true, 'active-table': isMonthTableVisible}">
               <table class="month-table">
                 <tr class="month-table-header">
                   <th>Пн</th>
@@ -614,7 +620,7 @@
                 </tr>
               </table>
             </div>
-            <div class="week-grid-wrapper">
+            <div [ngClass]="{'week-grid-wrapper': true, 'active-table': isWeekTableVisible}">
               <div class="week-grid-header">
                 <span></span>
                 <span class="text-desc c-gray">Пн, 1</span>
@@ -800,7 +806,7 @@
                 </div>
               </div>
             </div>
-            <div class="day-grid-wrapper">
+            <div [ngClass]="{'day-grid-wrapper': true, 'active-table': isDayTableVisible}">
               <div class="day-grid-header">
                 <p class="text-desc c-gray w-100 text-center">Пн, 1</p>
               </div>
@@ -890,19 +896,205 @@
             </div>
           </div>
         </div>
+        <div class="profile-calendar d-none flex-column gap-2">
+          <div class="d-flex align-items-center justify-content-between">
+            <p class="text-l">Вт, 2 фев 2024 года</p>
+            <div class="calendar-close">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.2 3.80665C11.94 3.54665 11.52 3.54665 11.26 3.80665L7.99998 7.05998L4.73998 3.79998C4.47998 3.53998 4.05998 3.53998 3.79998 3.79998C3.53998 4.05998 3.53998 4.47998 3.79998 4.73998L7.05998 7.99998L3.79998 11.26C3.53998 11.52 3.53998 11.94 3.79998 12.2C4.05998 12.46 4.47998 12.46 4.73998 12.2L7.99998 8.93998L11.26 12.2C11.52 12.46 11.94 12.46 12.2 12.2C12.46 11.94 12.46 11.52 12.2 11.26L8.93998 7.99998L12.2 4.73998C12.4533 4.48665 12.4533 4.05998 12.2 3.80665V3.80665Z" fill="#27AE60"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="calendar-item w-100 d-flex justify-content-between">
+            <div class="d-flex flex-column justify-content-center">
+              <p class="calendar-item__name text-desc">Сергей Горякин</p>
+              <p class="calendar-item__type text-s">Консультация</p>
+            </div>
+            <p class="calendar-item__time text-desc">12:00</p>
+          </div>
+          <div class="calendar-item w-100 d-flex justify-content-between">
+            <div class="d-flex flex-column justify-content-center">
+              <p class="calendar-item__name text-desc">Сергей Горякин</p>
+              <p class="calendar-item__type text-s">Проверка</p>
+            </div>
+            <p class="calendar-item__time text-desc">15:00</p>
+          </div>
+          <div class="calendar-item w-100 d-flex justify-content-between">
+            <div class="d-flex flex-column justify-content-center">
+              <p class="calendar-item__name text-desc">Сергей Горякин</p>
+              <p class="calendar-item__type text-s">Консультация</p>
+            </div>
+            <p class="calendar-item__time text-desc">12:00</p>
+          </div>
+
+        </div>
       </div>
-      <div class="profile-container d-none">
-        <div class="profile-info w-100">
-          <div style="height: 800px;">
-            <h2 class="title c-green">Мои пациенты</h2>
+      <div [ngClass]="{'profile-container flex-column': true, 'd-flex': isPatientsVisible, 'd-none': !isPatientsVisible}">
+        <div class="profile-info w-100 pb-0 mb-4">
+          <div class="d-flex gap-4">
+            <div class="profile-photo">
+              <img src="./assets/img/profile-photo.jpg" alt="">
+            </div>
+            <div class="d-flex flex-column">
+              <h1 class="title absolute-space mb-0">Елена Некрасова</h1>
+              <div class="d-flex flex-wrap gap-2 mt-4">
+                <div class="profile-pin d-flex align-items-center gap-2">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.00002 1.16669C4.74252 1.16669 2.91669 2.99252 2.91669 5.25002C2.91669 7.68252 5.49502 11.0367 6.55669 12.3142C6.79002 12.5942 7.21585 12.5942 7.44919 12.3142C8.50502 11.0367 11.0834 7.68252 11.0834 5.25002C11.0834 2.99252 9.25752 1.16669 7.00002 1.16669ZM7.00002 6.70835C6.19502 6.70835 5.54169 6.05502 5.54169 5.25002C5.54169 4.44502 6.19502 3.79169 7.00002 3.79169C7.80502 3.79169 8.45835 4.44502 8.45835 5.25002C8.45835 6.05502 7.80502 6.70835 7.00002 6.70835Z" fill="#27AE60"/>
+                  </svg>
+                  <span>Россия, Астрахань</span>
+                </div>
+                <div class="profile-pin d-flex align-items-center gap-2">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.6667 2.33334H2.33332C1.69166 2.33334 1.17249 2.85834 1.17249 3.5L1.16666 10.5C1.16666 11.1417 1.69166 11.6667 2.33332 11.6667H11.6667C12.3083 11.6667 12.8333 11.1417 12.8333 10.5V3.5C12.8333 2.85834 12.3083 2.33334 11.6667 2.33334ZM11.4333 4.8125L7.30916 7.39084C7.12249 7.5075 6.87749 7.5075 6.69082 7.39084L2.56666 4.8125C2.42082 4.71917 2.33332 4.56167 2.33332 4.3925C2.33332 4.00167 2.75916 3.76834 3.09166 3.9725L6.99999 6.41667L10.9083 3.9725C11.2408 3.76834 11.6667 4.00167 11.6667 4.3925C11.6667 4.56167 11.5792 4.71917 11.4333 4.8125Z" fill="#27AE60"/>
+                  </svg>
+                  <span>sergey mail.ru</span>
+                </div>
+              </div>
+            </div>
+            <div class="medcard-block d-flex flex-column gap-1">
+              <p class="text-s">Ближайшая консультация:</p>
+              <p class="text-m">19 сентября, вторник в 18:30</p>
+              <div class="d-flex justify-content-between mt-2 gap-3">
+                <button class="primary-button bordered">Перенести</button>
+                <button class="primary-button fill">Перейти в чат</button>
+              </div>
+            </div>
+          </div>
+          <ul class="navigation-list w-100 d-flex flex-md-row flex-column mb-0 mt-md-4 mt-5 gap-3">
+            <li class="navigation-list__item active" data-container="0">Анкета</li>
+            <li class="navigation-list__item" data-container="1">Рекомендации</li>
+          </ul>
+        </div>
+        <div class="profile-info w-100 js-nav active">
+          <h2 class="title c-green">Мои цели</h2>
+          <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1 ">
+            <input type="checkbox" id="my-point1">
+            <label for="my-point1" class="primary-input-check c-green w-md-50 w-100">Поддерживать свое здоровье в оптимальном состоянии</label>
+            <input type="checkbox" id="my-point2">
+            <label for="my-point2" class="primary-input-check c-green w-md-50 w-100">Укрепить иммунитет</label>
+          </div>
+          <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+            <input type="checkbox" id="my-point3" checked>
+            <label for="my-point3" class="primary-input-check c-green w-md-50 w-100">Улучшить состояние кожи волос и ногтей</label>
+            <input type="checkbox" id="my-point4">
+            <label for="my-point4" class="primary-input-check c-green w-md-50 w-100">Увеличить мышечную массу при занятиях спортом</label>
+          </div>
+          <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+            <input type="checkbox" id="my-point5" checked>
+            <label for="my-point5" class="primary-input-check c-green w-md-50 w-100">Уменьшить влияние стресса</label>
+            <input type="checkbox" id="my-point6">
+            <label for="my-point6" class="primary-input-check c-green w-md-50 w-100">Увеличить массу тела</label>
+          </div>
+          <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+            <input type="checkbox" id="my-point7">
+            <label for="my-point7" class="primary-input-check c-green w-md-50 w-100">Похудеть</label>
+          </div>
+          <div class="d-flex flex-column gap-1 mt-2">
+            <p class="text primary-input-label m-0">Другая цель</p>
+            <textarea class="primary-input w-100"></textarea>
+          </div>
+          <h2 class="title c-green mt-4 mb-3">Параметры</h2>
+          <div class="d-flex flex-md-row flex-column gap-3 my-1">
+            <div class="d-flex flex-column gap-1 w-md-50 w-100">
+              <p class="text primary-input-label m-0">Ваш рост, см</p>
+              <input type="text" class="primary-input" value="156" placeholder="0">
+            </div>
+            <div class="d-flex flex-column gap-1 w-md-50 w-100">
+              <p class="text primary-input-label m-0">Окружность грудной клетки, см</p>
+              <input type="text" class="primary-input" value="43" placeholder="0">
+            </div>
+          </div>
+          <div class="d-flex flex-md-row flex-column gap-3 my-1">
+            <div class="d-flex flex-column gap-1 w-md-50 w-100">
+              <p class="text primary-input-label m-0">Телосложение</p>
+              <input type="text" class="primary-input" value="Обычное" placeholder="Телосложение">
+            </div>
+            <div class="d-flex flex-column gap-1 w-md-50 w-100">
+              <p class="text primary-input-label m-0">Бедра, см</p>
+              <input type="text" class="primary-input" value="43" placeholder="0">
+            </div>
+          </div>
+          <div class="d-flex flex-md-row flex-column gap-3 my-1">
+            <div class="d-flex flex-column gap-1 w-md-50 w-100">
+              <p class="text primary-input-label m-0">Талия, см</p>
+              <input type="text" class="primary-input" value="33" placeholder="0">
+            </div>
+            <div class="d-flex flex-column gap-1 w-md-50 w-100">
+              <p class="text primary-input-label m-0">Запястье, см</p>
+              <input type="text" class="primary-input" value="156" placeholder="0">
+            </div>
+          </div>
+          <div class="d-flex flex-md-row flex-column gap-3 my-1">
+            <div class="d-flex flex-column gap-1 w-md-50 w-100">
+              <p class="text primary-input-label m-0">Ваш вес, кг</p>
+              <input type="text" class="primary-input" value="56" placeholder="0">
+            </div>
+          </div>
+          <h2 class="title c-green mt-4 mb-3">Условия жизни</h2>
+          <div class="d-flex flex-md-row flex-column gap-3 my-1">
+            <div class="d-flex flex-column gap-1 w-md-50 w-100">
+              <p class="text primary-input-label m-0">Климатические условия проживания</p>
+              <input type="text" class="primary-input" value="Холодный  климат" placeholder="0">
+            </div>
+            <div class="d-flex flex-column gap-1 w-md-50 w-100">
+              <p class="text primary-input-label m-0">Потребление алкоголя</p>
+              <input type="text" class="primary-input" value="Не употребляю" placeholder="0">
+            </div>
+          </div>
+          <div class="d-flex flex-md-row flex-column gap-3 my-1">
+            <div class="d-flex flex-column gap-1 w-md-50 w-100">
+              <p class="text primary-input-label m-0">Уровень стрессовой нагрузки</p>
+              <input type="text" class="primary-input" value="Низкий" placeholder="0">
+            </div>
+            <div class="d-flex flex-column gap-1 w-md-50 w-100">
+              <p class="text primary-input-label m-0">Курение</p>
+              <input type="text" class="primary-input" value="Курю" placeholder="0">
+            </div>
+          </div>
+          <div class="d-flex flex-md-row flex-column gap-3 my-1">
+            <div class="d-flex flex-column gap-1 w-md-50 w-100">
+              <p class="text primary-input-label m-0">Уровень физической активности</p>
+              <input type="text" class="primary-input" value="Низкий" placeholder="0">
+            </div>
+          </div>
+        </div>
+        <div class="profile-info w-100 js-nav">
+          <h2 class="title c-green mb-4">Рекомендации</h2>
+          <div class="profile-info-row d-flex align-items-center gap-4 w-100">
+            <p class="text-desc">12 апреля</p>
+            <p class="text-desc">16:30</p>
+            <div class="flex-grow-1"></div>
+            <button class="primary-button fill">Открыть рекомендацию</button>
+          </div>
+          <div class="profile-info-row d-flex align-items-center gap-4 w-100">
+            <p class="text-desc">12 апреля</p>
+            <p class="text-desc">16:30</p>
+            <div class="flex-grow-1"></div>
+            <button class="primary-button fill">Открыть рекомендацию</button>
+          </div>
+          <div class="profile-info-row d-flex align-items-center gap-4 w-100">
+            <p class="text-desc">12 апреля</p>
+            <p class="text-desc">16:30</p>
+            <div class="flex-grow-1"></div>
+            <button class="primary-button fill">Открыть рекомендацию</button>
+          </div>
+          <div class="profile-info-row d-flex align-items-center gap-4 w-100">
+            <p class="text-desc">12 апреля</p>
+            <p class="text-desc">16:30</p>
+            <div class="flex-grow-1"></div>
+            <button class="primary-button fill">Открыть рекомендацию</button>
+          </div>
+          <div class="profile-info-row d-flex align-items-center gap-4 w-100">
+            <p class="text-desc">12 апреля</p>
+            <p class="text-desc">16:30</p>
+            <div class="flex-grow-1"></div>
+            <button class="primary-button fill">Открыть рекомендацию</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="profile-tabs w-100" *ngIf="isLoading">
-      <h3>Загрузка...</h3>
-    </div>
-    <div class="profile-calendar hide-scroll d-lg-none d-flex flex-column align-items-centerc w-100">
+    <div class="profile-calendar hide-scroll d-lg-none d-flex flex-column w-100">
       <p class="date text-s">12 янв, вторник</p>
       <div class="calendar-item w-100 d-flex justify-content-between">
         <div class="d-flex flex-column justify-content-center">
@@ -952,3 +1144,5 @@
     </div>
   </div>
 </main>
+
+<call-with-patient-modal #callWithPatientModalComponent></call-with-patient-modal>

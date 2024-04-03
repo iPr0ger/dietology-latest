@@ -16,6 +16,15 @@ export class UserLkComponent implements OnInit {
 
   isLoading: boolean = false;
 
+  isPrivateDataVisible: boolean = true;
+  isFamilyDataVisible: boolean = false;
+  isDiaryDataVisible: boolean = false;
+  isFilesDataVisible: boolean = false;
+
+  isDayTableVisible: boolean = false;
+  isWeekTableVisible: boolean = false;
+  isMonthTableVisible: boolean = true;
+
   constructor(
     private accountService: AccountService,
     private userStorageService: UserStorageService,
@@ -44,5 +53,51 @@ export class UserLkComponent implements OnInit {
         this.isLoading = false;
       });
     });
+  }
+
+  showPrivateData() {
+    this.isPrivateDataVisible = true;
+    this.isFamilyDataVisible = false;
+    this.isDiaryDataVisible = false;
+    this.isFilesDataVisible = false;
+  }
+
+  showFamilyData() {
+    this.isPrivateDataVisible = false;
+    this.isFamilyDataVisible = true;
+    this.isDiaryDataVisible = false;
+    this.isFilesDataVisible = false;
+  }
+
+  showDiaryData() {
+    this.isPrivateDataVisible = false;
+    this.isFamilyDataVisible = false;
+    this.isDiaryDataVisible = true;
+    this.isFilesDataVisible = false;
+  }
+
+  showFilesData() {
+    this.isPrivateDataVisible = false;
+    this.isFamilyDataVisible = false;
+    this.isDiaryDataVisible = false;
+    this.isFilesDataVisible = true;
+  }
+
+  showDayTable() {
+    this.isDayTableVisible = true;
+    this.isWeekTableVisible = false;
+    this.isMonthTableVisible = false;
+  }
+
+  showWeekTable() {
+    this.isDayTableVisible = false;
+    this.isWeekTableVisible = true;
+    this.isMonthTableVisible = false;
+  }
+
+  showMonthTable() {
+    this.isDayTableVisible = false;
+    this.isWeekTableVisible = false;
+    this.isMonthTableVisible = true;
   }
 }

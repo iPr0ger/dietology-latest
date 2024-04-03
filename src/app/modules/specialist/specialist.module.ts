@@ -3,7 +3,8 @@ import {SpecialistMainComponent} from "./specialist-main.component";
 import {SpecialistRoutingModule} from "./specialist-routing.module";
 import {LayoutModule} from "../../pages/layout.module";
 import {DoctorLkComponent} from "./lk/doctor-lk.component";
-import {NgIf} from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
+import {CallWithPatientModalComponent} from "./lk/modals/call-with-patient/call-with-patient-modal.component";
 
 @NgModule({
   declarations: [
@@ -13,7 +14,9 @@ import {NgIf} from "@angular/common";
   imports: [
     SpecialistRoutingModule,
     LayoutModule,
-    NgIf
+    NgIf,
+    CallWithPatientModalComponent,
+    NgClass
   ],
   exports: []
 })

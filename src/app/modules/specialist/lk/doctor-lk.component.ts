@@ -27,6 +27,10 @@ export class DoctorLkComponent implements OnInit {
   tempEducations: Array<string> = [];
   tempWorkExperience: Array<string> = [];
 
+  isPrivateDataVisible: boolean = true;
+  isConsultationVisible: boolean = false;
+  isPatientsVisible: boolean = false;
+
   constructor(
     private accountService: AccountService,
     private userStorageService: UserStorageService,
@@ -87,5 +91,45 @@ export class DoctorLkComponent implements OnInit {
 
   removeWorkExperience(index: number){
     this.tempWorkExperience.splice(index, 1);
+  }
+
+  showConsultation(){
+    this.isConsultationVisible = true;
+    this.isPatientsVisible = false;
+    this.isPrivateDataVisible = false;
+  }
+
+  showPatients(){
+    this.isConsultationVisible = false;
+    this.isPatientsVisible = true;
+    this.isPrivateDataVisible = false;
+  }
+
+  showPrivateData(){
+    this.isConsultationVisible = false;
+    this.isPatientsVisible = false;
+    this.isPrivateDataVisible = true;
+  }
+
+  isDayTableVisible: boolean = false;
+  isWeekTableVisible: boolean = false;
+  isMonthTableVisible: boolean = true;
+
+  showDayTable(){
+    this.isDayTableVisible = true;
+    this.isWeekTableVisible = false;
+    this.isMonthTableVisible = false;
+  }
+
+  showWeekTable(){
+    this.isDayTableVisible = false;
+    this.isWeekTableVisible = true;
+    this.isMonthTableVisible = false;
+  }
+
+  showMonthTable(){
+    this.isDayTableVisible = false;
+    this.isWeekTableVisible = false;
+    this.isMonthTableVisible = true;
   }
 }
