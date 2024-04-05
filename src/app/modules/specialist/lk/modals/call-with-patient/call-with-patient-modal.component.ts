@@ -20,6 +20,11 @@ export class CallWithPatientModalComponent {
   isCallWithPatientVisible: boolean = true;
   isQuestionareVisible: boolean = false;
   isDiaryVisible: boolean = false;
+  isFullScreenVisible: boolean = false;
+
+  toggleFullScreen() {
+    this.isFullScreenVisible =!this.isFullScreenVisible;
+  }
 
   openModal() {
     this.isModalOpen = true;

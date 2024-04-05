@@ -12,5 +12,6 @@ export class BaseAppConfig {
   static testClientUsername: string = 'user121@example.com';
   static testClientEmail: string = 'user121@example.com';
   static testClientPassword: string = '12345';
-  static testClientPhoneNumber: string = '+79000000001';
+  static testSpecialistPhoneNumber: string = '+79000000001';
+  static testClientPhoneNumber: string = '+79996476305'
 }

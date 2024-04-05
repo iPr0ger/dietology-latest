@@ -313,10 +313,11 @@
         </div>
       </div>
       <div [ngClass]="{'profile-container': true, 'd-none': !isDiaryDataVisible, 'd-flex': isDiaryDataVisible}">
-        <div class="profile-info w-100" id="change-block-calendar">
+        <div [ngClass]="{'profile-info w-100': true, 'd-block': isCalendarVisible, 'd-none': !isCalendarVisible}" id="change-block-calendar">
           <div class="d-flex gap-3 flex-wrap flex-md-row flex-column justify-content-between align-items-md-center position-relative">
             <div class="d-flex gap-3 align-items-center">
-              <button class="primary-button bordered d-flex align-items-center js-change-block" data-block="change-block-chart">
+              <button class="primary-button bordered d-flex align-items-center js-change-block"
+                      data-block="change-block-chart" (click)="showChart()">
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1.26665 3.1335H1.39998C1.91331 3.1335 2.33331 3.5535 2.33331 4.06683V8.7335C2.33331 9.24683 1.91331 9.66683 1.39998 9.66683H1.26665C0.753313 9.66683 0.333313 9.24683 0.333313 8.7335V4.06683C0.333313 3.5535 0.753313 3.1335 1.26665 3.1335V3.1335ZM4.99998 0.333496C5.51331 0.333496 5.93331 0.753496 5.93331 1.26683V8.7335C5.93331 9.24683 5.51331 9.66683 4.99998 9.66683C4.48665 9.66683 4.06665 9.24683 4.06665 8.7335V1.26683C4.06665 0.753496 4.48665 0.333496 4.99998 0.333496ZM8.73331 5.66683C9.24665 5.66683 9.66665 6.08683 9.66665 6.60016V8.7335C9.66665 9.24683 9.24665 9.66683 8.73331 9.66683C8.21998 9.66683 7.79998 9.24683 7.79998 8.7335V6.60016C7.79998 6.08683 8.21998 5.66683 8.73331 5.66683V5.66683Z" fill="#27AE60"/>
                 </svg>
@@ -948,10 +949,11 @@
             </div>
           </div>
         </div>
-        <div class="profile-info w-100 d-none" id="change-block-chart">
+        <div [ngClass]="{'profile-info w-100': true, 'd-none': !isChartVisible, 'd-block': isChartVisible}" id="change-block-chart">
           <div class="d-flex gap-3 flex-wrap flex-md-row flex-column justify-content-between align-items-md-center position-relative">
             <div class="d-flex gap-3 align-items-center">
-              <button class="primary-button bordered d-flex align-items-center js-change-block" data-block="change-block-calendar">
+              <button class="primary-button bordered d-flex align-items-center js-change-block"
+                      data-block="change-block-calendar" (click)="showCalendar()">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M13.3334 1.99984H12.6667V1.33317C12.6667 0.966504 12.3667 0.666504 12 0.666504C11.6334 0.666504 11.3334 0.966504 11.3334 1.33317V1.99984H4.66671V1.33317C4.66671 0.966504 4.36671 0.666504 4.00004 0.666504C3.63337 0.666504 3.33337 0.966504 3.33337 1.33317V1.99984H2.66671C1.93337 1.99984 1.33337 2.59984 1.33337 3.33317V13.9998C1.33337 14.7332 1.93337 15.3332 2.66671 15.3332H13.3334C14.0667 15.3332 14.6667 14.7332 14.6667 13.9998V3.33317C14.6667 2.59984 14.0667 1.99984 13.3334 1.99984ZM12.6667 13.9998H3.33337C2.96671 13.9998 2.66671 13.6998 2.66671 13.3332V5.33317H13.3334V13.3332C13.3334 13.6998 13.0334 13.9998 12.6667 13.9998Z" fill="#27AE60"/>
                 </svg>
@@ -990,10 +992,10 @@
 
           <div class="chart-tabs pt-lg-3 pt-2">
             <div class="month-table-wrapper hide-scroll active-table">
-              <canvas id="month-chart" class="w-100"></canvas>
+              <apx-chart id="month-chart" class="w-100" *ngIf="monthChart"></apx-chart>
             </div>
             <div class="week-grid-wrapper">
-              <canvas id="week-chart" class="w-100"></canvas>
+<!--              <apx-chart id="week-chart" class="w-100" *ngIf="weekChart" [chart]="weekChart"></apx-chart>-->
             </div>
           </div>
         </div>

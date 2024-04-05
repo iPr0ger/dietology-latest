@@ -6,6 +6,7 @@ import {ClientRoutingModule} from "./client-routing.module";
 import {LayoutModule} from "../../pages/layout.module";
 import {NgClass, NgIf} from "@angular/common";
 import {UserLkComponent} from "./lk/user-lk.component";
+import {NgApexchartsModule} from "ng-apexcharts";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {UserLkComponent} from "./lk/user-lk.component";
         ClientRoutingModule,
         LayoutModule,
         NgIf,
-        NgClass
+        NgClass,
+        NgApexchartsModule
     ],
   exports: []
 })
