@@ -4,26 +4,8 @@ import {PatientUserProfileResponseInterface} from "../../../core/interfaces/pati
 import {AccountService} from "../../../core/services/api/account.service";
 import {UserStorageService} from "../../../core/services/storage/user-storage.service";
 import {PatientService} from "../../../core/services/api/patient.service";
-import {
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexXAxis,
-  ApexTitleSubtitle,
-  ChartComponent,
-  ApexYAxis,
-  ApexNoData
-} from "ng-apexcharts";
 import {LoadScriptHelperService} from "../../../core/helpers/load-script-helper.service";
 
-
-export type ChartOptions = {
-  series: ApexAxisChartSeries;
-  chart: ApexChart;
-  xaxis: ApexXAxis;
-  yaxis: ApexYAxis;
-  title: ApexTitleSubtitle;
-  noData: ApexNoData
-};
 
 @Component({
   selector: 'user-lk',
@@ -50,41 +32,13 @@ export class UserLkComponent implements OnInit, AfterViewInit {
   isWeekChartVisible: boolean = false;
   isMonthChartVisible: boolean = true;
 
-  @ViewChild("chart", { static: false }) chart!: ChartComponent;
-  public chartOptions: Partial<ChartOptions>;
-
   constructor(
     private accountService: AccountService,
     private userStorageService: UserStorageService,
     private patientService: PatientService,
     private scriptHelper: LoadScriptHelperService
   ) {
-    this.chartOptions = {
-      series: [
-        {
-          name: "My-series",
-          data: [1500, 2001, 1000, 1500, 500, 1000, 2000, 1500, 2000, 1600, 1500, 1300, 1500, 2000, 1200, 1500, 1800, 1500]
-        }
-      ],
-      chart: {
-        type: "bar",
-      },
-      title: {
-        text: "My First Angular Chart"
-      },
-      xaxis: {
-        categories: ['1, пт', '2, сб', '3, вс', '4, пн', '5, вт', '6, ср', '7, чт', '8, пт', '9, сб', '10, вс', '11, пн', '12, вт', '13, ср', '14, чт', '15, пт', '16, сб', '17, вс', '18, пн'],
-      },
-      noData: {
-        text: "Loading...",
-      },
-      yaxis: {
-        title: {
-          text: "Ккал"
-        },
-        min: 0
-      }
-    };
+
   }
 
   ngOnInit() {
