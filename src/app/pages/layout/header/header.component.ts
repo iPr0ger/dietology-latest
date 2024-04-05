@@ -52,8 +52,8 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.userStorageService.logOut();
-    this.reloadCurrentPage();
     this.router.navigate(['']);
+    this.reloadCurrentPage();
   }
 
   reloadCurrentPage() {

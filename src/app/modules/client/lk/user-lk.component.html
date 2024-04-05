@@ -972,8 +972,10 @@
             </div>
 
             <div class="swap-select js-swap-chart d-flex gap-1">
-              <span class="swap-select__item active" data-table="0">Месяц</span>
-              <span class="swap-select__item" data-table="1">Неделя</span>
+              <span [ngClass]="{'swap-select__item': true, 'active': isMonthChartVisible}"
+                    data-table="0" (click)="showMonthChart()">Месяц</span>
+              <span [ngClass]="{'swap-select__item': true, 'active': isWeekChartVisible}"
+                    data-table="1" (click)="showWeekChart()">Неделя</span>
             </div>
             <div class="flex-space"></div>
             <div class="nav-buttons d-flex gap-3">
@@ -991,11 +993,11 @@
           </div>
 
           <div class="chart-tabs pt-lg-3 pt-2">
-            <div class="month-table-wrapper hide-scroll active-table">
-              <apx-chart id="month-chart" class="w-100" *ngIf="monthChart"></apx-chart>
+            <div [ngClass]="{'month-table-wrapper hide-scroll': true, 'active-table': isMonthChartVisible}">
+              <canvas id="month-chart" class="w-100"></canvas>
             </div>
-            <div class="week-grid-wrapper">
-<!--              <apx-chart id="week-chart" class="w-100" *ngIf="weekChart" [chart]="weekChart"></apx-chart>-->
+            <div [ngClass]="{'week-grid-wrapper': true, 'active-table': isWeekChartVisible}">
+              <canvas id="week-chart" class="w-100"></canvas>
             </div>
           </div>
         </div>

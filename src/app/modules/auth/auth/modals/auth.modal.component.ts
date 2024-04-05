@@ -11,6 +11,7 @@ import {
 import {AccountService} from "../../../../core/services/api/account.service";
 import {SpecialistService} from "../../../../core/services/api/specialist.service";
 import {PatientService} from "../../../../core/services/api/patient.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'auth-modal-component',
@@ -30,6 +31,7 @@ export class AuthModalComponent {
     private accountService: AccountService,
     private patientService: PatientService,
     private specialistService: SpecialistService,
+    private router: Router
   ) {}
 
   isModalOpen: boolean = false;
@@ -52,6 +54,7 @@ export class AuthModalComponent {
           this.userStorageService.saveSpecialistDetails(response[0]);
 
           this.tokenStorageService.saveToken({access: data.access, refresh: data.refresh});
+          this.router.navigateByUrl('/profile');
           this.reloadCurrentPage();
         },
         error => {
