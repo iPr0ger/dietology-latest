@@ -72,6 +72,262 @@
         </div>
       </div>
     </div>
+    <div [ngClass]="{
+      'quiz-step': true,
+      'hide': quizStep !== 3
+    }" data-step="1">
+      <p class="text-l c-green mt-3">Как изменился Ваш вес и рост за последний год?</p>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1 ">
+        <input type="checkbox" id="my-point1">
+        <label for="my-point1" class="primary-input-check c-green w-md-50 w-100">Поддерживать свое здоровье в оптимальном состоянии</label>
+        <input type="checkbox" id="my-point2">
+        <label for="my-point2" class="primary-input-check c-green w-md-50 w-100">Укрепить иммунитет</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point3" checked>
+        <label for="my-point3" class="primary-input-check c-green w-md-50 w-100">Улучшить состояние кожи волос и ногтей</label>
+        <input type="checkbox" id="my-point4">
+        <label for="my-point4" class="primary-input-check c-green w-md-50 w-100">Увеличить мышечную массу при занятиях спортом</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point5" checked>
+        <label for="my-point5" class="primary-input-check c-green w-md-50 w-100">Уменьшить влияние стресса</label>
+        <input type="checkbox" id="my-point6">
+        <label for="my-point6" class="primary-input-check c-green w-md-50 w-100">Увеличить массу тела</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point7">
+        <label for="my-point7" class="primary-input-check c-green w-md-50 w-100">Похудеть</label>
+      </div>
+      <div class="d-flex flex-column gap-1 mt-2">
+        <p class="text primary-input-label m-0">Другие цели</p>
+        <textarea class="primary-input w-100"></textarea>
+      </div>
+    </div>
+    <div [ngClass]="{
+      'quiz-step': true,
+      'hide': quizStep !== 4
+    }" data-step="1">
+      <p class="text-l c-green mt-3">Вредные привычки</p>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1 ">
+        <input type="checkbox" id="my-point1">
+        <label for="my-point1" class="primary-input-check c-green w-md-50 w-100">Поддерживать свое здоровье в оптимальном состоянии</label>
+        <input type="checkbox" id="my-point2">
+        <label for="my-point2" class="primary-input-check c-green w-md-50 w-100">Укрепить иммунитет</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point3" checked>
+        <label for="my-point3" class="primary-input-check c-green w-md-50 w-100">Улучшить состояние кожи волос и ногтей</label>
+        <input type="checkbox" id="my-point4">
+        <label for="my-point4" class="primary-input-check c-green w-md-50 w-100">Увеличить мышечную массу при занятиях спортом</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point5" checked>
+        <label for="my-point5" class="primary-input-check c-green w-md-50 w-100">Уменьшить влияние стресса</label>
+        <input type="checkbox" id="my-point6">
+        <label for="my-point6" class="primary-input-check c-green w-md-50 w-100">Увеличить массу тела</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point7">
+        <label for="my-point7" class="primary-input-check c-green w-md-50 w-100">Похудеть</label>
+      </div>
+      <div class="d-flex flex-column gap-1 mt-2">
+        <p class="text primary-input-label m-0">Другие цели</p>
+        <textarea class="primary-input w-100"></textarea>
+      </div>
+    </div>
+    <div [ngClass]="{
+      'quiz-step': true,
+      'hide': quizStep !== 5
+    }" data-step="1">
+      <p class="text-l c-green mt-3">Уровень физической активности</p>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1 ">
+        <input type="checkbox" id="my-point1">
+        <label for="my-point1" class="primary-input-check c-green w-md-50 w-100">Поддерживать свое здоровье в оптимальном состоянии</label>
+        <input type="checkbox" id="my-point2">
+        <label for="my-point2" class="primary-input-check c-green w-md-50 w-100">Укрепить иммунитет</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point3" checked>
+        <label for="my-point3" class="primary-input-check c-green w-md-50 w-100">Улучшить состояние кожи волос и ногтей</label>
+        <input type="checkbox" id="my-point4">
+        <label for="my-point4" class="primary-input-check c-green w-md-50 w-100">Увеличить мышечную массу при занятиях спортом</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point5" checked>
+        <label for="my-point5" class="primary-input-check c-green w-md-50 w-100">Уменьшить влияние стресса</label>
+        <input type="checkbox" id="my-point6">
+        <label for="my-point6" class="primary-input-check c-green w-md-50 w-100">Увеличить массу тела</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point7">
+        <label for="my-point7" class="primary-input-check c-green w-md-50 w-100">Похудеть</label>
+      </div>
+      <div class="d-flex flex-column gap-1 mt-2">
+        <p class="text primary-input-label m-0">Другие цели</p>
+        <textarea class="primary-input w-100"></textarea>
+      </div>
+    </div>
+    <div [ngClass]="{
+      'quiz-step': true,
+      'hide': quizStep !== 6
+    }" data-step="1">
+      <p class="text-l c-green mt-3">Мои цели</p>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1 ">
+        <input type="checkbox" id="my-point1">
+        <label for="my-point1" class="primary-input-check c-green w-md-50 w-100">Поддерживать свое здоровье в оптимальном состоянии</label>
+        <input type="checkbox" id="my-point2">
+        <label for="my-point2" class="primary-input-check c-green w-md-50 w-100">Укрепить иммунитет</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point3" checked>
+        <label for="my-point3" class="primary-input-check c-green w-md-50 w-100">Улучшить состояние кожи волос и ногтей</label>
+        <input type="checkbox" id="my-point4">
+        <label for="my-point4" class="primary-input-check c-green w-md-50 w-100">Увеличить мышечную массу при занятиях спортом</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point5" checked>
+        <label for="my-point5" class="primary-input-check c-green w-md-50 w-100">Уменьшить влияние стресса</label>
+        <input type="checkbox" id="my-point6">
+        <label for="my-point6" class="primary-input-check c-green w-md-50 w-100">Увеличить массу тела</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point7">
+        <label for="my-point7" class="primary-input-check c-green w-md-50 w-100">Похудеть</label>
+      </div>
+      <div class="d-flex flex-column gap-1 mt-2">
+        <p class="text primary-input-label m-0">Другие цели</p>
+        <textarea class="primary-input w-100"></textarea>
+      </div>
+    </div>
+    <div [ngClass]="{
+      'quiz-step': true,
+      'hide': quizStep !== 7
+    }" data-step="1">
+      <p class="text-l c-green mt-3">Мои цели</p>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1 ">
+        <input type="checkbox" id="my-point1">
+        <label for="my-point1" class="primary-input-check c-green w-md-50 w-100">Поддерживать свое здоровье в оптимальном состоянии</label>
+        <input type="checkbox" id="my-point2">
+        <label for="my-point2" class="primary-input-check c-green w-md-50 w-100">Укрепить иммунитет</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point3" checked>
+        <label for="my-point3" class="primary-input-check c-green w-md-50 w-100">Улучшить состояние кожи волос и ногтей</label>
+        <input type="checkbox" id="my-point4">
+        <label for="my-point4" class="primary-input-check c-green w-md-50 w-100">Увеличить мышечную массу при занятиях спортом</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point5" checked>
+        <label for="my-point5" class="primary-input-check c-green w-md-50 w-100">Уменьшить влияние стресса</label>
+        <input type="checkbox" id="my-point6">
+        <label for="my-point6" class="primary-input-check c-green w-md-50 w-100">Увеличить массу тела</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point7">
+        <label for="my-point7" class="primary-input-check c-green w-md-50 w-100">Похудеть</label>
+      </div>
+      <div class="d-flex flex-column gap-1 mt-2">
+        <p class="text primary-input-label m-0">Другие цели</p>
+        <textarea class="primary-input w-100"></textarea>
+      </div>
+    </div>
+    <div [ngClass]="{
+      'quiz-step': true,
+      'hide': quizStep !== 8
+    }" data-step="1">
+      <p class="text-l c-green mt-3">Мои цели</p>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1 ">
+        <input type="checkbox" id="my-point1">
+        <label for="my-point1" class="primary-input-check c-green w-md-50 w-100">Поддерживать свое здоровье в оптимальном состоянии</label>
+        <input type="checkbox" id="my-point2">
+        <label for="my-point2" class="primary-input-check c-green w-md-50 w-100">Укрепить иммунитет</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point3" checked>
+        <label for="my-point3" class="primary-input-check c-green w-md-50 w-100">Улучшить состояние кожи волос и ногтей</label>
+        <input type="checkbox" id="my-point4">
+        <label for="my-point4" class="primary-input-check c-green w-md-50 w-100">Увеличить мышечную массу при занятиях спортом</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point5" checked>
+        <label for="my-point5" class="primary-input-check c-green w-md-50 w-100">Уменьшить влияние стресса</label>
+        <input type="checkbox" id="my-point6">
+        <label for="my-point6" class="primary-input-check c-green w-md-50 w-100">Увеличить массу тела</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point7">
+        <label for="my-point7" class="primary-input-check c-green w-md-50 w-100">Похудеть</label>
+      </div>
+      <div class="d-flex flex-column gap-1 mt-2">
+        <p class="text primary-input-label m-0">Другие цели</p>
+        <textarea class="primary-input w-100"></textarea>
+      </div>
+    </div>
+    <div [ngClass]="{
+      'quiz-step': true,
+      'hide': quizStep !== 9
+    }" data-step="1">
+      <p class="text-l c-green mt-3">Мои цели</p>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1 ">
+        <input type="checkbox" id="my-point1">
+        <label for="my-point1" class="primary-input-check c-green w-md-50 w-100">Поддерживать свое здоровье в оптимальном состоянии</label>
+        <input type="checkbox" id="my-point2">
+        <label for="my-point2" class="primary-input-check c-green w-md-50 w-100">Укрепить иммунитет</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point3" checked>
+        <label for="my-point3" class="primary-input-check c-green w-md-50 w-100">Улучшить состояние кожи волос и ногтей</label>
+        <input type="checkbox" id="my-point4">
+        <label for="my-point4" class="primary-input-check c-green w-md-50 w-100">Увеличить мышечную массу при занятиях спортом</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point5" checked>
+        <label for="my-point5" class="primary-input-check c-green w-md-50 w-100">Уменьшить влияние стресса</label>
+        <input type="checkbox" id="my-point6">
+        <label for="my-point6" class="primary-input-check c-green w-md-50 w-100">Увеличить массу тела</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point7">
+        <label for="my-point7" class="primary-input-check c-green w-md-50 w-100">Похудеть</label>
+      </div>
+      <div class="d-flex flex-column gap-1 mt-2">
+        <p class="text primary-input-label m-0">Другие цели</p>
+        <textarea class="primary-input w-100"></textarea>
+      </div>
+    </div>
+    <div [ngClass]="{
+      'quiz-step': true,
+      'hide': quizStep !== 10
+    }" data-step="1">
+      <p class="text-l c-green mt-3">Мои цели</p>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1 ">
+        <input type="checkbox" id="my-point1">
+        <label for="my-point1" class="primary-input-check c-green w-md-50 w-100">Поддерживать свое здоровье в оптимальном состоянии</label>
+        <input type="checkbox" id="my-point2">
+        <label for="my-point2" class="primary-input-check c-green w-md-50 w-100">Укрепить иммунитет</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point3" checked>
+        <label for="my-point3" class="primary-input-check c-green w-md-50 w-100">Улучшить состояние кожи волос и ногтей</label>
+        <input type="checkbox" id="my-point4">
+        <label for="my-point4" class="primary-input-check c-green w-md-50 w-100">Увеличить мышечную массу при занятиях спортом</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point5" checked>
+        <label for="my-point5" class="primary-input-check c-green w-md-50 w-100">Уменьшить влияние стресса</label>
+        <input type="checkbox" id="my-point6">
+        <label for="my-point6" class="primary-input-check c-green w-md-50 w-100">Увеличить массу тела</label>
+      </div>
+      <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+        <input type="checkbox" id="my-point7">
+        <label for="my-point7" class="primary-input-check c-green w-md-50 w-100">Похудеть</label>
+      </div>
+      <div class="d-flex flex-column gap-1 mt-2">
+        <p class="text primary-input-label m-0">Другие цели</p>
+        <textarea class="primary-input w-100"></textarea>
+      </div>
+    </div>
     <div class="d-flex gap-3 justify-content-end mt-3">
       <button class="primary-button bordered back" (click)="goQuizPrevStep()" [disabled]="quizStep === 1">Назад</button>
       <button class="primary-button fill arrow" (click)="goQuizNextStep()" [disabled]="quizStep === 10">Дальше</button>

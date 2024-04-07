@@ -370,7 +370,7 @@
                   <th>Вс</th>
                 </tr>
                 <tr>
-                  <td>
+                  <td (click)="diaryCardModalComponent.openModal()">
                     <div class="d-flex flex-column">
                       <p class="day">1</p>
                       <div class="d-flex gap-1">
@@ -426,7 +426,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>
+                  <td (click)="diaryCardModalComponent.openModal()">
                     <div class="d-flex flex-column">
                       <p class="day">8</p>
                       <div class="d-flex gap-1">
@@ -482,7 +482,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>
+                  <td (click)="diaryCardModalComponent.openModal()">
                     <div class="d-flex flex-column">
                       <p class="day">15</p>
                       <div class="d-flex gap-1">
@@ -538,7 +538,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>
+                  <td (click)="diaryCardModalComponent.openModal()">
                     <div class="d-flex flex-column">
                       <p class="day">22</p>
                       <div class="d-flex gap-1">
@@ -562,7 +562,7 @@
                       </div>
                     </div>
                   </td>
-                  <td>
+                  <td (click)="diaryCardModalComponent.openModal()">
                     <div class="d-flex flex-column">
                       <p class="day">23</p>
                       <div class="d-flex gap-1">
@@ -586,7 +586,7 @@
                       </div>
                     </div>
                   </td>
-                  <td>
+                  <td (click)="diaryCardModalComponent.openModal()">
                     <div class="d-flex flex-column">
                       <p class="day">24</p>
                       <div class="d-flex gap-1">
@@ -610,7 +610,7 @@
                       </div>
                     </div>
                   </td>
-                  <td>
+                  <td (click)="diaryCardModalComponent.openModal()">
                     <div class="d-flex flex-column">
                       <p class="day">25</p>
                       <div class="d-flex gap-1">
@@ -634,7 +634,7 @@
                       </div>
                     </div>
                   </td>
-                  <td>
+                  <td (click)="diaryCardModalComponent.openModal()">
                     <div class="d-flex flex-column">
                       <p class="day">26</p>
                       <div class="d-flex gap-1">
@@ -658,7 +658,7 @@
                       </div>
                     </div>
                   </td>
-                  <td>
+                  <td (click)="diaryCardModalComponent.openModal()">
                     <div class="d-flex flex-column">
                       <p class="day">27</p>
                       <div class="d-flex gap-1">
@@ -682,7 +682,7 @@
                       </div>
                     </div>
                   </td>
-                  <td>
+                  <td (click)="diaryCardModalComponent.openModal()">
                     <div class="d-flex flex-column">
                       <p class="day">28</p>
                       <div class="d-flex gap-1">
@@ -719,7 +719,7 @@
                       <p class="day">30</p>
                     </div>
                   </td>
-                  <td>
+                  <td (click)="diaryCardModalComponent.openModal()">
                     <div class="d-flex flex-column">
                       <p class="day">31</p>
                     </div>
@@ -769,7 +769,7 @@
             </div>
             <div [ngClass]="{'week-grid-wrapper': true, 'active-table': isWeekTableVisible}">
               <div class="week-diary d-flex flex-wrap gap-3">
-                <div class="week-diary-item">
+                <div class="week-diary-item" (click)="diaryCardModalComponent.openModal()">
                   <div class="d-flex align-items-center justify-content-between">
                     <p class="text-l">Пн, 1</p>
                     <p class="text-desc c-gray"><span class="c-green">1800</span>/1800 ккал</p>
@@ -787,7 +787,7 @@
                     <p class="text-desc">120 гр</p>
                   </div>
                 </div>
-                <div class="week-diary-item">
+                <div class="week-diary-item" (click)="diaryCardModalComponent.openModal()">
                   <div class="d-flex align-items-center justify-content-between">
                     <p class="text-l">Пн, 2</p>
                     <p class="text-desc c-gray"><span class="c-green">1800</span>/1800 ккал</p>
@@ -805,7 +805,7 @@
                     <p class="text-desc">120 гр</p>
                   </div>
                 </div>
-                <div class="week-diary-item">
+                <div class="week-diary-item" (click)="diaryCardModalComponent.openModal()">
                   <div class="d-flex align-items-center justify-content-between">
                     <p class="text-l">Пн, 3</p>
                     <p class="text-desc c-gray"><span class="c-green">1800</span>/1800 ккал</p>
@@ -823,7 +823,7 @@
                     <p class="text-desc">120 гр</p>
                   </div>
                 </div>
-                <div class="week-diary-item">
+                <div class="week-diary-item" (click)="diaryCardModalComponent.openModal()">
                   <div class="d-flex align-items-center justify-content-between">
                     <p class="text-l">Пн, 4</p>
                     <p class="text-desc c-gray"><span class="c-green">1800</span>/1800 ккал</p>
@@ -841,7 +841,7 @@
                     <p class="text-desc">120 гр</p>
                   </div>
                 </div>
-                <div class="week-diary-item">
+                <div class="week-diary-item" (click)="diaryCardModalComponent.openModal()">
                   <div class="d-flex align-items-center justify-content-between">
                     <p class="text-l">Пн, 5</p>
                     <p class="text-desc c-gray"><span class="c-green">1800</span>/1800 ккал</p>
@@ -859,7 +859,7 @@
                     <p class="text-desc">120 гр</p>
                   </div>
                 </div>
-                <div class="week-diary-item">
+                <div class="week-diary-item" (click)="diaryCardModalComponent.openModal()">
                   <div class="d-flex align-items-center justify-content-between">
                     <p class="text-l">Пн, 6</p>
                     <p class="text-desc c-gray"><span class="c-green">1800</span>/1800 ккал</p>
@@ -877,7 +877,7 @@
                     <p class="text-desc">120 гр</p>
                   </div>
                 </div>
-                <div class="week-diary-item">
+                <div class="week-diary-item" (click)="diaryCardModalComponent.openModal()">
                   <div class="d-flex align-items-center justify-content-between">
                     <p class="text-l">Пн, 7</p>
                     <p class="text-desc c-gray"><span class="c-red">2000</span>/1800 ккал</p>
@@ -1010,3 +1010,5 @@
     </div>
   </div>
 </main>
+
+<diary-card-modal #diaryCardModalComponent></diary-card-modal>

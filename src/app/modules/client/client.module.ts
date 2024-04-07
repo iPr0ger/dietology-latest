@@ -7,6 +7,7 @@ import {LayoutModule} from "../../pages/layout.module";
 import {NgClass, NgIf} from "@angular/common";
 import {UserLkComponent} from "./lk/user-lk.component";
 import {NgApexchartsModule} from "ng-apexcharts";
+import {DiaryCardModalComponent} from "./lk/modals/diary-card/diary-card.modal.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {NgApexchartsModule} from "ng-apexcharts";
         LayoutModule,
         NgIf,
         NgClass,
-        NgApexchartsModule
+        NgApexchartsModule,
+        DiaryCardModalComponent
     ],
   exports: []
 })
