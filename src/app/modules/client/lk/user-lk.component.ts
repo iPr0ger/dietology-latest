@@ -23,15 +23,15 @@ export class UserLkComponent implements OnInit, AfterViewInit {
   isFilesDataVisible: boolean = false;
   isConsultationDataVisible: boolean = false;
 
-  isDayTableVisible: boolean = false;
+  isDayTableVisible: boolean = true;
   isWeekTableVisible: boolean = false;
-  isMonthTableVisible: boolean = true;
+  isMonthTableVisible: boolean = false;
 
   isCalendarVisible: boolean = true;
   isChartVisible: boolean = false;
 
-  isWeekChartVisible: boolean = false;
-  isMonthChartVisible: boolean = true;
+  isWeekChartVisible: boolean = true;
+  isMonthChartVisible: boolean = false;
 
   constructor(
     private accountService: AccountService,

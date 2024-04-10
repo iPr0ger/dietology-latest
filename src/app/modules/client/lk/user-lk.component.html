@@ -344,12 +344,12 @@
             </div>
 
             <div class="swap-select js-swap-table d-flex gap-1">
-              <span [ngClass]="{'swap-select__item': true, 'active': isMonthTableVisible}"
-                    data-table="0" (click)="showMonthTable()">Месяц</span>
-              <span [ngClass]="{'swap-select__item': true, 'active': isWeekTableVisible}"
-                    data-table="1" (click)="showWeekTable()">Неделя</span>
               <span [ngClass]="{'swap-select__item': true, 'active': isDayTableVisible}"
                     data-table="2" (click)="showDayTable()">День</span>
+              <span [ngClass]="{'swap-select__item': true, 'active': isWeekTableVisible}"
+                    data-table="1" (click)="showWeekTable()">Неделя</span>
+              <span [ngClass]="{'swap-select__item': true, 'active': isMonthTableVisible}"
+                    data-table="0" (click)="showMonthTable()">Месяц</span>
             </div>
             <div class="flex-space"></div>
             <div class="nav-buttons d-flex gap-3">
@@ -947,8 +947,144 @@
                   </div>
                 </div>
               </div>
-              <div class="day-diary"></div>
-              <button class="primary-button empty">
+              <div class="day-diary mt-4">
+                <div class="d-flex flex-column gap-1 w-100" style="background-color: #ECF9F2 !important;">
+                  <div class="row mt-3 mb-3">
+                    <div class="col-5">
+                      <h5 style="margin-left: 20px;">
+                        <span>Завтрак</span>
+                        <span style="margin-left: 70px;">09:00</span>
+                      </h5>
+                      <h5 class="c-green mt-1" style="margin-left: 20px;">
+                        300 ккал
+                      </h5>
+                      <h5 class="c-gray-dark mt-1" style="margin-left: 20px;">
+                        <span>Б: 12гр</span>
+                        <span style="margin-left: 20px;">Ж: 12гр</span>
+                        <span style="margin-left: 20px;">У: 12гр</span>
+                      </h5>
+                    </div>
+                    <div class="col-3">
+                      <h5>Яйцо</h5>
+                      <h5>Каша</h5>
+                      <h5>Кофе с молоком</h5>
+                    </div>
+                    <div class="col-3">
+                      <h5 class="c-gray-dark">
+                        <span>Б: 12гр</span>
+                        <span style="margin-left: 10px;">Ж: 12гр</span>
+                        <span style="margin-left: 10px;">У: 12гр</span>
+                      </h5>
+                      <h5 class="c-gray-dark">
+                        <span>Б: 12гр</span>
+                        <span style="margin-left: 10px;">Ж: 12гр</span>
+                        <span style="margin-left: 10px;">У: 12гр</span>
+                      </h5>
+                      <h5 class="c-gray-dark">
+                        <span>Б: 12гр</span>
+                        <span style="margin-left: 10px;">Ж: 12гр</span>
+                        <span style="margin-left: 10px;">У: 12гр</span>
+                      </h5>
+                    </div>
+                    <div class="col-1" style="text-align: right; margin-left: -15px;">
+                      <h5>2 шт</h5>
+                      <h5>120 гр</h5>
+                      <h5>120 мл</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-column gap-1 w-100 mt-4" style="background-color: #ECF9F2 !important;">
+                  <div class="row mt-3 mb-3">
+                    <div class="col-5">
+                      <h5 style="margin-left: 20px;">
+                        <span>Обед</span>
+                        <span style="margin-left: 70px;">12:00</span>
+                      </h5>
+                      <h5 class="c-green mt-1" style="margin-left: 20px;">
+                        300 ккал
+                      </h5>
+                      <h5 class="c-gray-dark mt-1" style="margin-left: 20px;">
+                        <span>Б: 12гр</span>
+                        <span style="margin-left: 20px;">Ж: 12гр</span>
+                        <span style="margin-left: 20px;">У: 12гр</span>
+                      </h5>
+                    </div>
+                    <div class="col-3">
+                      <h5>Яйцо</h5>
+                      <h5>Каша</h5>
+                      <h5>Кофе с молоком</h5>
+                    </div>
+                    <div class="col-3">
+                      <h5 class="c-gray-dark">
+                        <span>Б: 12гр</span>
+                        <span style="margin-left: 10px;">Ж: 12гр</span>
+                        <span style="margin-left: 10px;">У: 12гр</span>
+                      </h5>
+                      <h5 class="c-gray-dark">
+                        <span>Б: 12гр</span>
+                        <span style="margin-left: 10px;">Ж: 12гр</span>
+                        <span style="margin-left: 10px;">У: 12гр</span>
+                      </h5>
+                      <h5 class="c-gray-dark">
+                        <span>Б: 12гр</span>
+                        <span style="margin-left: 10px;">Ж: 12гр</span>
+                        <span style="margin-left: 10px;">У: 12гр</span>
+                      </h5>
+                    </div>
+                    <div class="col-1" style="text-align: right; margin-left: -15px;">
+                      <h5>2 шт</h5>
+                      <h5>120 гр</h5>
+                      <h5>120 мл</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-column gap-1 w-100 mt-4" style="background-color: #ECF9F2 !important;">
+                  <div class="row mt-3 mb-3">
+                    <div class="col-5">
+                      <h5 style="margin-left: 20px;">
+                        <span>Ужин</span>
+                        <span style="margin-left: 70px;">19:00</span>
+                      </h5>
+                      <h5 class="c-green mt-1" style="margin-left: 20px;">
+                        300 ккал
+                      </h5>
+                      <h5 class="c-gray-dark mt-1" style="margin-left: 20px;">
+                        <span>Б: 12гр</span>
+                        <span style="margin-left: 20px;">Ж: 12гр</span>
+                        <span style="margin-left: 20px;">У: 12гр</span>
+                      </h5>
+                    </div>
+                    <div class="col-3">
+                      <h5>Яйцо</h5>
+                      <h5>Каша</h5>
+                      <h5>Кофе с молоком</h5>
+                    </div>
+                    <div class="col-3">
+                      <h5 class="c-gray-dark">
+                        <span>Б: 12гр</span>
+                        <span style="margin-left: 10px;">Ж: 12гр</span>
+                        <span style="margin-left: 10px;">У: 12гр</span>
+                      </h5>
+                      <h5 class="c-gray-dark">
+                        <span>Б: 12гр</span>
+                        <span style="margin-left: 10px;">Ж: 12гр</span>
+                        <span style="margin-left: 10px;">У: 12гр</span>
+                      </h5>
+                      <h5 class="c-gray-dark">
+                        <span>Б: 12гр</span>
+                        <span style="margin-left: 10px;">Ж: 12гр</span>
+                        <span style="margin-left: 10px;">У: 12гр</span>
+                      </h5>
+                    </div>
+                    <div class="col-1" style="text-align: right; margin-left: -15px;">
+                      <h5>2 шт</h5>
+                      <h5>120 гр</h5>
+                      <h5>120 мл</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="primary-button empty mt-2">
                 Добавить прием пищи
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.9999 8.66683H8.66659V12.0002C8.66659 12.3668 8.36659 12.6668 7.99992 12.6668C7.63325 12.6668 7.33325 12.3668 7.33325 12.0002V8.66683H3.99992C3.63325 8.66683 3.33325 8.36683 3.33325 8.00016C3.33325 7.6335 3.63325 7.3335 3.99992 7.3335H7.33325V4.00016C7.33325 3.6335 7.63325 3.3335 7.99992 3.3335C8.36659 3.3335 8.66659 3.6335 8.66659 4.00016V7.3335H11.9999C12.3666 7.3335 12.6666 7.6335 12.6666 8.00016C12.6666 8.36683 12.3666 8.66683 11.9999 8.66683Z" fill="#27AE60"></path>
@@ -980,10 +1116,10 @@
             </div>
 
             <div class="swap-select js-swap-chart d-flex gap-1">
-              <span [ngClass]="{'swap-select__item': true, 'active': isMonthChartVisible}"
-                    data-table="0" (click)="showMonthChart()">Месяц</span>
               <span [ngClass]="{'swap-select__item': true, 'active': isWeekChartVisible}"
                     data-table="1" (click)="showWeekChart()">Неделя</span>
+              <span [ngClass]="{'swap-select__item': true, 'active': isMonthChartVisible}"
+                    data-table="0" (click)="showMonthChart()">Месяц</span>
             </div>
             <div class="flex-space"></div>
             <div class="nav-buttons d-flex gap-3">
@@ -1013,6 +1149,11 @@
       <div [ngClass]="{'profile-container flex-column gap-3': true, 'd-flex': isFilesDataVisible, 'd-none': !isFilesDataVisible}">
         <div class="profile-info">
           <h2 class="title c-green">Мои файлы</h2>
+          <div class="balance-container d-flex justify-content-between align-items-center gap-3 mt-xl-0" style="margin-top: -30px">
+            <a href="#" style="text-decoration: none; color: #27AE60;">
+              + Добавить файл
+            </a>
+          </div>
         </div>
       </div>
 
@@ -1020,11 +1161,120 @@
         <div class="profile-info">
           <h2 class="title c-green mb-4">Мои консультации</h2>
 
-            <div class="message message-system" style="max-width: 100% !important;">
-              <div class="d-flex">
-                <h4 class="justify-content-start">Сергей Горянин</h4>
-                <h5 class="justify-content-start">Сергей Горянин</h5>
+          <div class="d-flex flex-column gap-1 w-100" style="background-color: #ECF9F2 !important;">
+            <div class="row mt-3">
+              <div class="col" style="margin-left: 30px; text-align: left;">
+                <h4>Сергей Горянин</h4>
               </div>
+              <div class="col" style="margin-right: 30px; text-align: right;">
+                <h4 class="c-gray-dark">Пн, 12 апр, 12:30</h4>
+              </div>
+            </div>
+            <div class="mb-3 row mt-3" style="margin-left: 0;">
+              <a href="#"
+                 class="primary-button fill arrow w-100"
+                 style="text-decoration: none; max-width: 265px; margin-left: 30px;"
+              >
+                Посмотреть рекомендацию
+              </a>
+              <a href="#"
+                 style="text-decoration: none; max-width: 265px; margin-left: 10px; margin-top: 5px; color: #27AE60;"
+              >
+                Перейти в чат
+              </a>
+            </div>
+          </div>
+          <div class="d-flex flex-column gap-1 w-100 mt-4" style="background-color: #ECF9F2 !important;">
+            <div class="row mt-3">
+              <div class="col" style="margin-left: 30px; text-align: left;">
+                <h4>Сергей Горянин</h4>
+              </div>
+              <div class="col" style="margin-right: 30px; text-align: right;">
+                <h4 class="c-gray-dark">Пн, 12 апр, 12:30</h4>
+              </div>
+            </div>
+            <div class="mb-3 row mt-3" style="margin-left: 0;">
+              <a href="#"
+                 class="primary-button fill arrow w-100"
+                 style="text-decoration: none; max-width: 265px; margin-left: 30px;"
+              >
+                Посмотреть рекомендацию
+              </a>
+              <a href="#"
+                 style="text-decoration: none; max-width: 265px; margin-left: 10px; margin-top: 5px; color: #27AE60;"
+              >
+                Перейти в чат
+              </a>
+            </div>
+          </div>
+          <div class="d-flex flex-column gap-1 w-100 mt-4" style="background-color: #ECF9F2 !important;">
+            <div class="row mt-3">
+              <div class="col" style="margin-left: 30px; text-align: left;">
+                <h4>Сергей Горянин</h4>
+              </div>
+              <div class="col" style="margin-right: 30px; text-align: right;">
+                <h4 class="c-gray-dark">Пн, 12 апр, 12:30</h4>
+              </div>
+            </div>
+            <div class="mb-3 row mt-3" style="margin-left: 0;">
+              <a href="#"
+                 class="primary-button fill arrow w-100"
+                 style="text-decoration: none; max-width: 265px; margin-left: 30px;"
+              >
+                Посмотреть рекомендацию
+              </a>
+              <a href="#"
+                 style="text-decoration: none; max-width: 265px; margin-left: 10px; margin-top: 5px; color: #27AE60;"
+              >
+                Перейти в чат
+              </a>
+            </div>
+          </div>
+          <div class="d-flex flex-column gap-1 w-100 mt-4" style="background-color: #ECF9F2 !important;">
+            <div class="row mt-3">
+              <div class="col" style="margin-left: 30px; text-align: left;">
+                <h4>Сергей Горянин</h4>
+              </div>
+              <div class="col" style="margin-right: 30px; text-align: right;">
+                <h4 class="c-gray-dark">Пн, 12 апр, 12:30</h4>
+              </div>
+            </div>
+            <div class="mb-3 row mt-3" style="margin-left: 0;">
+              <a href="#"
+                 class="primary-button fill arrow w-100"
+                 style="text-decoration: none; max-width: 265px; margin-left: 30px;"
+              >
+                Посмотреть рекомендацию
+              </a>
+              <a href="#"
+                 style="text-decoration: none; max-width: 265px; margin-left: 10px; margin-top: 5px; color: #27AE60;"
+              >
+                Перейти в чат
+              </a>
+            </div>
+          </div>
+          <div class="d-flex flex-column gap-1 w-100 mt-4" style="background-color: #ECF9F2 !important;">
+            <div class="row mt-3">
+              <div class="col" style="margin-left: 30px; text-align: left;">
+                <h4>Сергей Горянин</h4>
+              </div>
+              <div class="col" style="margin-right: 30px; text-align: right;">
+                <h4 class="c-gray-dark">Пн, 12 апр, 12:30</h4>
+              </div>
+            </div>
+            <div class="mb-3 row mt-3" style="margin-left: 0;">
+              <a href="#"
+                 class="primary-button fill arrow w-100"
+                 style="text-decoration: none; max-width: 265px; margin-left: 30px;"
+              >
+                Посмотреть рекомендацию
+              </a>
+              <a href="#"
+                 style="text-decoration: none; max-width: 265px; margin-left: 10px; margin-top: 5px; color: #27AE60;"
+              >
+                Перейти в чат
+              </a>
+            </div>
           </div>
         </div>
       </div>
