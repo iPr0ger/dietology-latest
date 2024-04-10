@@ -21,6 +21,7 @@ export class UserLkComponent implements OnInit, AfterViewInit {
   isFamilyDataVisible: boolean = false;
   isDiaryDataVisible: boolean = false;
   isFilesDataVisible: boolean = false;
+  isConsultationDataVisible: boolean = false;
 
   isDayTableVisible: boolean = false;
   isWeekTableVisible: boolean = false;
@@ -61,6 +62,7 @@ export class UserLkComponent implements OnInit, AfterViewInit {
     this.isFamilyDataVisible = false;
     this.isDiaryDataVisible = false;
     this.isFilesDataVisible = false;
+    this.isConsultationDataVisible = false;
   }
 
   showFamilyData() {
@@ -68,6 +70,7 @@ export class UserLkComponent implements OnInit, AfterViewInit {
     this.isFamilyDataVisible = true;
     this.isDiaryDataVisible = false;
     this.isFilesDataVisible = false;
+    this.isConsultationDataVisible = false;
   }
 
   showDiaryData() {
@@ -75,6 +78,7 @@ export class UserLkComponent implements OnInit, AfterViewInit {
     this.isFamilyDataVisible = false;
     this.isDiaryDataVisible = true;
     this.isFilesDataVisible = false;
+    this.isConsultationDataVisible = false;
   }
 
   showFilesData() {
@@ -82,6 +86,7 @@ export class UserLkComponent implements OnInit, AfterViewInit {
     this.isFamilyDataVisible = false;
     this.isDiaryDataVisible = false;
     this.isFilesDataVisible = true;
+    this.isConsultationDataVisible = false;
   }
 
   showDayTable() {
@@ -120,5 +125,13 @@ export class UserLkComponent implements OnInit, AfterViewInit {
   showMonthChart() {
     this.isWeekChartVisible = false;
     this.isMonthChartVisible = true;
+  }
+
+  showConsultationData() {
+    this.isConsultationDataVisible = true;
+    this.isPrivateDataVisible = false;
+    this.isFamilyDataVisible = false;
+    this.isDiaryDataVisible = false;
+    this.isFilesDataVisible = false;
   }
 }
