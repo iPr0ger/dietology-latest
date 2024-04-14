@@ -24,7 +24,10 @@
           Мои пациенты
         </li>
       </ul>
-      <div class="profile-calendar hide-scroll d-flex flex-column">
+      <div>
+        <h6 class="c-gray-dark">Ближайшие консультации</h6>
+      </div>
+      <div class="profile-calendar hide-scroll d-flex flex-column mt-2">
         <p class="date text-s">12 янв, вторник</p>
         <div class="calendar-item w-100 d-flex justify-content-between">
           <div class="d-flex flex-column justify-content-center">
@@ -246,6 +249,14 @@
             Добавить еще место работы
           </button>
           <hr>
+          <h2 class="title c-green mb-3">Коротко о себе</h2>
+          <div class="row">
+            <div class="col">
+              <textarea placeholder="Пару слов о себе..." cols="10" rows="10"
+                        style="width: 100%; padding: 12px 20px; box-sizing: border-box; border: 2px solid #BDBDBD;"></textarea>
+            </div>
+          </div>
+          <hr>
           <h2 class="title c-green">Документы</h2>
           <div class="d-flex flex-wrap gap-3 mt-3">
             <div class="doc-item d-flex align-items-center gap-2">
@@ -275,6 +286,12 @@
             </svg>
             Выбрать диплом, сертификат
           </button>
+
+          <div class="row mt-3 justify-content-end align-content-end d-flex">
+            <div class="col justify-content-end align-content-end d-flex">
+              <button class="primary-button fill">Сохранить</button>
+            </div>
+          </div>
         </div>
       </div>
       <div [ngClass]="{'profile-container gap-2 align-items-start': true, 'd-none': !isConsultationVisible, 'd-flex': isConsultationVisible}">
@@ -292,12 +309,12 @@
               </ul>
             </div>
             <div class="swap-select js-swap-table d-flex gap-1">
-              <span [ngClass]="{'swap-select__item': true, 'active': isMonthTableVisible}"
-                    data-table="0" (click)="showMonthTable()">Месяц</span>
-              <span [ngClass]="{'swap-select__item': true, 'active': isWeekTableVisible}"
-                    data-table="1" (click)="showWeekTable()">Неделя</span>
               <span [ngClass]="{'swap-select__item': true, 'active': isDayTableVisible}"
                     data-table="2" (click)="showDayTable()">День</span>
+              <span [ngClass]="{'swap-select__item': true, 'active': isWeekTableVisible}"
+                    data-table="1" (click)="showWeekTable()">Неделя</span>
+              <span [ngClass]="{'swap-select__item': true, 'active': isMonthTableVisible}"
+                    data-table="0" (click)="showMonthTable()">Месяц</span>
             </div>
             <div class="flex-space"></div>
             <div class="nav-buttons d-flex gap-3">

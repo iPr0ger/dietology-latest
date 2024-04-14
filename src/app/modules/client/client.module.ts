@@ -8,6 +8,7 @@ import {NgClass, NgIf} from "@angular/common";
 import {UserLkComponent} from "./lk/user-lk.component";
 import {NgApexchartsModule} from "ng-apexcharts";
 import {DiaryCardModalComponent} from "./lk/modals/diary-card/diary-card.modal.component";
+import {MealCardModalComponent} from "./lk/modals/meal-card/meal-card.modal.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {DiaryCardModalComponent} from "./lk/modals/diary-card/diary-card.modal.c
         NgIf,
         NgClass,
         NgApexchartsModule,
-        DiaryCardModalComponent
+        DiaryCardModalComponent,
+        MealCardModalComponent
     ],
   exports: []
 })

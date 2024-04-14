@@ -54,8 +54,10 @@ export class AuthModalComponent {
           this.userStorageService.saveSpecialistDetails(response[0]);
 
           this.tokenStorageService.saveToken({access: data.access, refresh: data.refresh});
-          this.router.navigateByUrl('/profile');
-          this.reloadCurrentPage();
+
+          console.log('1111111111111111111111111111');
+          this.router.navigate(['spec-profile']);
+          this.isModalOpen = false;
         },
         error => {
           this.userStorageService.saveIsClient(false);
@@ -114,5 +116,8 @@ export class AuthModalComponent {
 
   reloadCurrentPage() {
     window.location.reload();
+    if (this.userStorageService.getIsSpecialist()){
+      this.router.navigateByUrl('/spec-profile');
+    }
   }
 }

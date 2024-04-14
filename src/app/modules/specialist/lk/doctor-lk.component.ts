@@ -111,9 +111,9 @@ export class DoctorLkComponent implements OnInit {
     this.isPrivateDataVisible = true;
   }
 
-  isDayTableVisible: boolean = false;
+  isDayTableVisible: boolean = true;
   isWeekTableVisible: boolean = false;
-  isMonthTableVisible: boolean = true;
+  isMonthTableVisible: boolean = false;
 
   showDayTable(){
     this.isDayTableVisible = true;

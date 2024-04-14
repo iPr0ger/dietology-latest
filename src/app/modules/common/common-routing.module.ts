@@ -6,6 +6,7 @@ import {ChatComponent} from "./chat/chat.component";
 import {CheckConnectionComponent} from "./check-connection/check-connection.component";
 import {OnlineMeetingComponent} from "./online-meeting/online-meeting.component";
 import {authGuard} from "../../core/guards/auth.guard";
+import {DoctorLkComponent} from "../specialist/lk/doctor-lk.component";
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
         component: OnlineMeetingComponent,
         canActivate: [authGuard]
       },
+      {
+        path: 'spec-profile',
+        component: DoctorLkComponent,
+        canActivate: [authGuard]
+      }
     ]
   }
 ]
