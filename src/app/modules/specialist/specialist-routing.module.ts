@@ -4,6 +4,7 @@ import {SpecialistMainComponent} from "./specialist-main.component";
 import {authGuard} from "../../core/guards/auth.guard";
 import {specialistGuard} from "../../core/guards/specialist.guard";
 import {DoctorLkComponent} from "./lk/doctor-lk.component";
+import {MedcardComponent} from "../client/medcard/medcard.component";
 
 const routes: Routes = [
   {

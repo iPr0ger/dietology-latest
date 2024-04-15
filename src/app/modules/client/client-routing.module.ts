@@ -21,11 +21,6 @@ const routes: Routes = [
         path: 'profile',
         component: UserLkComponent,
         canActivate: [authGuard, patientGuard]
-      },
-      {
-        path: 'medcard',
-        component: MedcardComponent,
-        canActivate: [authGuard, patientGuard]
       }
     ]
   }

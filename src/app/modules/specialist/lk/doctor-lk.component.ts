@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, ViewChild} from "@angular/core";
 import {UserResponseInterface} from "../../../core/interfaces/account/user.interface";
 import {
   SpecialistEducationResponseInterface,
@@ -9,6 +9,7 @@ import {UserStorageService} from "../../../core/services/storage/user-storage.se
 import {SpecialistService} from "../../../core/services/api/specialist.service";
 import {DocumentResponseInterface} from "../../../core/interfaces/account/document.interface";
 import {forkJoin} from "rxjs";
+import {PatientDataComponent} from "../patient-data/patient-data.component";
 
 
 @Component({
@@ -16,6 +17,8 @@ import {forkJoin} from "rxjs";
   templateUrl: './doctor-lk.component.html',
 })
 export class DoctorLkComponent implements OnInit {
+  @ViewChild('patientDataComponent') patientDataComponent!: PatientDataComponent;
+
   userProfile: UserResponseInterface | undefined = undefined;
   specialistProfile: SpecialistProfileResponseInterface | undefined = undefined;
   specialistEducation: SpecialistEducationResponseInterface[] | undefined = undefined;
@@ -103,6 +106,7 @@ export class DoctorLkComponent implements OnInit {
     this.isConsultationVisible = false;
     this.isPatientsVisible = true;
     this.isPrivateDataVisible = false;
+    this.patientDataComponent.isShown = false;
   }
 
   showPrivateData(){

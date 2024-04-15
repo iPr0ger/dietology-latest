@@ -1,0 +1,164 @@
+<div [ngClass]="{'profile-container flex-column': true, 'd-none': !isShown, 'd-flex': isShown}">
+  <div class="profile-info w-100 pb-0 mb-4">
+    <div class="d-flex gap-4">
+      <div class="profile-photo">
+        <img src="./assets/img/profile-photo.jpg" alt="">
+      </div>
+      <div class="d-flex flex-column">
+        <h1 class="title absolute-space mb-0">Елена Некрасова</h1>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <div class="profile-pin d-flex align-items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.00002 1.16669C4.74252 1.16669 2.91669 2.99252 2.91669 5.25002C2.91669 7.68252 5.49502 11.0367 6.55669 12.3142C6.79002 12.5942 7.21585 12.5942 7.44919 12.3142C8.50502 11.0367 11.0834 7.68252 11.0834 5.25002C11.0834 2.99252 9.25752 1.16669 7.00002 1.16669ZM7.00002 6.70835C6.19502 6.70835 5.54169 6.05502 5.54169 5.25002C5.54169 4.44502 6.19502 3.79169 7.00002 3.79169C7.80502 3.79169 8.45835 4.44502 8.45835 5.25002C8.45835 6.05502 7.80502 6.70835 7.00002 6.70835Z" fill="#27AE60"/>
+            </svg>
+            <span>Россия, Астрахань</span>
+          </div>
+          <div class="profile-pin d-flex align-items-center gap-2">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.6667 2.33334H2.33332C1.69166 2.33334 1.17249 2.85834 1.17249 3.5L1.16666 10.5C1.16666 11.1417 1.69166 11.6667 2.33332 11.6667H11.6667C12.3083 11.6667 12.8333 11.1417 12.8333 10.5V3.5C12.8333 2.85834 12.3083 2.33334 11.6667 2.33334ZM11.4333 4.8125L7.30916 7.39084C7.12249 7.5075 6.87749 7.5075 6.69082 7.39084L2.56666 4.8125C2.42082 4.71917 2.33332 4.56167 2.33332 4.3925C2.33332 4.00167 2.75916 3.76834 3.09166 3.9725L6.99999 6.41667L10.9083 3.9725C11.2408 3.76834 11.6667 4.00167 11.6667 4.3925C11.6667 4.56167 11.5792 4.71917 11.4333 4.8125Z" fill="#27AE60"/>
+            </svg>
+            <span>sergey mail.ru</span>
+          </div>
+        </div>
+      </div>
+      <div class="medcard-block d-flex flex-column gap-1">
+        <p class="text-s">Ближайшая консультация:</p>
+        <p class="text-m">19 сентября, вторник в 18:30</p>
+        <div class="d-flex justify-content-between mt-2 gap-3">
+          <button class="primary-button bordered">Перенести</button>
+          <button class="primary-button fill">Перейти в чат</button>
+        </div>
+      </div>
+    </div>
+    <ul class="navigation-list w-100 d-flex flex-md-row flex-column mb-0 mt-md-4 mt-5 gap-3">
+      <li class="navigation-list__item active" data-container="0" (click)="showQuestions()">Анкета</li>
+      <li class="navigation-list__item" data-container="1" (click)="showRecommendations()">Рекомендации</li>
+    </ul>
+  </div>
+  <div [ngClass]="{'profile-info w-100 js-nav': true, 'active': isQuestionVisible}">
+    <h2 class="title c-green">Мои цели</h2>
+    <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1 ">
+      <input type="checkbox" id="my-point1">
+      <label for="my-point1" class="primary-input-check c-green w-md-50 w-100">Поддерживать свое здоровье в оптимальном состоянии</label>
+      <input type="checkbox" id="my-point2">
+      <label for="my-point2" class="primary-input-check c-green w-md-50 w-100">Укрепить иммунитет</label>
+    </div>
+    <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+      <input type="checkbox" id="my-point3" checked>
+      <label for="my-point3" class="primary-input-check c-green w-md-50 w-100">Улучшить состояние кожи волос и ногтей</label>
+      <input type="checkbox" id="my-point4">
+      <label for="my-point4" class="primary-input-check c-green w-md-50 w-100">Увеличить мышечную массу при занятиях спортом</label>
+    </div>
+    <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+      <input type="checkbox" id="my-point5" checked>
+      <label for="my-point5" class="primary-input-check c-green w-md-50 w-100">Уменьшить влияние стресса</label>
+      <input type="checkbox" id="my-point6">
+      <label for="my-point6" class="primary-input-check c-green w-md-50 w-100">Увеличить массу тела</label>
+    </div>
+    <div class="d-flex flex-sm-row flex-column gap-sm-3 my-sm-1">
+      <input type="checkbox" id="my-point7">
+      <label for="my-point7" class="primary-input-check c-green w-md-50 w-100">Похудеть</label>
+    </div>
+    <div class="d-flex flex-column gap-1 mt-2">
+      <p class="text primary-input-label m-0">Другая цель</p>
+      <textarea class="primary-input w-100"></textarea>
+    </div>
+    <h2 class="title c-green mt-4 mb-3">Параметры</h2>
+    <div class="d-flex flex-md-row flex-column gap-3 my-1">
+      <div class="d-flex flex-column gap-1 w-md-50 w-100">
+        <p class="text primary-input-label m-0">Ваш рост, см</p>
+        <input type="text" class="primary-input" value="156" placeholder="0">
+      </div>
+      <div class="d-flex flex-column gap-1 w-md-50 w-100">
+        <p class="text primary-input-label m-0">Окружность грудной клетки, см</p>
+        <input type="text" class="primary-input" value="43" placeholder="0">
+      </div>
+    </div>
+    <div class="d-flex flex-md-row flex-column gap-3 my-1">
+      <div class="d-flex flex-column gap-1 w-md-50 w-100">
+        <p class="text primary-input-label m-0">Телосложение</p>
+        <input type="text" class="primary-input" value="Обычное" placeholder="Телосложение">
+      </div>
+      <div class="d-flex flex-column gap-1 w-md-50 w-100">
+        <p class="text primary-input-label m-0">Бедра, см</p>
+        <input type="text" class="primary-input" value="43" placeholder="0">
+      </div>
+    </div>
+    <div class="d-flex flex-md-row flex-column gap-3 my-1">
+      <div class="d-flex flex-column gap-1 w-md-50 w-100">
+        <p class="text primary-input-label m-0">Талия, см</p>
+        <input type="text" class="primary-input" value="33" placeholder="0">
+      </div>
+      <div class="d-flex flex-column gap-1 w-md-50 w-100">
+        <p class="text primary-input-label m-0">Запястье, см</p>
+        <input type="text" class="primary-input" value="156" placeholder="0">
+      </div>
+    </div>
+    <div class="d-flex flex-md-row flex-column gap-3 my-1">
+      <div class="d-flex flex-column gap-1 w-md-50 w-100">
+        <p class="text primary-input-label m-0">Ваш вес, кг</p>
+        <input type="text" class="primary-input" value="56" placeholder="0">
+      </div>
+    </div>
+    <h2 class="title c-green mt-4 mb-3">Условия жизни</h2>
+    <div class="d-flex flex-md-row flex-column gap-3 my-1">
+      <div class="d-flex flex-column gap-1 w-md-50 w-100">
+        <p class="text primary-input-label m-0">Климатические условия проживания</p>
+        <input type="text" class="primary-input" value="Холодный  климат" placeholder="0">
+      </div>
+      <div class="d-flex flex-column gap-1 w-md-50 w-100">
+        <p class="text primary-input-label m-0">Потребление алкоголя</p>
+        <input type="text" class="primary-input" value="Не употребляю" placeholder="0">
+      </div>
+    </div>
+    <div class="d-flex flex-md-row flex-column gap-3 my-1">
+      <div class="d-flex flex-column gap-1 w-md-50 w-100">
+        <p class="text primary-input-label m-0">Уровень стрессовой нагрузки</p>
+        <input type="text" class="primary-input" value="Низкий" placeholder="0">
+      </div>
+      <div class="d-flex flex-column gap-1 w-md-50 w-100">
+        <p class="text primary-input-label m-0">Курение</p>
+        <input type="text" class="primary-input" value="Курю" placeholder="0">
+      </div>
+    </div>
+    <div class="d-flex flex-md-row flex-column gap-3 my-1">
+      <div class="d-flex flex-column gap-1 w-md-50 w-100">
+        <p class="text primary-input-label m-0">Уровень физической активности</p>
+        <input type="text" class="primary-input" value="Низкий" placeholder="0">
+      </div>
+    </div>
+  </div>
+  <div [ngClass]="{'profile-info w-100 js-nav': true, 'active': isRecommendationsVisible}">
+    <h2 class="title c-green mb-4">Рекомендации</h2>
+    <div class="profile-info-row d-flex align-items-center gap-4 w-100">
+      <p class="text-desc">12 апреля</p>
+      <p class="text-desc">16:30</p>
+      <div class="flex-grow-1"></div>
+      <button class="primary-button fill">Открыть рекомендацию</button>
+    </div>
+    <div class="profile-info-row d-flex align-items-center gap-4 w-100">
+      <p class="text-desc">12 апреля</p>
+      <p class="text-desc">16:30</p>
+      <div class="flex-grow-1"></div>
+      <button class="primary-button fill">Открыть рекомендацию</button>
+    </div>
+    <div class="profile-info-row d-flex align-items-center gap-4 w-100">
+      <p class="text-desc">12 апреля</p>
+      <p class="text-desc">16:30</p>
+      <div class="flex-grow-1"></div>
+      <button class="primary-button fill">Открыть рекомендацию</button>
+    </div>
+    <div class="profile-info-row d-flex align-items-center gap-4 w-100">
+      <p class="text-desc">12 апреля</p>
+      <p class="text-desc">16:30</p>
+      <div class="flex-grow-1"></div>
+      <button class="primary-button fill">Открыть рекомендацию</button>
+    </div>
+    <div class="profile-info-row d-flex align-items-center gap-4 w-100">
+      <p class="text-desc">12 апреля</p>
+      <p class="text-desc">16:30</p>
+      <div class="flex-grow-1"></div>
+      <button class="primary-button fill">Открыть рекомендацию</button>
+    </div>
+  </div>
+</div>

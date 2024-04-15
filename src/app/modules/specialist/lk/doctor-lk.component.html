@@ -237,10 +237,6 @@
                 <input type="text" class="primary-input" placeholder="Название">
               </div>
             </div>
-            <div class="d-flex flex-column">
-              <p class="text primary-input-label mb-0">Краткая информация о себе</p>
-              <textarea class="primary-input"  placeholder="Пару слов о себе..."></textarea>
-            </div>
           </div>
           <button class="primary-button empty mt-2">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -946,7 +942,8 @@
 
         </div>
       </div>
-      <div [ngClass]="{'profile-container flex-column': true, 'd-flex': isPatientsVisible, 'd-none': !isPatientsVisible}">
+      <patient-data #patientDataComponent></patient-data>
+      <div [ngClass]="{'profile-container flex-column': true, 'd-flex': isPatientsVisible && !patientDataComponent.isShown, 'd-none': !isPatientsVisible || patientDataComponent.isShown}">
         <div class="profile-info w-100 pb-0 mb-2">
           <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap flex-lg-nowrap gap-2">
             <h2 class="title mobile">Мои пациенты</h2>
@@ -984,7 +981,7 @@
               <span class="c-gray-dark">11:00</span>
             </div>
             <div class="col-2 justify-content-center">
-              <a href="#" class="primary-button fill" style="text-decoration: none;">Перейти в дневник</a>
+              <button class="primary-button fill" style="text-decoration: none;" (click)="patientDataComponent.toggle()">Перейти в дневник</button>
             </div>
             <div class="col-3 justify-content-center">
               <a href="#" class="primary-button bordered" style="text-decoration: none; margin-left: 10px;">Перейти в быстрый чат</a>
@@ -1011,7 +1008,7 @@
               <span class="c-gray-dark">11:00</span>
             </div>
             <div class="col-2 justify-content-center">
-              <a href="#" class="primary-button fill" style="text-decoration: none;">Перейти в дневник</a>
+              <button class="primary-button fill" style="text-decoration: none;" (click)="patientDataComponent.toggle()">Перейти в дневник</button>
             </div>
             <div class="col-3 justify-content-center">
               <a href="#" class="primary-button bordered" style="text-decoration: none; margin-left: 10px;">Перейти в быстрый чат</a>
@@ -1038,7 +1035,7 @@
               <span class="c-gray-dark">11:00</span>
             </div>
             <div class="col-2 justify-content-center">
-              <a href="#" class="primary-button fill" style="text-decoration: none;">Перейти в дневник</a>
+              <button class="primary-button fill" style="text-decoration: none;" (click)="patientDataComponent.toggle()">Перейти в дневник</button>
             </div>
             <div class="col-3 justify-content-center">
               <a href="#" class="primary-button bordered" style="text-decoration: none; margin-left: 10px;">Перейти в быстрый чат</a>
@@ -1065,7 +1062,7 @@
               <span class="c-gray-dark">11:00</span>
             </div>
             <div class="col-2 justify-content-center">
-              <a href="#" class="primary-button fill" style="text-decoration: none;">Перейти в дневник</a>
+              <button class="primary-button fill" style="text-decoration: none;" (click)="patientDataComponent.toggle()">Перейти в дневник</button>
             </div>
             <div class="col-3 justify-content-center">
               <a href="#" class="primary-button bordered" style="text-decoration: none; margin-left: 10px;">Перейти в быстрый чат</a>
@@ -1092,7 +1089,7 @@
               <span class="c-gray-dark">11:00</span>
             </div>
             <div class="col-2 justify-content-center">
-              <a href="#" class="primary-button fill" style="text-decoration: none;">Перейти в дневник</a>
+              <button class="primary-button fill" style="text-decoration: none;" (click)="patientDataComponent.toggle()">Перейти в дневник</button>
             </div>
             <div class="col-3 justify-content-center">
               <a href="#" class="primary-button bordered" style="text-decoration: none; margin-left: 10px;">Перейти в быстрый чат</a>
@@ -1119,7 +1116,7 @@
               <span class="c-gray-dark">11:00</span>
             </div>
             <div class="col-2 justify-content-center">
-              <a href="#" class="primary-button fill" style="text-decoration: none;">Перейти в дневник</a>
+              <button class="primary-button fill" style="text-decoration: none;" (click)="patientDataComponent.toggle()">Перейти в дневник</button>
             </div>
             <div class="col-3 justify-content-center">
               <a href="#" class="primary-button bordered" style="text-decoration: none; margin-left: 10px;">Перейти в быстрый чат</a>
