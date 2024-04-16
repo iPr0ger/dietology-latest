@@ -6,9 +6,6 @@ import {ChatComponent} from "./chat/chat.component";
 import {CheckConnectionComponent} from "./check-connection/check-connection.component";
 import {OnlineMeetingComponent} from "./online-meeting/online-meeting.component";
 import {authGuard} from "../../core/guards/auth.guard";
-import {DoctorLkComponent} from "../specialist/lk/doctor-lk.component";
-import {MedcardComponent} from "../client/medcard/medcard.component";
-import {specialistGuard} from "../../core/guards/specialist.guard";
 
 const routes: Routes = [
   {
@@ -33,16 +30,6 @@ const routes: Routes = [
         path: 'call',
         component: OnlineMeetingComponent,
         canActivate: [authGuard]
-      },
-      {
-        path: 'spec-profile',
-        component: DoctorLkComponent,
-        canActivate: [authGuard]
-      },
-      {
-        path:'patient-card',
-        component: MedcardComponent,
-        canActivate: [authGuard, specialistGuard]
       }
     ]
   }

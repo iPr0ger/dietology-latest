@@ -17,7 +17,6 @@ import {AllDatesComponent} from "./main-page/modals/all-dates/all-dates.componen
 import {QuestionaireModalComponent} from "./main-page/modals/questionaire/questionaire-modal.component";
 import {ServiceModalComponent} from "./main-page/modals/service/service-modal.component";
 import {ChatModalComponent} from "./main-page/modals/chat/chat-modal.component";
-import {MedcardComponent} from "../client/medcard/medcard.component";
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ import {MedcardComponent} from "../client/medcard/medcard.component";
     CheckConnectionComponent,
     MainPageComponent,
     CallSettingsModalComponent,
-    OnlineMeetingComponent,
-    MedcardComponent
+    OnlineMeetingComponent
   ],
   imports: [
     CommonRoutingModule,

@@ -15,6 +15,7 @@ import {MealCardModalComponent} from "./lk/modals/meal-card/meal-card.modal.comp
     ClientMainComponent,
     FavouriteSpecComponent,
     UserLkComponent,
+    MedcardComponent
   ],
     imports: [
         ClientRoutingModule,

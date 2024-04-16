@@ -1,10 +1,13 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from "@angular/core";
+import {AfterViewInit, Component, Inject, OnInit, Renderer2, ViewChild} from "@angular/core";
 import {UserResponseInterface} from "../../../core/interfaces/account/user.interface";
 import {PatientUserProfileResponseInterface} from "../../../core/interfaces/patient/patient.interface";
 import {AccountService} from "../../../core/services/api/account.service";
 import {UserStorageService} from "../../../core/services/storage/user-storage.service";
 import {PatientService} from "../../../core/services/api/patient.service";
 import {LoadScriptHelperService} from "../../../core/helpers/load-script-helper.service";
+import {DOCUMENT} from "@angular/common";
+// @ts-ignore
+import {initWeeklyChart, initMonthChart} from '../../../../assets/js/chart-page.js';
 
 
 @Component({
@@ -37,7 +40,9 @@ export class UserLkComponent implements OnInit, AfterViewInit {
     private accountService: AccountService,
     private userStorageService: UserStorageService,
     private patientService: PatientService,
-    private scriptHelper: LoadScriptHelperService
+    private scriptHelper: LoadScriptHelperService,
+    @Inject(DOCUMENT) private document: Document,
+    private renderer: Renderer2
   ) {
 
   }
@@ -51,10 +56,19 @@ export class UserLkComponent implements OnInit, AfterViewInit {
         this.isLoading = false;
       });
     });
+
   }
 
   ngAfterViewInit() {
-    this.scriptHelper.loadJsScript("assets/js/chart-page.js");
+    // this.scriptHelper.loadJsScript("assets/js/chart-page.js");
+    initWeeklyChart(
+      [1500, 2200, 1500, 800, 1500, 1000, 2000],
+      ['1, пт', '2, сб', '3, вс', '4, пн', '5, вт', '6, ср', '7, чт']
+    );
+    initMonthChart(
+      [1500, 2001, 1000, 1500, 500, 1000, 2000, 1500, 2000, 1600, 1500, 1300, 1500, 2000, 1200, 1500, 1800, 1500],
+      ['1, пт', '2, сб', '3, вс', '4, пн', '5, вт', '6, ср', '7, чт', '8, пт', '9, сб', '10, вс', '11, пн', '12, вт', '13, ср', '14, чт', '15, пт', '16, сб', '17, вс', '18, пн']
+    );
   }
 
   showPrivateData() {

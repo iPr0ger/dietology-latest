@@ -100,172 +100,173 @@ const externalTooltipHandler = (context) => {
   tooltipEl.style.padding = tooltip.options.padding + 'px ' + tooltip.options.padding + 'px';
 };
 
-const ctx = document.getElementById('month-chart');
-const data1 = [1500, 2001, 1000, 1500, 500, 1000, 2000, 1500, 2000, 1600, 1500, 1300, 1500, 2000, 1200, 1500, 1800, 1500]
-const bgcolor1 = []
-const bordercolor1 = []
+export function initMonthChart(data, labels) {
+  const ctx = document.getElementById('month-chart');
+  const bgcolor1 = []
+  const bordercolor1 = []
 
-for (let i=0; i<data1.length; i++) {
-  if (data1[i]>1500 || data1[i]<1500) {
-    bgcolor1.push('#FEEDED')
-    bordercolor1.push('#EB5757')
-  } else {
-    bgcolor1.push('#27AE60')
-    bordercolor1.push('#27AE60')
+  for (let i=0; i<data.length; i++) {
+    if (data[i]>1500 || data[i]<1500) {
+      bgcolor1.push('#FEEDED')
+      bordercolor1.push('#EB5757')
+    } else {
+      bgcolor1.push('#27AE60')
+      bordercolor1.push('#27AE60')
+    }
   }
-}
 
-new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['1, пт', '2, сб', '3, вс', '4, пн', '5, вт', '6, ср', '7, чт', '8, пт', '9, сб', '10, вс', '11, пн', '12, вт', '13, ср', '14, чт', '15, пт', '16, сб', '17, вс', '18, пн'],
-    datasets: [{
-      label: 'Ккал',
-      data: data1,
-      backgroundColor: bgcolor1,
-      borderColor: bordercolor1,
-      borderWidth: 2,
-      borderRadius: {
-        topLeft: 20,
-        topRight: 20
-      },
-      borderSkipped: false,
-      min: 4000,
-    }]
-  },
-  options: {
-    hover: {mode: null},
-    animation: {
-      duration: 0
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Ккал',
+        data: data,
+        backgroundColor: bgcolor1,
+        borderColor: bordercolor1,
+        borderWidth: 2,
+        borderRadius: {
+          topLeft: 20,
+          topRight: 20
+        },
+        borderSkipped: false,
+        min: 4000,
+      }]
     },
-    scales: {
-      y: {
-        beginAtZero: true,
-        grid: {
-          color: (context) => {
-            if(context.tick.value == 1500) {
-              return '#27AE60'
-            } else {
-              return '#F1F1F1'
+    options: {
+      hover: {mode: null},
+      animation: {
+        duration: 0
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: {
+            color: (context) => {
+              if(context.tick.value == 1500) {
+                return '#27AE60'
+              } else {
+                return '#F1F1F1'
+              }
+            }
+          },
+          ticks: {
+            callback: function(value, index, ticks) {
+              return value + ' ккал';
+            },
+            font: {
+              family: "Manrope",
+              size: 16,
             }
           }
         },
-        ticks: {
-          callback: function(value, index, ticks) {
-            return value + ' ккал';
+        x: {
+          grid: {
+            display: false
           },
-          font: {
-            family: "Manrope",
-            size: 16,
+          ticks: {
+            font: {
+              family: "Manrope",
+              size: 16,
+            }
           }
         }
       },
-      x: {
-        grid: {
-          display: false
+      plugins: {
+        legend: {
+          display: false,
         },
-        ticks: {
-          font: {
-            family: "Manrope",
-            size: 16,
-          }
+        tooltip: {
+          enabled: false,
+          position: 'nearest',
+          external: externalTooltipHandler
         }
-      }
-    },
-    plugins: {
-      legend: {
-        display: false,
-      },
-      tooltip: {
-        enabled: false,
-        position: 'nearest',
-        external: externalTooltipHandler
       }
     }
-  }
-});
-
-
-const ctx2 = document.getElementById('week-chart');
-const data2 = [1500, 2200, 1500, 800, 1500, 1000, 2000]
-const bgcolor2 = []
-const bordercolor2 = []
-
-for (let i=0; i<data2.length; i++) {
-  if (data2[i]>1500 || data2[i]<1500) {
-    bgcolor2.push('#FEEDED')
-    bordercolor2.push('#EB5757')
-  } else {
-    bgcolor2.push('#27AE60')
-    bordercolor2.push('#27AE60')
-  }
+  });
 }
 
-new Chart(ctx2, {
-  type: 'bar',
-  data: {
-    labels: ['1, пт', '2, сб', '3, вс', '4, пн', '5, вт', '6, ср', '7, чт'],
-    datasets: [{
-      label: 'Ккал',
-      data: data2,
-      backgroundColor: bgcolor2,
-      borderColor: bordercolor2,
-      borderWidth: 2,
-      borderRadius: {
-        topLeft: 20,
-        topRight: 20
-      },
-      borderSkipped: false,
-    }]
-  },
-  options: {
-    hover: {mode: null},
-    animation: {
-      duration: 0
+export function initWeeklyChart(data, labels) {
+  const ctx2 = document.getElementById('week-chart');
+  const bgcolor2 = []
+  const bordercolor2 = []
+
+  for (let i=0; i<data.length; i++) {
+    if (data[i]>1500 || data[i]<1500) {
+      bgcolor2.push('#FEEDED')
+      bordercolor2.push('#EB5757')
+    } else {
+      bgcolor2.push('#27AE60')
+      bordercolor2.push('#27AE60')
+    }
+  }
+
+  new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Ккал',
+        data: data,
+        backgroundColor: bgcolor2,
+        borderColor: bordercolor2,
+        borderWidth: 2,
+        borderRadius: {
+          topLeft: 20,
+          topRight: 20
+        },
+        borderSkipped: false,
+      }]
     },
-    scales: {
-      y: {
-        beginAtZero: true,
-        grid: {
-          color: (context) => {
-            if(context.tick.value == 1500) {
-              return '#27AE60'
-            } else {
-              return '#F1F1F1'
+    options: {
+      hover: {mode: null},
+      animation: {
+        duration: 0
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          grid: {
+            color: (context) => {
+              if(context.tick.value == 1500) {
+                return '#27AE60'
+              } else {
+                return '#F1F1F1'
+              }
+            }
+          },
+          ticks: {
+            callback: function(value, index, ticks) {
+              return value + ' ккал';
+            },
+            font: {
+              family: "Manrope",
+              size: 16,
             }
           }
         },
-        ticks: {
-          callback: function(value, index, ticks) {
-            return value + ' ккал';
+        x: {
+          grid: {
+            display: false
           },
-          font: {
-            family: "Manrope",
-            size: 16,
+          ticks: {
+            font: {
+              family: "Manrope",
+              size: 16,
+            }
           }
         }
       },
-      x: {
-        grid: {
-          display: false
+      plugins: {
+        legend: {
+          display: false,
         },
-        ticks: {
-          font: {
-            family: "Manrope",
-            size: 16,
-          }
+        tooltip: {
+          enabled: false,
+          position: 'nearest',
+          external: externalTooltipHandler
         }
-      }
-    },
-    plugins: {
-      legend: {
-        display: false,
-      },
-      tooltip: {
-        enabled: false,
-        position: 'nearest',
-        external: externalTooltipHandler
       }
     }
-  }
-});
+  });
+}
