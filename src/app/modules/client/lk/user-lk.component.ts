@@ -6,8 +6,6 @@ import {UserStorageService} from "../../../core/services/storage/user-storage.se
 import {PatientService} from "../../../core/services/api/patient.service";
 import {LoadScriptHelperService} from "../../../core/helpers/load-script-helper.service";
 import {DOCUMENT} from "@angular/common";
-// @ts-ignore
-import {initWeeklyChart, initMonthChart} from '../../../../assets/js/chart-page.js';
 
 
 @Component({
@@ -60,15 +58,15 @@ export class UserLkComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // this.scriptHelper.loadJsScript("assets/js/chart-page.js");
-    initWeeklyChart(
-      [1500, 2200, 1500, 800, 1500, 1000, 2000],
-      ['1, пт', '2, сб', '3, вс', '4, пн', '5, вт', '6, ср', '7, чт']
-    );
-    initMonthChart(
-      [1500, 2001, 1000, 1500, 500, 1000, 2000, 1500, 2000, 1600, 1500, 1300, 1500, 2000, 1200, 1500, 1800, 1500],
-      ['1, пт', '2, сб', '3, вс', '4, пн', '5, вт', '6, ср', '7, чт', '8, пт', '9, сб', '10, вс', '11, пн', '12, вт', '13, ср', '14, чт', '15, пт', '16, сб', '17, вс', '18, пн']
-    );
+    this.scriptHelper.loadJsScript("assets/js/chart-page.js");
+    // initWeeklyChart(
+    //   [1500, 2200, 1500, 800, 1500, 1000, 2000],
+    //   ['1, пт', '2, сб', '3, вс', '4, пн', '5, вт', '6, ср', '7, чт']
+    // );
+    // initMonthChart(
+    //   [1500, 2001, 1000, 1500, 500, 1000, 2000, 1500, 2000, 1600, 1500, 1300, 1500, 2000, 1200, 1500, 1800, 1500],
+    //   ['1, пт', '2, сб', '3, вс', '4, пн', '5, вт', '6, ср', '7, чт', '8, пт', '9, сб', '10, вс', '11, пн', '12, вт', '13, ср', '14, чт', '15, пт', '16, сб', '17, вс', '18, пн']
+    // );
   }
 
   showPrivateData() {

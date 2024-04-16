@@ -100,6 +100,7 @@ export class DoctorLkComponent implements OnInit {
     this.isConsultationVisible = true;
     this.isPatientsVisible = false;
     this.isPrivateDataVisible = false;
+    this.patientDataComponent.isShown = false;
   }
 
   showPatients(){
@@ -113,6 +114,7 @@ export class DoctorLkComponent implements OnInit {
     this.isConsultationVisible = false;
     this.isPatientsVisible = false;
     this.isPrivateDataVisible = true;
+    this.patientDataComponent.isShown = false;
   }
 
   isDayTableVisible: boolean = true;
@@ -123,17 +125,20 @@ export class DoctorLkComponent implements OnInit {
     this.isDayTableVisible = true;
     this.isWeekTableVisible = false;
     this.isMonthTableVisible = false;
+    this.patientDataComponent.isShown = false;
   }
 
   showWeekTable(){
     this.isDayTableVisible = false;
     this.isWeekTableVisible = true;
     this.isMonthTableVisible = false;
+    this.patientDataComponent.isShown = false;
   }
 
   showMonthTable(){
     this.isDayTableVisible = false;
     this.isWeekTableVisible = false;
     this.isMonthTableVisible = true;
+    this.patientDataComponent.isShown = false;
   }
 }
